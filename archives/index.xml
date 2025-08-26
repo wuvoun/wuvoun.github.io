@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Wuvoun</title>
-    <link>https://wuvoun.github.io/tags/</link>
+    <title>Wuvoun</title>
+    <link>https://wuvoun.github.io/archives/</link>
     <description>Recent content from Wuvoun</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate></lastBuildDate>
     
     
-    <atom:link href="https://wuvoun.github.io/tags/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://wuvoun.github.io/archives/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wuvoun</title>
-    <link>https://wuvoun.github.io/</link>
+    <title>域渗透 on Wuvoun</title>
+    <link>https://wuvoun.github.io/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/</link>
     <description>Recent content from Wuvoun</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Tue, 26 Aug 2025 15:04:24 +0800</lastBuildDate>
     
     
-    <atom:link href="https://wuvoun.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://wuvoun.github.io/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     

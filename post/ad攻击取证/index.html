@@ -1,0 +1,863 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  AD攻击取证 | Wuvoun
+</title>
+<meta
+  name="description"
+  content="少女祈祷中..."
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://wuvoun.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="AD攻击取证 | Wuvoun" />
+  <meta
+    property="og:description"
+    content="少女祈祷中..."
+  />
+  <meta property="og:url" content="https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/" />
+  <meta
+    property="og:site_name"
+    content="Wuvoun"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="Wuvoun" />
+  <meta property="article:published_time" content="2025-08-26T15:04:24&#43;08:00" />
+  <meta property="article:modified_time" content="2025-08-26T15:04:24&#43;08:00" /><meta property="article:tag" content="取证域渗透" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+This article does not have a corresponding language version
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">Home</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">About</a>
+      </span><a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav"></nav></div>
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="AD攻击取证"><div id="header-outer">
+    <div id="header-title"><a href="/" id="logo">
+            <h1 data-aos="slide-up">AD攻击取证</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#检测-ntdsdit-转储">检测 NTDS.dit 转储</a>
+      <ul>
+        <li><a href="#使用-ntdsutil-或-windows-内置功能">使用 <strong>ntdsutil</strong> 或 Windows 内置功能</a></li>
+        <li><a href="#使用-esentutl"><strong>使用 esentutl</strong></a></li>
+        <li><a href="#vss-卷影拷贝"><strong>VSS 卷影拷贝</strong></a></li>
+        <li><a href="#dcsync"><strong>DCSync</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#kerberoasting取证"><strong>Kerberoasting取证</strong></a></li>
+    <li><a href="#as-rep-roasting取证"><strong>AS-REP-Roasting取证</strong></a></li>
+    <li><a href="#llmnr-中毒攻击"><strong>LLMNR 中毒攻击</strong></a>
+      <ul>
+        <li><a href="#通过流量分析或事件监控来找出恶意-ip">通过<strong>流量分析或事件监控</strong>来找出恶意 IP</a></li>
+        <li><a href="#重组hash">重组hash</a></li>
+      </ul>
+    </li>
+    <li><a href="#ntlm-中继攻击">NTLM 中继攻击</a></li>
+    <li><a href="#流量包主机识别">流量包主机识别</a>
+      <ul>
+        <li><a href="#nbns-刷新包的特点"><strong>NBNS 刷新包的特点</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#什么是-mft文件">什么是 MFT文件</a></li>
+    <li><a href="#什么是prefetch-文件">什么是Prefetch 文件</a></li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">1</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      1
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">2</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div>
+
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-08-26 15:04:24 &#43;0800 CST" itemprop="datePublished"
+      >2025-08-26</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-08-26</time
+    >
+  </span>
+</div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/%e5%8f%96%e8%af%81"
+      data-aos="zoom-in"
+      >取证</a
+    ></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="active-directory-攻击取证">
+<a class="header-anchor" href="#active-directory-%e6%94%bb%e5%87%bb%e5%8f%96%e8%af%81"></a>
+Active Directory 攻击取证
+</h1><h2 id="检测-ntdsdit-转储">
+<a class="header-anchor" href="#%e6%a3%80%e6%b5%8b-ntdsdit-%e8%bd%ac%e5%82%a8"></a>
+检测 NTDS.dit 转储
+</h2><ul>
+<li>
+<p>事件 7036</p>
+<p>用来记录 <strong>Windows 服务状态的变化,</strong>
+如果在日志里发现一些敏感服务被异常启动/停止（如 <em>Remote Registry</em>, <em>WinRM</em>, <em>Telnet</em> 等），就要警惕是否有人在进行横向移动或远程控制。</p>
+</li>
+</ul>
+<h3 id="使用-ntdsutil-或-windows-内置功能">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-ntdsutil-%e6%88%96-windows-%e5%86%85%e7%bd%ae%e5%8a%9f%e8%83%bd"></a>
+使用 <strong>ntdsutil</strong> 或 Windows 内置功能
+</h3><ul>
+<li>转储指令</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ntdsutil <span style="color:#e6db74">&#34;activate instance ntds&#34;</span> <span style="color:#e6db74">&#34;ifm&#34;</span> <span style="color:#e6db74">&#34;create full C:\ntdsbackup&#34;</span> quit quit
+</span></span></code></pre></div><ul>
+<li>取证</li>
+</ul>
+<p><code>Security.evtx</code> → <strong>4688 (Process Creation)</strong></p>
+<p>存在进程  <em><strong>ntdsutil.exe</strong></em>
+存在指令  <em><strong>ntdsutil &ldquo;activate instance ntds&rdquo; &ldquo;ifm&rdquo; &hellip;</strong></em></p>
+<p>在 IFM 创建数据库副本的过程中，<strong>系统为了避免复制时 NTDS.dit 处于写入状态</strong>，后台会通过 <strong>NTDS 服务调用 Windows 的快照机制</strong> 来生成一个一致性的副本，然后再从快照中提权ntds, 所以会从日志中发现Volume Shadow Copy</p>
+<h3 id="使用-esentutl">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-esentutl"></a>
+<strong>使用 esentutl</strong>
+</h3><ul>
+<li>
+<p><strong>转储指令</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esentutl /y C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit /d C:<span style="color:#ae81ff">\e</span>vidence<span style="color:#ae81ff">\n</span>tds_copy.dit
+</span></span></code></pre></div><p>（<code>/y</code> = copy，<code>/d</code> = 转储路径，通常还加 <code>/vss</code> 参数）</p>
+</li>
+<li>
+<p><strong>取证检查</strong></p>
+<ul>
+<li>
+<p><code>Security.evtx</code> → <strong>4688</strong> 出现</p>
+<pre tabindex="0"><code>esentutl.exe /y C:\Windows\NTDS\ntds.dit ...
+</code></pre></li>
+<li>
+<p><code>Security.evtx</code> → <strong>4656/4663</strong>（访问 <code>C:\Windows\NTDS\ntds.dit</code> 文件）</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="vss-卷影拷贝">
+<a class="header-anchor" href="#vss-%e5%8d%b7%e5%bd%b1%e6%8b%b7%e8%b4%9d"></a>
+<strong>VSS 卷影拷贝</strong>
+</h3><p>创建卷影快照时，卷影复制服务会验证权限 ，使用计算机帐户并枚举用户组。</p>
+<ul>
+<li>
+<p><strong>转储指令</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vssadmin create shadow /for<span style="color:#f92672">=</span>C:
+</span></span><span style="display:flex;"><span>copy <span style="color:#ae81ff">\\</span>?<span style="color:#ae81ff">\G</span>LOBALROOT<span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolumeShadowCopy1<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit C:<span style="color:#ae81ff">\t</span>set<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>copy <span style="color:#ae81ff">\\</span>?<span style="color:#ae81ff">\G</span>LOBALROOT<span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolumeShadowCopy1<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\c</span>onfig<span style="color:#ae81ff">\S</span>YSTEM C:<span style="color:#ae81ff">\t</span>est<span style="color:#ae81ff">\
+</span></span></span></code></pre></div><p>或用 <code>wmic shadowcopy call create Volume=C:\</code> 创建影子盘</p>
+</li>
+<li>
+<p><strong>取证检查</strong></p>
+<ul>
+<li><code>System.evtx</code> → <strong>7036</strong> (VSS 服务启动/停止)</li>
+<li><code>Application.evtx</code> / <code>System.evtx</code> → <strong>8193/8224</strong> (VSS snapshot 创建)</li>
+<li><code>Security.evtx</code> → <strong>4688</strong> 出现 <code>vssadmin.exe</code> 或 <code>wmic shadowcopy</code></li>
+</ul>
+</li>
+</ul>
+<p>分析 Microsoft-Windows-NTFS 事件日志，筛选事件 ID 4、9、10、300 和 303，这将过滤只有 NTFS 卷装载和卸载事件</p>
+<table>
+  <thead>
+      <tr>
+          <th>事件 ID</th>
+          <th>描述</th>
+          <th>备注</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>4</strong></td>
+          <td><strong>卷被装载（Volume Mounted）</strong></td>
+          <td>当 NTFS 卷被系统挂载时触发。</td>
+      </tr>
+      <tr>
+          <td><strong>9</strong></td>
+          <td><strong>卷被卸载（Volume Unmounted）</strong></td>
+          <td>当 NTFS 卷被卸载时触发。</td>
+      </tr>
+      <tr>
+          <td><strong>10</strong></td>
+          <td><strong>卷被扫描或检测（Volume Detected/Scanned）</strong></td>
+          <td>系统检测到卷的存在或扫描卷。</td>
+      </tr>
+      <tr>
+          <td><strong>300</strong></td>
+          <td><strong>卷创建快照（Volume Snapshot Created）</strong></td>
+          <td>相关于 VSS（卷影复制服务）。</td>
+      </tr>
+      <tr>
+          <td><strong>303</strong></td>
+          <td><strong>卷影复制完成或状态改变（Shadow Copy Event）</strong></td>
+          <td>卷影复制的开始/结束状态。</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="dcsync">
+<a class="header-anchor" href="#dcsync"></a>
+<strong>DCSync</strong>
+</h3><ul>
+<li>
+<p><strong>转储指令 (Mimikatz)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mimikatz.exe <span style="color:#e6db74">&#34;lsadump::dcsync /domain:域 /all&#34;</span> <span style="color:#e6db74">&#34;exit&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>转储指令 (Impacket)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>secretsdump.py &lt;domain&gt;/&lt;user&gt;@&lt;dc-ip&gt; 
+</span></span></code></pre></div></li>
+<li>
+<p><strong>取证检查</strong></p>
+<ul>
+<li><code>Directory Service.evtx</code> → <strong>4662</strong> 对象访问，属性包含
+<ul>
+<li><code>DS-Replication-Get-Changes</code></li>
+<li><code>DS-Replication-Get-Changes-All</code></li>
+</ul>
+</li>
+<li><code>Security.evtx</code> → <strong>4624 (Logon Success)</strong> 来自攻击者机器</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="kerberoasting取证">
+<a class="header-anchor" href="#kerberoasting%e5%8f%96%e8%af%81"></a>
+<strong>Kerberoasting取证</strong>
+</h2><p>当域用户想要向服务进行身份验证时，拿着TGT会向 DC 进行身份验证， DC 验证了这个TGT， 会返回一个使用服务帐户密码的 NTLM 哈希加密的 TGS，以便用户将其传递给服务时，外面可以解密该 TGS。</p>
+<p>Kerberoasting 正是将加密的 TGS 脱机以尝试暴力破解，如果密码较弱，则破解可能会成功。</p>
+<p>当用户或服务帐户请求访问另一个服务时，向 KDC请求一个<strong>服务票据 (TGS)。这个操作的事件日志为</strong></p>
+<p><strong><code>4769</code></strong></p>
+<p>常用工具</p>
+<ul>
+<li>Rubeus</li>
+<li>impacket-GetUserSPNs</li>
+<li><code>Invoke-Kerberoast</code>（PowerSploit/PowerView）</li>
+<li>Kerbrute</li>
+</ul>
+<hr>
+<h2 id="as-rep-roasting取证">
+<a class="header-anchor" href="#as-rep-roasting%e5%8f%96%e8%af%81"></a>
+<strong>AS-REP-Roasting取证</strong>
+</h2><p>Kerberos 身份验证流程中，用户首先向 DC 进行身份验证请求TGT，DC经过验证，验证通过然后向用户发送TGT，该票证的一部分使用帐户的 NTLM 哈希加密。</p>
+<p>而要请求TGT，DC会验证你是不是这个用户，但是，用户帐户可以设置一个名为“不需要 Kerberos 预身份验证”（ <code>UF_DONT_REQUIRE_PREAUTH</code> ）的选项。如果设置了此选项，用户在请求票证之前无需进行身份验证。对这部分hash的爆破称为 AS-REP-Roasting。</p>
+<ul>
+<li>针对 <strong>不需预身份验证的用户</strong>（<code>UF_DONT_REQUIRE_PREAUTH</code>）。</li>
+<li><strong>检测</strong>：
+<ul>
+<li><code>Security.evtx</code> → <strong>4768 (TGT 请求)</strong>，PreAuthType = <strong>0</strong></li>
+</ul>
+</li>
+</ul>
+<p>执行 AS-REP-Roast 攻击，攻击者请求TGT。这将生成一个 <strong><code>*4768*</code></strong> 事件</p>
+<p>以下为<code>PreAuthType</code> 字段，<strong>Kerberos 预身份验证（Pre-Authentication）类型代码</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>值</th>
+          <th>名称</th>
+          <th>含义</th>
+          <th>在 AD 中常见情况</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>0</strong></td>
+          <td>无需预身份验证</td>
+          <td>客户端可以直接请求 TGT，不需额外验证</td>
+          <td><strong>AS-REP Roasting 攻击</strong>可利用</td>
+      </tr>
+      <tr>
+          <td><strong>2</strong></td>
+          <td><strong>PA-ENC-TIMESTAMP</strong></td>
+          <td>标准的基于时间戳的密码验证方式（最常见）</td>
+          <td>✅ AD 默认用</td>
+      </tr>
+      <tr>
+          <td><strong>11</strong></td>
+          <td><strong>PA-ETYPE-INFO</strong></td>
+          <td>KDC 在 <code>KRB-ERROR</code> 中提示客户端使用哪个密钥加密时间戳</td>
+          <td>❌ AD 中几乎不用</td>
+      </tr>
+      <tr>
+          <td><strong>15</strong></td>
+          <td><strong>PA-PK-AS-REP_OLD</strong></td>
+          <td>旧版智能卡登录认证</td>
+          <td>已废弃</td>
+      </tr>
+      <tr>
+          <td><strong>17</strong></td>
+          <td><strong>PA-PK-AS-REP</strong></td>
+          <td>智能卡身份验证（新版）</td>
+          <td>部分环境有，但 AD 里极少</td>
+      </tr>
+      <tr>
+          <td><strong>19</strong></td>
+          <td><strong>PA-ETYPE-INFO2</strong></td>
+          <td>与 11 类似，但支持更多加密类型</td>
+          <td>❌ AD 中几乎不用</td>
+      </tr>
+      <tr>
+          <td><strong>20</strong></td>
+          <td><strong>PA-SVR-Referral Info</strong></td>
+          <td>用于 KDC 推荐票（跨域场景）</td>
+          <td>常见于林/信任关系</td>
+      </tr>
+      <tr>
+          <td><strong>138</strong></td>
+          <td><strong>PA-ENC-CHALLENGE</strong></td>
+          <td>Kerberos Armoring (FAST) 登录，提升安全性</td>
+          <td>从 <strong>Win2012 DC + Win8 客户端</strong> 开始支持</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="llmnr-中毒攻击">
+<a class="header-anchor" href="#llmnr-%e4%b8%ad%e6%af%92%e6%94%bb%e5%87%bb"></a>
+<strong>LLMNR 中毒攻击</strong>
+</h2><p>LLMNR（Link-Local Multicast Name Resolution）是 Windows 环境下的一种<strong>名称解析协议</strong>，主要在 DNS 查询失败时作为后备机制使用。它通过 <strong>UDP 5355 端口</strong> 在本地子网内进行广播/组播请求</p>
+<h3 id="通过流量分析或事件监控来找出恶意-ip">
+<a class="header-anchor" href="#%e9%80%9a%e8%bf%87%e6%b5%81%e9%87%8f%e5%88%86%e6%9e%90%e6%88%96%e4%ba%8b%e4%bb%b6%e7%9b%91%e6%8e%a7%e6%9d%a5%e6%89%be%e5%87%ba%e6%81%b6%e6%84%8f-ip"></a>
+通过<strong>流量分析或事件监控</strong>来找出恶意 IP
+</h3><ul>
+<li>Wireshark 过滤器：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>udp.port <span style="color:#f92672">==</span> <span style="color:#ae81ff">5355</span>
+</span></span><span style="display:flex;"><span>llmnr
+</span></span><span style="display:flex;"><span>nbns <span style="color:#f92672">&amp;&amp;</span> nbns.flags.response <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><ul>
+<li>多台主机响应同一个查询 → 可疑</li>
+<li>受害者会发出 <strong>NetNTLMv2 哈希</strong></li>
+</ul>
+<p>重点关注 <strong>LLMNR 响应报文</strong>（<code>Standard query response</code>）
+如果出现 <strong>多台主机都在响应同一个查询</strong>，就很可疑</p>
+<p>将这个 <strong>恶意 IP</strong> 继续反查得到机械名：</p>
+<ul>
+<li><strong>NetBIOS Name Service (NBNS)</strong> 流量（UDP 137）</li>
+<li><strong>SMB 会话建立</strong>（协议里通常带 NetBIOS 名/主机名）</li>
+<li><strong>mDNS/ARP</strong> 也可能泄露设备名</li>
+<li>DHCP 日志</li>
+</ul>
+<h3 id="重组hash">
+<a class="header-anchor" href="#%e9%87%8d%e7%bb%84hash"></a>
+重组hash
+</h3><p>当受害者机器认为攻击者就是 自己要访问的服务，于是尝试访问：</p>
+<ul>
+<li>可能是 <strong>SMB (445端口)</strong></li>
+<li>也可能是 <strong>HTTP (80/443)</strong></li>
+</ul>
+<p>在访问过程中，Windows 会自动尝试使用 <strong>NTLM 认证</strong>。</p>
+<p>在 NTLM 认证流程里，受害者会发送 <strong>NetNTLMv2 哈希</strong>（基于用户密码加密的 challenge-response），攻击者工具就能捕获到这个哈希</p>
+<ul>
+<li>攻击者可以尝试 <strong>离线破解哈希</strong>（暴力/字典），得到明文密码。</li>
+<li>或者直接做 <strong>NTLM Relay 攻击</strong>，把这个认证转发到真正的服务器，获取访问权限。</li>
+</ul>
+<p>常看到 NetNTLMv2 Hash 长这样</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>username::DOMAIN:ServerChallenge:NTProofStr:Blob
+</span></span></code></pre></div><ul>
+<li><strong>ServerChallenge</strong> = 服务器发来的 8 字节随机数</li>
+<li><strong>Blob</strong> = 客户端生成的一些字段（时间戳、客户端随机数、域信息等）</li>
+<li><strong>NTProofString 就是用来证明客户端确实知道正确密码哈希的签名。</strong></li>
+</ul>
+<h2 id="ntlm-中继攻击">
+<a class="header-anchor" href="#ntlm-%e4%b8%ad%e7%bb%a7%e6%94%bb%e5%87%bb"></a>
+NTLM 中继攻击
+</h2><p>攻击者将受害者的身份验证请求“转发”到另一台目标服务器，实现自己以受害者身份认证。
+对 NetNTLMv2 响应进行捕获的工具常见的有 <strong>Responder</strong>, <strong>Metasploit</strong></p>
+<ul>
+<li><strong>PCAP 分析</strong>
+<ul>
+<li>
+<p>使用 Wireshark 分析 SMB、LDAP NTLM 流量</p>
+</li>
+<li>
+<p>搜索 NetNTLMv2 响应包：</p>
+<pre tabindex="0"><code>ntlmssp
+</code></pre></li>
+<li>
+<p>确认攻击者 IP、受害者 IP、目标服务器 IP</p>
+</li>
+</ul>
+</li>
+<li><strong>日志关联</strong>
+<ul>
+<li>查看 Event ID 4776（域控制器上的 NTLM 验证事件）</li>
+<li>对比 Source IP 和登录用户，检查异常登录或中继模式</li>
+</ul>
+</li>
+</ul>
+<h2 id="流量包主机识别">
+<a class="header-anchor" href="#%e6%b5%81%e9%87%8f%e5%8c%85%e4%b8%bb%e6%9c%ba%e8%af%86%e5%88%ab"></a>
+流量包主机识别
+</h2><p><strong>NetBIOS (NBNS) 刷新数据包</strong>，其实就是 NBNS 名称刷新或广播请求，它通常出现在 Windows 主机启动或网络变化时，用来通知或更新网络上其他主机的名称/IP 对应关系
+NBNS 刷新包本身就是主机告诉网络 <code>“我的名字还是这个，IP还是这个”</code>，所以抓到刷新包就能直接看到对应 IP，非常适合用来快速确定主机 IP。</p>
+<h3 id="nbns-刷新包的特点">
+<a class="header-anchor" href="#nbns-%e5%88%b7%e6%96%b0%e5%8c%85%e7%9a%84%e7%89%b9%e7%82%b9"></a>
+<strong>NBNS 刷新包的特点</strong>
+</h3><ul>
+<li><strong>目标地址</strong>：通常是广播 <code>255.255.255.255</code>，或者子网广播</li>
+<li><strong>包的作用</strong>：更新 NBNS 缓存，保持名称-IP 对应关系</li>
+<li><strong>Source IP</strong>：就是发送刷新包的主机 IP</li>
+<li><strong>在抓包中找 IP</strong>：
+<ul>
+<li>
+<p>Wireshark 里过滤：</p>
+<pre tabindex="0"><code>nbns &amp;&amp; nbns.flags.response == 0
+</code></pre><p>这通常显示注册或刷新请求</p>
+</li>
+<li>
+<p>或者只看响应：</p>
+<pre tabindex="0"><code>nbns &amp;&amp; nbns.flags.response == 1
+</code></pre><p>响应里有 <strong>Owner IP</strong>，就是主机实际 IP</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="什么是-mft文件">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af-mft%e6%96%87%e4%bb%b6"></a>
+什么是 MFT文件
+</h2><p>可以把 <code>$MFT</code> 理解为 <strong>NTFS 的“目录数据库”</strong> 或者 <strong>索引表</strong></p>
+<p><em><strong>作用</strong></em>：</p>
+<ul>
+<li>存储每个文件/目录的元数据，包括：
+<ul>
+<li>文件名</li>
+<li>文件大小</li>
+<li>时间戳（创建/修改/访问）</li>
+<li>权限（ACL）</li>
+<li>文件数据的磁盘存放位置（簇地址）</li>
+</ul>
+</li>
+<li>NTFS 通过 <code>$MFT</code> 来快速查找和管理文件。</li>
+</ul>
+<p><em><strong>意义</strong></em>：</p>
+<p>即使文件被删除，$MFT 中可能还保留残留信息（如文件名、大小、时间戳），所以在取证分析中非常重要。</p>
+<p><em><strong>工具处理</strong></em> ：</p>
+<p>将*$MFT 转换为csv文件*</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MFTECmd.exe  -f <span style="color:#e6db74">&#39;$MFT&#39;</span>  --csv  mft.csv
+</span></span></code></pre></div><h2 id="什么是prefetch-文件">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%afprefetch-%e6%96%87%e4%bb%b6"></a>
+什么是Prefetch 文件
+</h2><p>Prefetch 文件是 Windows 系统里一种 <strong>应用程序运行痕迹文件</strong></p>
+<ul>
+<li>Windows 从 <strong>Windows XP</strong> 开始引入 Prefetch 功能，目的是 <strong>提升应用启动速度</strong>。</li>
+<li>当一个程序第一次运行时，系统会生成一个 <code>.pf</code> 文件，记录程序加载过的 DLL、文件路径、运行次数等信息。</li>
+<li>下一次运行时，系统会根据 <code>.pf</code> 文件提前加载所需数据，从而加快启动。</li>
+</ul>
+<p>命名规则：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;程序名&gt;-&lt;哈希值&gt;.pf
+</span></span></code></pre></div><p>分析prefetch文件可以知道：</p>
+<ul>
+<li><strong>某个可执行文件是否运行过？</strong></li>
+<li><strong>运行过多少次？</strong></li>
+<li><strong>最后一次运行的时间？</strong></li>
+<li><strong>运行时加载了哪些 DLL/文件？</strong></li>
+</ul>
+<p>分析工具</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PECmd.exe -f C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\P</span>refetch<span style="color:#ae81ff">\p</span>f文件
+</span></span></code></pre></div></div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e5%8f%96%e8%af%81"
+        rel="tag"
+        >取证</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e5%9f%9f%e6%b8%97%e9%80%8f"
+        rel="tag"
+        >域渗透</a
+      >
+    </li></ul>
+</footer>
+  </div></article></section>
+        </div><footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      Wuvoun
+    </div><div>
+        Powered by&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;565</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:03</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >Number of visits&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >Number of visitors&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#检测-ntdsdit-转储">检测 NTDS.dit 转储</a>
+      <ul>
+        <li><a href="#使用-ntdsutil-或-windows-内置功能">使用 <strong>ntdsutil</strong> 或 Windows 内置功能</a></li>
+        <li><a href="#使用-esentutl"><strong>使用 esentutl</strong></a></li>
+        <li><a href="#vss-卷影拷贝"><strong>VSS 卷影拷贝</strong></a></li>
+        <li><a href="#dcsync"><strong>DCSync</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#kerberoasting取证"><strong>Kerberoasting取证</strong></a></li>
+    <li><a href="#as-rep-roasting取证"><strong>AS-REP-Roasting取证</strong></a></li>
+    <li><a href="#llmnr-中毒攻击"><strong>LLMNR 中毒攻击</strong></a>
+      <ul>
+        <li><a href="#通过流量分析或事件监控来找出恶意-ip">通过<strong>流量分析或事件监控</strong>来找出恶意 IP</a></li>
+        <li><a href="#重组hash">重组hash</a></li>
+      </ul>
+    </li>
+    <li><a href="#ntlm-中继攻击">NTLM 中继攻击</a></li>
+    <li><a href="#流量包主机识别">流量包主机识别</a>
+      <ul>
+        <li><a href="#nbns-刷新包的特点"><strong>NBNS 刷新包的特点</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#什么是-mft文件">什么是 MFT文件</a></li>
+    <li><a href="#什么是prefetch-文件">什么是Prefetch 文件</a></li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">1</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      1
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">2</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "Wuvoun",
+          title: "AD攻击取证",
+          url: "https:\/\/wuvoun.github.io\/post\/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81\/",
+          description: "\rActive Directory 攻击取证\r检测 NTDS.dit 转储\r事件 7036\n用来记录 Windows 服务状态的变化, 如果在日志里发现一些敏感服务被异常启动\/停止（如 Remote Registry, WinRM, Telnet 等），就要警惕是否有人在进行横向移动或远程控制。\n使用 ntdsutil 或 Windows 内置功能\r转储指令 ntdsutil \u0026#34;activate instance ntds\u0026#34; \u0026#34;ifm\u0026#34; \u0026#34;create full C:\\ntdsbackup\u0026#34; quit quit 取证 Security.evtx …",
+          cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>
