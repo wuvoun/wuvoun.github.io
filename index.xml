@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wuvoun</title>
-    <link>http://localhost:1313/</link>
+    <link>https://wuvoun.github.io/</link>
     <description>Recent content from Wuvoun</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Tue, 09 Sep 2025 02:27:06 +0800</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://wuvoun.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>HTB-NeuroSync D</title>
-      <link>http://localhost:1313/post/neurosync-d/</link>
+      <link>https://wuvoun.github.io/post/neurosync-d/</link>
       <pubDate>Tue, 09 Sep 2025 02:27:06 &#43;0800</pubDate>
       <author>253567768@qq.com (Wuvoun)</author>
-      <guid>http://localhost:1313/post/neurosync-d/</guid>
+      <guid>https://wuvoun.github.io/post/neurosync-d/</guid>
       <description>
         <![CDATA[<h1>HTB-NeuroSync D</h1><p>Author: Wuvoun(253567768@qq.com)</p>
         
@@ -80,10 +80,10 @@ HTB-NeuroSync-D
 </ol>
 <p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8ok1qk1olf.png" alt="image.png"></p>
         
-        <hr><p>Published on 2025-09-09 at <a href='http://localhost:1313/'>Wuvoun</a>, last modified on 2025-09-09</p>]]>
+        <hr><p>Published on 2025-09-09 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-09</p>]]>
       </description>
       
-        <category>取证</category>
+        <category>HTB</category>
       
     </item>
     
@@ -91,10 +91,10 @@ HTB-NeuroSync-D
 
     <item>
       <title>AD攻击取证</title>
-      <link>http://localhost:1313/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
+      <link>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
       <pubDate>Tue, 26 Aug 2025 15:04:24 &#43;0800</pubDate>
       <author>253567768@qq.com (Wuvoun)</author>
-      <guid>http://localhost:1313/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
+      <guid>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
       <description>
         <![CDATA[<h1>AD攻击取证</h1><p>Author: Wuvoun(253567768@qq.com)</p>
         
@@ -134,7 +134,7 @@ Active Directory 攻击取证
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esentutl /y C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit /d C:<span style="color:#ae81ff">\e</span>vidence<span style="color:#ae81ff">\n</span>tds_copy.dit
 </span></span></code></pre></div><p>（<code>/y</code> = copy，<code>/d</code> = 转储路径，通常还加 <code>/vss</code> 参数）</p>
         
-        <hr><p>Published on 2025-08-26 at <a href='http://localhost:1313/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
+        <hr><p>Published on 2025-08-26 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
       </description>
       
         <category>取证</category>
