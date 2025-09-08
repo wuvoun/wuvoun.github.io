@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>域渗透 on Wuvoun</title>
-    <link>https://wuvoun.github.io/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/</link>
+    <link>http://localhost:1313/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/</link>
     <description>Recent content from Wuvoun</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Tue, 26 Aug 2025 15:04:24 +0800</lastBuildDate>
     
     
-    <atom:link href="https://wuvoun.github.io/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>AD攻击取证</title>
-      <link>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
+      <link>http://localhost:1313/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
       <pubDate>Tue, 26 Aug 2025 15:04:24 &#43;0800</pubDate>
       <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
+      <guid>http://localhost:1313/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
       <description>
         <![CDATA[<h1>AD攻击取证</h1><p>Author: Wuvoun(253567768@qq.com)</p>
         
@@ -66,7 +66,7 @@ Active Directory 攻击取证
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esentutl /y C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit /d C:<span style="color:#ae81ff">\e</span>vidence<span style="color:#ae81ff">\n</span>tds_copy.dit
 </span></span></code></pre></div><p>（<code>/y</code> = copy，<code>/d</code> = 转储路径，通常还加 <code>/vss</code> 参数）</p>
         
-        <hr><p>Published on 2025-08-26 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
+        <hr><p>Published on 2025-08-26 at <a href='http://localhost:1313/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
       </description>
       
         <category>取证</category>
