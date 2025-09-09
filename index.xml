@@ -12,12 +12,60 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Tue, 09 Sep 2025 02:27:06 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Sep 2025 03:37:27 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB Pikaptcha</title>
+      <link>https://wuvoun.github.io/post/htb-pikaptcha/</link>
+      <pubDate>Wed, 10 Sep 2025 03:37:27 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-pikaptcha/</guid>
+      <description>
+        <![CDATA[<h1>HTB Pikaptcha</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-pikaptcha">
+<a class="header-anchor" href="#htb-pikaptcha"></a>
+HTB-Pikaptcha
+</h1><ol>
+<li><strong>It is crucial to understand any payloads executed on the system for initial access. Analyzing registry hive for user happy grunwald. What is the full command that was run to download and execute the stager.</strong></li>
+</ol>
+<p><code>NTUSER.DAT</code> 是 <strong>Windows 用户注册表配置单元 (registry hive)</strong> 文件，它保存了用户级别的配置和活动痕迹。每个用户登录系统时，都会有一个 <code>NTUSER.DAT</code> 文件存放在该用户的 <strong>用户配置目录</strong> 下，它其实就是注册表的 <code>HKEY_CURRENT_USER (HKCU)</code> 分支，里面包含：</p>
+<ul>
+<li><strong>软件配置</strong>：应用的设置、偏好。</li>
+<li><strong>最近使用记录</strong>：比如运行过的命令、访问过的路径。</li>
+<li><strong>持久化位置</strong>：启动项</li>
+</ul>
+<p><code>NTUSER.DAT</code>  文件常见取证路径：</p>
+<ul>
+<li>
+<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU</code></p>
+<p>→ 用户在运行框里输入过的命令。</p>
+</li>
+<li>
+<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist</code></p>
+<p>→ Base64/ROT13 编码的执行过的程序路径。</p>
+</li>
+<li>
+<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths</code></p>
+<p>→ 资源管理器输入过的路径。</p>
+</li>
+<li>
+<p><code>RecentApps</code>、<code>ComDlg32</code></p>
+<p>→ 最近使用的应用/文件</p>
+        
+        <hr><p>Published on 2025-09-10 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-10</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
