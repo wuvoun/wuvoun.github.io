@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wuvoun</title>
-    <link>https://wuvoun.github.io/</link>
+    <title>SOC on Wuvoun</title>
+    <link>https://wuvoun.github.io/tags/soc/</link>
     <description>Recent content from Wuvoun</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Thu, 11 Sep 2025 02:45:13 +0800</lastBuildDate>
     
     
-    <atom:link href="https://wuvoun.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://wuvoun.github.io/tags/soc/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -385,176 +385,6 @@ HTB-Meerkat
       </description>
       
         <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>HTB Pikaptcha</title>
-      <link>https://wuvoun.github.io/post/htb-pikaptcha/</link>
-      <pubDate>Wed, 10 Sep 2025 03:37:27 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/htb-pikaptcha/</guid>
-      <description>
-        <![CDATA[<h1>HTB Pikaptcha</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-pikaptcha">
-<a class="header-anchor" href="#htb-pikaptcha"></a>
-HTB-Pikaptcha
-</h1><ol>
-<li><strong>It is crucial to understand any payloads executed on the system for initial access. Analyzing registry hive for user happy grunwald. What is the full command that was run to download and execute the stager.</strong></li>
-</ol>
-<p><code>NTUSER.DAT</code> 是 <strong>Windows 用户注册表配置单元 (registry hive)</strong> 文件，它保存了用户级别的配置和活动痕迹。每个用户登录系统时，都会有一个 <code>NTUSER.DAT</code> 文件存放在该用户的 <strong>用户配置目录</strong> 下，它其实就是注册表的 <code>HKEY_CURRENT_USER (HKCU)</code> 分支，里面包含：</p>
-<ul>
-<li><strong>软件配置</strong>：应用的设置、偏好。</li>
-<li><strong>最近使用记录</strong>：比如运行过的命令、访问过的路径。</li>
-<li><strong>持久化位置</strong>：启动项</li>
-</ul>
-<p><code>NTUSER.DAT</code>  文件常见取证路径：</p>
-<ul>
-<li>
-<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU</code></p>
-<p>→ 用户在运行框里输入过的命令。</p>
-</li>
-<li>
-<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist</code></p>
-<p>→ Base64/ROT13 编码的执行过的程序路径。</p>
-</li>
-<li>
-<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths</code></p>
-<p>→ 资源管理器输入过的路径。</p>
-</li>
-<li>
-<p><code>RecentApps</code>、<code>ComDlg32</code></p>
-<p>→ 最近使用的应用/文件</p>
-        
-        <hr><p>Published on 2025-09-10 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-10</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>HTB-NeuroSync D</title>
-      <link>https://wuvoun.github.io/post/neurosync-d/</link>
-      <pubDate>Tue, 09 Sep 2025 02:27:06 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/neurosync-d/</guid>
-      <description>
-        <![CDATA[<h1>HTB-NeuroSync D</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-neurosync-d">
-<a class="header-anchor" href="#htb-neurosync-d"></a>
-HTB-NeuroSync-D
-</h1><p>题目给出下列日志：</p>
-<ul>
-<li><strong>access.log</strong>
-<ul>
-<li>一般是 Web 服务器（Nginx/Apache）或网关的访问日志。</li>
-<li>记录请求 IP、时间、URL、状态码、UA。</li>
-</ul>
-</li>
-<li><strong>bci-device.log</strong>
-<ul>
-<li>可能和系统里的某个 <strong>BCI（Brain-Computer Interface）设备</strong> 或类似命名的模块相关。</li>
-<li>常见用途：设备状态、连接信息、错误上报。</li>
-</ul>
-</li>
-<li><strong>data-api.log</strong>
-<ul>
-<li>通常是后端的数据接口服务日志。</li>
-<li>可能包含 API 请求参数、响应、异常堆栈。</li>
-<li>常用于调试接口调用和数据交互问题。</li>
-</ul>
-</li>
-<li><strong>interface.log</strong>
-<ul>
-<li>Next.js 开发服务器 (<code>next dev</code>) 的运行日志</li>
-</ul>
-</li>
-<li><strong>redis.log</strong>
-<ul>
-<li>Redis 数据库的运行日志。</li>
-<li>一般包含启动信息、持久化状态、错误（比如连接异常、内存不足、RDB/AOF 保存情况）。</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><strong>What version of Next.js is the application using?</strong></li>
-</ol>
-<p>查看 <strong><code>interface.log</code>日志，可以知道Next.js 15.1.0</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.4jogeg4ij3.png" alt="image.png"></p>
-<ol start="2">
-<li><strong>What local port is the Next.js-based application running on?</strong></li>
-</ol>
-<p>上一题的截图中显示了程序运行在3000端口</p>
-<ol start="3">
-<li><strong>A critical Next.js vulnerability was released in March 2025, and this version appears to be affected. What is the CVE identifier for this vulnerability?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8ok1qk1olf.png" alt="image.png"></p>
-        
-        <hr><p>Published on 2025-09-09 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-09</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>AD攻击取证</title>
-      <link>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
-      <pubDate>Tue, 26 Aug 2025 15:04:24 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
-      <description>
-        <![CDATA[<h1>AD攻击取证</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="active-directory-攻击取证">
-<a class="header-anchor" href="#active-directory-%e6%94%bb%e5%87%bb%e5%8f%96%e8%af%81"></a>
-Active Directory 攻击取证
-</h1><h2 id="检测-ntdsdit-转储">
-<a class="header-anchor" href="#%e6%a3%80%e6%b5%8b-ntdsdit-%e8%bd%ac%e5%82%a8"></a>
-检测 NTDS.dit 转储
-</h2><ul>
-<li>
-<p>事件 7036</p>
-<p>用来记录 <strong>Windows 服务状态的变化,</strong>
-如果在日志里发现一些敏感服务被异常启动/停止（如 <em>Remote Registry</em>, <em>WinRM</em>, <em>Telnet</em> 等），就要警惕是否有人在进行横向移动或远程控制。</p>
-</li>
-</ul>
-<h3 id="使用-ntdsutil-或-windows-内置功能">
-<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-ntdsutil-%e6%88%96-windows-%e5%86%85%e7%bd%ae%e5%8a%9f%e8%83%bd"></a>
-使用 <strong>ntdsutil</strong> 或 Windows 内置功能
-</h3><ul>
-<li>转储指令</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ntdsutil <span style="color:#e6db74">&#34;activate instance ntds&#34;</span> <span style="color:#e6db74">&#34;ifm&#34;</span> <span style="color:#e6db74">&#34;create full C:\ntdsbackup&#34;</span> quit quit
-</span></span></code></pre></div><ul>
-<li>取证</li>
-</ul>
-<p><code>Security.evtx</code> → <strong>4688 (Process Creation)</strong></p>
-<p>存在进程  <em><strong>ntdsutil.exe</strong></em>
-存在指令  <em><strong>ntdsutil &ldquo;activate instance ntds&rdquo; &ldquo;ifm&rdquo; &hellip;</strong></em></p>
-<p>在 IFM 创建数据库副本的过程中，<strong>系统为了避免复制时 NTDS.dit 处于写入状态</strong>，后台会通过 <strong>NTDS 服务调用 Windows 的快照机制</strong> 来生成一个一致性的副本，然后再从快照中提权ntds, 所以会从日志中发现Volume Shadow Copy</p>
-<h3 id="使用-esentutl">
-<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-esentutl"></a>
-<strong>使用 esentutl</strong>
-</h3><ul>
-<li>
-<p><strong>转储指令</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esentutl /y C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit /d C:<span style="color:#ae81ff">\e</span>vidence<span style="color:#ae81ff">\n</span>tds_copy.dit
-</span></span></code></pre></div><p>（<code>/y</code> = copy，<code>/d</code> = 转储路径，通常还加 <code>/vss</code> 参数）</p>
-        
-        <hr><p>Published on 2025-08-26 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
-      </description>
-      
-        <category>取证</category>
       
     </item>
     

