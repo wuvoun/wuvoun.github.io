@@ -12,12 +12,57 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Thu, 11 Sep 2025 02:45:13 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Sep 2025 20:12:44 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/categories/htb/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB-DroidPhish</title>
+      <link>https://wuvoun.github.io/post/htb-droidphish/</link>
+      <pubDate>Thu, 11 Sep 2025 20:12:44 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-droidphish/</guid>
+      <description>
+        <![CDATA[<h1>HTB-DroidPhish</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-droidphish">
+<a class="header-anchor" href="#htb-droidphish"></a>
+HTB-DroidPhish
+</h1><p><code>dd</code> 文件通常指的是用 <strong><code>dd</code> 命令</strong>生成的文件，通常是磁盘镜像，引导扇区备份，内存转储文件
+，二进制数据块等</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> file DroidPhish.dd
+</span></span><span style="display:flex;"><span>DroidPhish.dd: Linux rev 1.0 ext4 filesystem data, UUID<span style="color:#f92672">=</span>e98cc545-b7fe-4ba9-8b33-2fb9bba476d6, volume name <span style="color:#e6db74">&#34;Android-x86&#34;</span> <span style="color:#f92672">(</span>needs journal recovery<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>extents<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>large files<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>通过file指令，可以说明 <code>DroidPhish.dd</code> 文件里是一个 <strong>ext4 文件系统镜像，通过DiskGenius打开</strong></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.4jogicmemf.webp" alt="image.png"></p>
+<p>主要目录：</p>
+<ul>
+<li><code>/data/data/&lt;package&gt;</code> → 表示该应用在设备上确实安装并被使用</li>
+<li><code>/data/app</code> → 用户安装的 APK</li>
+<li><code>/data/system</code> → 系统配置、账户、锁屏信息</li>
+<li><code>/data/misc</code> → 网络配置、keystore、logd 缓存</li>
+</ul>
+<h3 id="1-provide-the-last-boot-time-of-the-device-in-utc-format">
+<a class="header-anchor" href="#1-provide-the-last-boot-time-of-the-device-in-utc-format"></a>
+<strong>1. Provide the last boot time of the device in UTC format.</strong>
+</h3><p>在 <code>/android-9.0-r2/data/misc/bootstat</code> 找到所需文件</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8adm3lb9tr.webp" alt="image.png"></p>
+<p>由图可以知道，UTC时间为 <code>2024-11-24 12:05:19</code></p>
+<h3 id="2-the-user-was-exposed-to-a-phishing-attack-provide-the-name-of-the-email-app-used-as-the-attack-vector">
+<a class="header-anchor" href="#2-the-user-was-exposed-to-a-phishing-attack-provide-the-name-of-the-email-app-used-as-the-attack-vector"></a>
+<strong>2. The user was exposed to a phishing attack. Provide the name of the email app used as the attack vector.</strong>
+</h3><p><code>/data/data/&lt;package&gt;</code> → 表示该应用在设备上确实安装并被使用</p>
+        
+        <hr><p>Published on 2025-09-11 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-11</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
