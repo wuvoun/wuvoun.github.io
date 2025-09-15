@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ADCS on Wuvoun</title>
+    <link>https://wuvoun.github.io/tags/adcs/</link>
+    <description>Recent content from Wuvoun</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>253567768@qq.com (Wuvoun)</managingEditor>
+    <webMaster>253567768@qq.com (Wuvoun)</webMaster>
+    
+    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    
+    <lastBuildDate>Tue, 16 Sep 2025 03:52:21 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://wuvoun.github.io/tags/adcs/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>HTB-Object</title>
+      <link>https://wuvoun.github.io/post/htb-object/</link>
+      <pubDate>Tue, 16 Sep 2025 03:52:21 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-object/</guid>
+      <description>
+        <![CDATA[<h1>HTB-Object</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-object">
+<a class="header-anchor" href="#htb-object"></a>
+HTB-Object
+</h1><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nmap -p $ports $ip -sV
+</span></span><span style="display:flex;"><span>Starting Nmap 7.95 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2025-09-15 22:20 CST
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> 10.10.11.132
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.36s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE VERSION
+</span></span><span style="display:flex;"><span>80/tcp   open  http    Microsoft IIS httpd 10.0
+</span></span><span style="display:flex;"><span>5985/tcp open  http    Microsoft HTTPAPI httpd 2.0 <span style="color:#f92672">(</span>SSDP/UPnP<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>8080/tcp open  http    Jetty 9.4.43.v20210629
+</span></span><span style="display:flex;"><span>Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style="display:flex;"><span>Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 11.64 seconds
+</span></span></code></pre></div><p>nmap 扫描，发现只有两个web网站和winrm口</p>
+        
+        <hr><p>Published on 2025-09-16 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-16</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
+    
+  </channel>
+</rss>
