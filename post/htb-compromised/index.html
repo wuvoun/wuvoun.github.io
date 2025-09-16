@@ -1,0 +1,697 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  HTB Compromised | Wuvoun
+</title>
+<meta
+  name="description"
+  content="少女祈祷中..."
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://wuvoun.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="HTB Compromised | Wuvoun" />
+  <meta
+    property="og:description"
+    content="少女祈祷中..."
+  />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-compromised/" />
+  <meta
+    property="og:site_name"
+    content="Wuvoun"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="Wuvoun" />
+  <meta property="article:published_time" content="2025-09-16T22:27:55&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-16T22:27:55&#43;08:00" /><meta property="article:tag" content="SOC" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+This article does not have a corresponding language version
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">Home</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">About</a>
+      </span><a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav"></nav></div>
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB Compromised"><div id="header-outer">
+    <div id="header-title"><a href="/" id="logo">
+            <h1 data-aos="slide-up">HTB Compromised</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-what-is-the-ip-address-used-for-initial-access">1. <strong>What is the IP address used for initial access?</strong></a></li>
+        <li><a href="#2-what-is-the-sha256-hash-of-the-malware">2. <strong>What is the SHA256 hash of the malware?</strong></a></li>
+        <li><a href="#3-what-is-the-family-label-of-the-malware">3. <strong>What is the Family label of the malware?</strong></a></li>
+        <li><a href="#4-when-was-the-malware-first-seen-in-the-wild-utc">4. <strong>When was the malware first seen in the wild (UTC)?</strong></a></li>
+        <li><a href="#5-the-malware-used-https-traffic-with-a-self-signed-certificate-what-are-the-ports-from-smallest-to-largest">5. <strong>The malware used HTTPS traffic with a self-signed certificate. What are the ports, from smallest to largest?</strong></a></li>
+        <li><a href="#6-what-is-the-id-at-localityname-of-the-self-signed-certificate-associated-with-the-first-malicious-ip">6. <strong>What is the id-at-localityName of the self-signed certificate associated with the first malicious IP?</strong></a></li>
+        <li><a href="#7-what-is-the-notbefore-timeutc-for-this-self-signed-certificate">7. <strong>What is the notBefore time(UTC) for this self-signed certificate?</strong></a></li>
+        <li><a href="#8-what-was-the-domain-used-for-tunneling">8. <strong>What was the domain used for tunneling?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">10</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">7</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div>
+
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-09-16 22:27:55 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-16</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-09-16</time
+    >
+  </span>
+</div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/htb"
+      data-aos="zoom-in"
+      >HTB</a
+    ></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-compromised">
+<a class="header-anchor" href="#htb-compromised"></a>
+HTB-Compromised
+</h1><p>统计所有IP , 发现全是对 <code>172.16.1.191</code> 的访问</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.96a3qbk4ic.webp" alt="image.png"></p>
+<p>发现第一个访问的IP为 <code>162.252.172.54</code> ,从这个IP下载了一个恶意文件</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.6t7h946bbi.webp" alt="image.png"></p>
+<p>扔到<a href="https://www.virustotal.com/">https://www.virustotal.com/</a> 上进行分析</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.102iztiv2n.webp" alt="image.png"></p>
+<h3 id="1-what-is-the-ip-address-used-for-initial-access">
+<a class="header-anchor" href="#1-what-is-the-ip-address-used-for-initial-access"></a>
+1. <strong>What is the IP address used for initial access?</strong>
+</h3><p>初始访问的IP为 <code>162.252.172.54</code></p>
+<h3 id="2-what-is-the-sha256-hash-of-the-malware">
+<a class="header-anchor" href="#2-what-is-the-sha256-hash-of-the-malware"></a>
+2. <strong>What is the SHA256 hash of the malware?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.esvdioes0.webp" alt="image.png"></p>
+<p>hash为 <code>9b8ffdc8ba2b2caa485cca56a82b2dcbd251f65fb30bc88f0ac3da6704e4d3c6</code></p>
+<h3 id="3-what-is-the-family-label-of-the-malware">
+<a class="header-anchor" href="#3-what-is-the-family-label-of-the-malware"></a>
+3. <strong>What is the Family label of the malware?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.4n82ncenkg.webp" alt="image.png"></p>
+<p>恶意木马家族为 <code>pikabot</code></p>
+<h3 id="4-when-was-the-malware-first-seen-in-the-wild-utc">
+<a class="header-anchor" href="#4-when-was-the-malware-first-seen-in-the-wild-utc"></a>
+4. <strong>When was the malware first seen in the wild (UTC)?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.6f11i8y0gh.webp" alt="image.png"></p>
+<p><strong>在野外被发现的时间是 <code>2023-05-19 14:01:21</code></strong></p>
+<h3 id="5-the-malware-used-https-traffic-with-a-self-signed-certificate-what-are-the-ports-from-smallest-to-largest">
+<a class="header-anchor" href="#5-the-malware-used-https-traffic-with-a-self-signed-certificate-what-are-the-ports-from-smallest-to-largest"></a>
+5. <strong>The malware used HTTPS traffic with a self-signed certificate. What are the ports, from smallest to largest?</strong>
+</h3><p><code>tls.handshake.type == 11</code> 是专门筛选 TLS 握手里的 <strong>证书传输报文</strong>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># find_selfsigned_with_attrs.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 用法: ./find_selfsigned_with_attrs.sh capture.pcap</span>
+</span></span><span style="display:flex;"><span>set -euo pipefail
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PCAP<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span>$PCAP<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> ! -f <span style="color:#e6db74">&#34;</span>$PCAP<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Usage: </span>$0<span style="color:#e6db74"> &lt;capture.pcap&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>WORKDIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>mktemp -d<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>trap <span style="color:#e6db74">&#39;rm -rf &#34;$WORKDIR&#34;&#39;</span> EXIT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>OUT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/out.tsv&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 导出每个 TLS Certificate 报文的 src/dst ports 与证书 hex（每行一条记录）</span>
+</span></span><span style="display:flex;"><span>tshark -r <span style="color:#e6db74">&#34;</span>$PCAP<span style="color:#e6db74">&#34;</span> -Y <span style="color:#e6db74">&#34;tls.handshake.type == 11&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -T fields -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport -e tls.handshake.certificate <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  | sed <span style="color:#e6db74">&#39;/^\s*$/d&#39;</span> &gt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/raw_lines.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>n<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># helper: 从 openssl subject/issuer 字符串中提取指定 attr（处理多种分隔符）</span>
+</span></span><span style="display:flex;"><span>extract_attr<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  local line<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> attr<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span> val
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># remove leading &#34;subject=&#34; / &#34;issuer=&#34; if present</span>
+</span></span><span style="display:flex;"><span>  line<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | sed -e <span style="color:#e6db74">&#39;s/^[[:space:]]*subject=//I&#39;</span> -e <span style="color:#e6db74">&#39;s/^[[:space:]]*issuer=//I&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># normalize separators to newline: commas, slash, semicolon</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># also change occurrences of &#34;, &#34; to &#34;,&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># then split into lines and find first matching attribute (case-insensitive)</span>
+</span></span><span style="display:flex;"><span>  printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    | sed -E <span style="color:#e6db74">&#39;s/,\s*/\n/g; s#/\s*#\n#g; s/;\s*/\n/g&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    | <span style="color:#66d9ef">while</span> IFS<span style="color:#f92672">=</span> read -r part; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># trim</span>
+</span></span><span style="display:flex;"><span>        part<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$part<span style="color:#e6db74">&#34;</span> | sed -E <span style="color:#e6db74">&#39;s/^[[:space:]]+//; s/[[:space:]]+$//&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># some entries might be like &#34;CN = value&#34; or &#34;CN=value&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># normalize spaces around &#39;=&#39;</span>
+</span></span><span style="display:flex;"><span>        norm<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$part<span style="color:#e6db74">&#34;</span> | sed -E <span style="color:#e6db74">&#39;s/[[:space:]]*=[[:space:]]*/=/&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># check start of token</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$norm<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>attr<span style="color:#e6db74">}</span><span style="color:#e6db74">=&#34;</span>*|<span style="color:#e6db74">${</span>attr,,<span style="color:#e6db74">}</span><span style="color:#f92672">=</span>*|<span style="color:#e6db74">${</span>attr^^<span style="color:#e6db74">}</span><span style="color:#f92672">=</span>*<span style="color:#f92672">)</span> val<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>norm#*=<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$val<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span> ;;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> IFS<span style="color:#f92672">=</span><span style="color:#e6db74">$&#39;\t&#39;</span> read -r IPS IPD PS PD HEX; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HEX<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n+1<span style="color:#66d9ef">))</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># write meta</span>
+</span></span><span style="display:flex;"><span>  echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>IPS<span style="color:#e6db74">}</span><span style="color:#e6db74">\t</span><span style="color:#e6db74">${</span>IPD<span style="color:#e6db74">}</span><span style="color:#e6db74">\t</span><span style="color:#e6db74">${</span>PS<span style="color:#e6db74">}</span><span style="color:#e6db74">\t</span><span style="color:#e6db74">${</span>PD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/meta_</span>$n<span style="color:#e6db74">.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># hex -&gt; der (robust: strip whitespace if needed)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> ! printf <span style="color:#e6db74">&#34;%s&#34;</span> <span style="color:#e6db74">&#34;</span>$HEX<span style="color:#e6db74">&#34;</span> | xxd -r -p &gt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.der&#34;</span> 2&gt;/dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> printf <span style="color:#e6db74">&#34;%s&#34;</span> <span style="color:#e6db74">&#34;</span>$HEX<span style="color:#e6db74">&#34;</span> | tr -d <span style="color:#e6db74">&#39; \t\r\n&#39;</span> | xxd -r -p &gt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.der&#34;</span> 2&gt;/dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      :
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;warn: failed to convert hex on line </span>$n<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n+1<span style="color:#66d9ef">))</span>; <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># get basic openssl outputs (try direct, else parse first sequence)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> ! openssl x509 -in <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.der&#34;</span> -inform DER -noout -subject -issuer -startdate -enddate -serial &gt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> 2&gt;/dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    ASNOUT<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>openssl asn1parse -inform DER -in <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.der&#34;</span> 2&gt;/dev/null | head -n1 <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$ASNOUT<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      L<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$ASNOUT<span style="color:#e6db74">&#34;</span> | sed -n <span style="color:#e6db74">&#39;s/.*l=\s*\([0-9]*\).*/\1/p&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$L<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;</span>$L<span style="color:#e6db74">&#34;</span> -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.der&#34;</span> of<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span><span style="color:#e6db74">${</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74">_first.der&#34;</span> bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> count<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$L<span style="color:#e6db74">&#34;</span> 2&gt;/dev/null <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ! openssl x509 -in <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span><span style="color:#e6db74">${</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74">_first.der&#34;</span> -inform DER -noout -subject -issuer -startdate -enddate -serial &gt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> 2&gt;/dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>          echo <span style="color:#e6db74">&#34;warn: openssl x509 still failed for record </span>$n<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>          n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n+1<span style="color:#66d9ef">))</span>; <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;warn: couldn&#39;t determine top-level length for record </span>$n<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n+1<span style="color:#66d9ef">))</span>; <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;warn: asn1parse empty for record </span>$n<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n+1<span style="color:#66d9ef">))</span>; <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># read extracted lines</span>
+</span></span><span style="display:flex;"><span>  SUBJECT<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -n <span style="color:#e6db74">&#39;s/^subject= *//Ip&#39;</span> <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> | tr -d <span style="color:#e6db74">&#39;\r\n&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  ISSUER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -n <span style="color:#e6db74">&#39;s/^issuer= *//Ip&#39;</span> <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> | tr -d <span style="color:#e6db74">&#39;\r\n&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  START<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -n <span style="color:#e6db74">&#39;s/^notBefore= *//Ip&#39;</span> <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> | tr -d <span style="color:#e6db74">&#39;\r\n&#39;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  END<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -n <span style="color:#e6db74">&#39;s/^notAfter= *//Ip&#39;</span> <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> | tr -d <span style="color:#e6db74">&#39;\r\n&#39;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  SERIAL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -n <span style="color:#e6db74">&#39;s/^serial= *//Ip&#39;</span> <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/cert_</span>$n<span style="color:#e6db74">.info&#34;</span> | tr -d <span style="color:#e6db74">&#39;\r\n&#39;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># compare subject and issuer textually (exact match)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> -n <span style="color:#e6db74">&#34;</span>$ISSUER<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;</span>$ISSUER<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># extract specific attributes</span>
+</span></span><span style="display:flex;"><span>    CN<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>extract_attr <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;CN&#34;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    O<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>extract_attr <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;O&#34;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    OU<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>extract_attr <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;OU&#34;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    L<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>extract_attr <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    ST<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>extract_attr <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;ST&#34;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    C<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>extract_attr <span style="color:#e6db74">&#34;</span>$SUBJECT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#f92672">||</span> true<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ensure tabs are escaped/removed in extracted values</span>
+</span></span><span style="display:flex;"><span>    CN<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$CN<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    O<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$O<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    OU<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$OU<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    L<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$L<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    ST<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$ST<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    C<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$C<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    START<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$START<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    END<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$END<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    SERIAL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$SERIAL<span style="color:#e6db74">&#34;</span> | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Output TSV: ip.src	ip.dst	srcport	dstport	serial	startdate	enddate	C	ST	L	O	OU	CN</span>
+</span></span><span style="display:flex;"><span>    printf <span style="color:#e6db74">&#39;%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>      <span style="color:#e6db74">&#34;</span>$IPS<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$IPD<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$PS<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$PD<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$SERIAL<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$START<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$END<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$C<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$ST<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$L<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$O<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$OU<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$CN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>      &gt;&gt; <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n+1<span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span> &lt; <span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/raw_lines.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -s <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;没有发现自签名证书流量（subject==issuer）。&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成分离的端口/IP 文件（去重&amp;升序）</span>
+</span></span><span style="display:flex;"><span>SRC_PORTS_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/selfsigned_src_ports.txt&#34;</span>
+</span></span><span style="display:flex;"><span>DST_PORTS_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/selfsigned_dst_ports.txt&#34;</span>
+</span></span><span style="display:flex;"><span>SRC_IP_PORT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/selfsigned_src_ip_port.txt&#34;</span>
+</span></span><span style="display:flex;"><span>DST_IP_PORT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/selfsigned_dst_ip_port.txt&#34;</span>
+</span></span><span style="display:flex;"><span>CSV_OUT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$WORKDIR<span style="color:#e6db74">/selfsigned_detailed.tsv&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cut -f3 <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span> | sed <span style="color:#e6db74">&#39;/^$/d&#39;</span> | sort -n -u &gt; <span style="color:#e6db74">&#34;</span>$SRC_PORTS_FILE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>cut -f4 <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span> | sed <span style="color:#e6db74">&#39;/^$/d&#39;</span> | sort -n -u &gt; <span style="color:#e6db74">&#34;</span>$DST_PORTS_FILE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>awk -F<span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39;{print $1 &#34;:&#34; $3}&#39;</span> <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span> | sort -u &gt; <span style="color:#e6db74">&#34;</span>$SRC_IP_PORT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>awk -F<span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39;{print $2 &#34;:&#34; $4}&#39;</span> <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span> | sort -u &gt; <span style="color:#e6db74">&#34;</span>$DST_IP_PORT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy detailed out to human-friendly TSV with header</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;ip.src\tip.dst\tsrcport\tdstport\tserial\tstartdate\tenddate\tC\tST\tL\tO\tOU\tCN\n&#39;</span> &gt; <span style="color:#e6db74">&#34;</span>$CSV_OUT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&#34;</span>$OUT<span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span>$CSV_OUT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print results</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;检测到以下自签名证书连接（每行为 TSV，字段：ip.src ip.dst srcport dstport serial startdate enddate C ST L O OU CN）:&#34;</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&#34;</span>$CSV_OUT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;源端口（srcport，去重并升序，每行一个）:&#34;</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&#34;</span>$SRC_PORTS_FILE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;目标端口（dstport，去重并升序，每行一个）:&#34;</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&#34;</span>$DST_PORTS_FILE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;已生成 IOC 列表（去重）：&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;源 IP:port -&gt; </span>$SRC_IP_PORT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;目标 IP:port -&gt; </span>$DST_IP_PORT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;详细 TSV 文件 -&gt; </span>$CSV_OUT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># optional: copy to current directory (uncomment if desired)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cp &#34;$SRC_PORTS_FILE&#34; ./selfsigned_src_ports.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cp &#34;$DST_PORTS_FILE&#34; ./selfsigned_dst_ports.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cp &#34;$SRC_IP_PORT&#34; ./selfsigned_src_ip_port.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cp &#34;$DST_IP_PORT&#34; ./selfsigned_dst_ip_port.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cp &#34;$CSV_OUT&#34; ./selfsigned_detailed.tsv</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;完成：临时输出文件保存在 </span>$WORKDIR<span style="color:#e6db74">（脚本结束时该目录会被清理）。&#34;</span>
+</span></span></code></pre></div><p>这个脚本用来分析流量包所有的tls的证书流量，发现自签名证书，将这些流量的信息打印出来</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>源端口（srcport，去重并升序，每行一个）:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2078</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2222</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">32999</span>
+</span></span></code></pre></div><h3 id="6-what-is-the-id-at-localityname-of-the-self-signed-certificate-associated-with-the-first-malicious-ip">
+<a class="header-anchor" href="#6-what-is-the-id-at-localityname-of-the-self-signed-certificate-associated-with-the-first-malicious-ip"></a>
+6. <strong>What is the id-at-localityName of the self-signed certificate associated with the first malicious IP?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.6wr36tze1e.webp" alt="image.png"></p>
+<p><strong>第一个恶意 IP 关联的自签名证书的 id-at-localityName 是</strong></p>
+<p><code>id-at-localityName=Pyopneumopericardium</code></p>
+<h3 id="7-what-is-the-notbefore-timeutc-for-this-self-signed-certificate">
+<a class="header-anchor" href="#7-what-is-the-notbefore-timeutc-for-this-self-signed-certificate"></a>
+7. <strong>What is the notBefore time(UTC) for this self-signed certificate?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.32ibnvhg43.webp" alt="image.png"></p>
+<p>同一个包，时间为 <code>2023-05-14 08:36:52</code></p>
+<h3 id="8-what-was-the-domain-used-for-tunneling">
+<a class="header-anchor" href="#8-what-was-the-domain-used-for-tunneling"></a>
+8. <strong>What was the domain used for tunneling?</strong>
+</h3><p>过滤所有dns流量，发现有个域名大量出现 <a href="http://steasteel.net/"><code>steasteel.net</code></a></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.58hq9n93v7.webp" alt="image.png"></p>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/soc"
+        rel="tag"
+        >SOC</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+            data-src="https://github.com/wuvoun/picx-images-hosting/raw/master/output.szb3amhzz.webp"
+            data-sizes="auto"
+            alt="HTB-Object"
+            class="lazyload"
+          /><a href="/post/htb-object/"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">HTB-Object</h3>
+      </div></nav></article></section>
+        </div><footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      Wuvoun
+    </div><div>
+        Powered by&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;8.8k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:46</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >Number of visits&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >Number of visitors&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-what-is-the-ip-address-used-for-initial-access">1. <strong>What is the IP address used for initial access?</strong></a></li>
+        <li><a href="#2-what-is-the-sha256-hash-of-the-malware">2. <strong>What is the SHA256 hash of the malware?</strong></a></li>
+        <li><a href="#3-what-is-the-family-label-of-the-malware">3. <strong>What is the Family label of the malware?</strong></a></li>
+        <li><a href="#4-when-was-the-malware-first-seen-in-the-wild-utc">4. <strong>When was the malware first seen in the wild (UTC)?</strong></a></li>
+        <li><a href="#5-the-malware-used-https-traffic-with-a-self-signed-certificate-what-are-the-ports-from-smallest-to-largest">5. <strong>The malware used HTTPS traffic with a self-signed certificate. What are the ports, from smallest to largest?</strong></a></li>
+        <li><a href="#6-what-is-the-id-at-localityname-of-the-self-signed-certificate-associated-with-the-first-malicious-ip">6. <strong>What is the id-at-localityName of the self-signed certificate associated with the first malicious IP?</strong></a></li>
+        <li><a href="#7-what-is-the-notbefore-timeutc-for-this-self-signed-certificate">7. <strong>What is the notBefore time(UTC) for this self-signed certificate?</strong></a></li>
+        <li><a href="#8-what-was-the-domain-used-for-tunneling">8. <strong>What was the domain used for tunneling?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">10</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">7</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "Wuvoun",
+          title: "HTB Compromised",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-compromised\/",
+          description: "\rHTB-Compromised\r统计所有IP , 发现全是对 172.16.1.191 的访问\n发现第一个访问的IP为 162.252.172.54 ,从这个IP下载了一个恶意文件\n扔到https:\/\/www.virustotal.com\/ 上进行分析\n1. What is the IP address used for initial access?\r初始访问的IP为 162.252.172.54\n2. What is the SHA256 hash of the malware?\rhash …",
+          cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

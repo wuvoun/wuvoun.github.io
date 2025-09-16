@@ -12,12 +12,59 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Thu, 11 Sep 2025 02:45:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Sep 2025 22:27:55 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/tags/soc/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB Compromised</title>
+      <link>https://wuvoun.github.io/post/htb-compromised/</link>
+      <pubDate>Tue, 16 Sep 2025 22:27:55 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-compromised/</guid>
+      <description>
+        <![CDATA[<h1>HTB Compromised</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-compromised">
+<a class="header-anchor" href="#htb-compromised"></a>
+HTB-Compromised
+</h1><p>统计所有IP , 发现全是对 <code>172.16.1.191</code> 的访问</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.96a3qbk4ic.webp" alt="image.png"></p>
+<p>发现第一个访问的IP为 <code>162.252.172.54</code> ,从这个IP下载了一个恶意文件</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.6t7h946bbi.webp" alt="image.png"></p>
+<p>扔到<a href="https://www.virustotal.com/">https://www.virustotal.com/</a> 上进行分析</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.102iztiv2n.webp" alt="image.png"></p>
+<h3 id="1-what-is-the-ip-address-used-for-initial-access">
+<a class="header-anchor" href="#1-what-is-the-ip-address-used-for-initial-access"></a>
+1. <strong>What is the IP address used for initial access?</strong>
+</h3><p>初始访问的IP为 <code>162.252.172.54</code></p>
+<h3 id="2-what-is-the-sha256-hash-of-the-malware">
+<a class="header-anchor" href="#2-what-is-the-sha256-hash-of-the-malware"></a>
+2. <strong>What is the SHA256 hash of the malware?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.esvdioes0.webp" alt="image.png"></p>
+<p>hash为 <code>9b8ffdc8ba2b2caa485cca56a82b2dcbd251f65fb30bc88f0ac3da6704e4d3c6</code></p>
+<h3 id="3-what-is-the-family-label-of-the-malware">
+<a class="header-anchor" href="#3-what-is-the-family-label-of-the-malware"></a>
+3. <strong>What is the Family label of the malware?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.4n82ncenkg.webp" alt="image.png"></p>
+<p>恶意木马家族为 <code>pikabot</code></p>
+<h3 id="4-when-was-the-malware-first-seen-in-the-wild-utc">
+<a class="header-anchor" href="#4-when-was-the-malware-first-seen-in-the-wild-utc"></a>
+4. <strong>When was the malware first seen in the wild (UTC)?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.6f11i8y0gh.webp" alt="image.png"></p>
+<p><strong>在野外被发现的时间是 <code>2023-05-19 14:01:21</code></strong></p>
+        
+        <hr><p>Published on 2025-09-16 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-16</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
