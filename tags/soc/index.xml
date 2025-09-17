@@ -12,12 +12,58 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Tue, 16 Sep 2025 22:27:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 02:57:45 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/tags/soc/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB-Takedown</title>
+      <link>https://wuvoun.github.io/post/htb-takedown/</link>
+      <pubDate>Thu, 18 Sep 2025 02:57:45 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-takedown/</guid>
+      <description>
+        <![CDATA[<h1>HTB-Takedown</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-takedown">
+<a class="header-anchor" href="#htb-takedown"></a>
+HTB-Takedown
+</h1><h3 id="1-from-what-domain-is-the-vbs-script-downloaded">
+<a class="header-anchor" href="#1-from-what-domain-is-the-vbs-script-downloaded"></a>
+1. <strong>From what domain is the VBS script downloaded?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.5xazvcwen8.webp" alt="image.png"></p>
+<p>从导出可以看到，从 <a href="http://escuelademarina.com/"><code>escuelademarina.com</code></a> 下载了两个vbs文件</p>
+<h3 id="2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">
+<a class="header-anchor" href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack"></a>
+2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong>
+</h3><p>点击这个文件，会直接跳到这个流量，会发现IP为 <code>165.22.16.55</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8admcka7tq.webp" alt="image.png"></p>
+<h3 id="3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">
+<a class="header-anchor" href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access"></a>
+3. <strong>What is the filename of the VBS script used for initial access?</strong>
+</h3><p>由上图可以知道文件名为 <code>AZURE_DOC_OPEN.vbs</code></p>
+<h3 id="4-what-was-the-url-used-to-get-a-powershell-script">
+<a class="header-anchor" href="#4-what-was-the-url-used-to-get-a-powershell-script"></a>
+4. <strong>What was the URL used to get a PowerShell script?</strong>
+</h3><p>下载vbs, 查看其中的内容</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.7snknz8u8v.webp" alt="image.png"></p>
+<p>url为 <a href="http://badbutperfect.com/nrwncpwo"><code>badbutperfect.com/nrwncpwo</code></a></p>
+<h3 id="5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">
+<a class="header-anchor" href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine"></a>
+5. <strong>What likely legit binary was downloaded to the victim machine?</strong>
+</h3><p>将 <code>nrwncpwo</code> 上传云杀箱检查</p>
+        
+        <hr><p>Published on 2025-09-18 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-18</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 

@@ -12,12 +12,58 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Tue, 16 Sep 2025 22:27:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 02:57:45 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB-Takedown</title>
+      <link>https://wuvoun.github.io/post/htb-takedown/</link>
+      <pubDate>Thu, 18 Sep 2025 02:57:45 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-takedown/</guid>
+      <description>
+        <![CDATA[<h1>HTB-Takedown</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-takedown">
+<a class="header-anchor" href="#htb-takedown"></a>
+HTB-Takedown
+</h1><h3 id="1-from-what-domain-is-the-vbs-script-downloaded">
+<a class="header-anchor" href="#1-from-what-domain-is-the-vbs-script-downloaded"></a>
+1. <strong>From what domain is the VBS script downloaded?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.5xazvcwen8.webp" alt="image.png"></p>
+<p>从导出可以看到，从 <a href="http://escuelademarina.com/"><code>escuelademarina.com</code></a> 下载了两个vbs文件</p>
+<h3 id="2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">
+<a class="header-anchor" href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack"></a>
+2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong>
+</h3><p>点击这个文件，会直接跳到这个流量，会发现IP为 <code>165.22.16.55</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8admcka7tq.webp" alt="image.png"></p>
+<h3 id="3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">
+<a class="header-anchor" href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access"></a>
+3. <strong>What is the filename of the VBS script used for initial access?</strong>
+</h3><p>由上图可以知道文件名为 <code>AZURE_DOC_OPEN.vbs</code></p>
+<h3 id="4-what-was-the-url-used-to-get-a-powershell-script">
+<a class="header-anchor" href="#4-what-was-the-url-used-to-get-a-powershell-script"></a>
+4. <strong>What was the URL used to get a PowerShell script?</strong>
+</h3><p>下载vbs, 查看其中的内容</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.7snknz8u8v.webp" alt="image.png"></p>
+<p>url为 <a href="http://badbutperfect.com/nrwncpwo"><code>badbutperfect.com/nrwncpwo</code></a></p>
+<h3 id="5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">
+<a class="header-anchor" href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine"></a>
+5. <strong>What likely legit binary was downloaded to the victim machine?</strong>
+</h3><p>将 <code>nrwncpwo</code> 上传云杀箱检查</p>
+        
+        <hr><p>Published on 2025-09-18 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-18</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
@@ -832,60 +878,6 @@ HTB-NeuroSync-D
       </description>
       
         <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>AD攻击取证</title>
-      <link>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</link>
-      <pubDate>Tue, 26 Aug 2025 15:04:24 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/</guid>
-      <description>
-        <![CDATA[<h1>AD攻击取证</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="active-directory-攻击取证">
-<a class="header-anchor" href="#active-directory-%e6%94%bb%e5%87%bb%e5%8f%96%e8%af%81"></a>
-Active Directory 攻击取证
-</h1><h2 id="检测-ntdsdit-转储">
-<a class="header-anchor" href="#%e6%a3%80%e6%b5%8b-ntdsdit-%e8%bd%ac%e5%82%a8"></a>
-检测 NTDS.dit 转储
-</h2><ul>
-<li>
-<p>事件 7036</p>
-<p>用来记录 <strong>Windows 服务状态的变化,</strong>
-如果在日志里发现一些敏感服务被异常启动/停止（如 <em>Remote Registry</em>, <em>WinRM</em>, <em>Telnet</em> 等），就要警惕是否有人在进行横向移动或远程控制。</p>
-</li>
-</ul>
-<h3 id="使用-ntdsutil-或-windows-内置功能">
-<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-ntdsutil-%e6%88%96-windows-%e5%86%85%e7%bd%ae%e5%8a%9f%e8%83%bd"></a>
-使用 <strong>ntdsutil</strong> 或 Windows 内置功能
-</h3><ul>
-<li>转储指令</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ntdsutil <span style="color:#e6db74">&#34;activate instance ntds&#34;</span> <span style="color:#e6db74">&#34;ifm&#34;</span> <span style="color:#e6db74">&#34;create full C:\ntdsbackup&#34;</span> quit quit
-</span></span></code></pre></div><ul>
-<li>取证</li>
-</ul>
-<p><code>Security.evtx</code> → <strong>4688 (Process Creation)</strong></p>
-<p>存在进程  <em><strong>ntdsutil.exe</strong></em>
-存在指令  <em><strong>ntdsutil &ldquo;activate instance ntds&rdquo; &ldquo;ifm&rdquo; &hellip;</strong></em></p>
-<p>在 IFM 创建数据库副本的过程中，<strong>系统为了避免复制时 NTDS.dit 处于写入状态</strong>，后台会通过 <strong>NTDS 服务调用 Windows 的快照机制</strong> 来生成一个一致性的副本，然后再从快照中提权ntds, 所以会从日志中发现Volume Shadow Copy</p>
-<h3 id="使用-esentutl">
-<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-esentutl"></a>
-<strong>使用 esentutl</strong>
-</h3><ul>
-<li>
-<p><strong>转储指令</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esentutl /y C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\N</span>TDS<span style="color:#ae81ff">\n</span>tds.dit /d C:<span style="color:#ae81ff">\e</span>vidence<span style="color:#ae81ff">\n</span>tds_copy.dit
-</span></span></code></pre></div><p>（<code>/y</code> = copy，<code>/d</code> = 转储路径，通常还加 <code>/vss</code> 参数）</p>
-        
-        <hr><p>Published on 2025-08-26 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-08-26</p>]]>
-      </description>
-      
-        <category>取证</category>
       
     </item>
     

