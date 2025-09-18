@@ -12,12 +12,62 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Thu, 18 Sep 2025 02:57:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 19:58:52 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB Constellation</title>
+      <link>https://wuvoun.github.io/post/htb-constellation/</link>
+      <pubDate>Thu, 18 Sep 2025 19:58:52 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-constellation/</guid>
+      <description>
+        <![CDATA[<h1>HTB Constellation</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-constellation">
+<a class="header-anchor" href="#htb-constellation"></a>
+HTB-Constellation
+</h1><h2 id="文件分析">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+文件分析
+</h2><p>给了一个PDF和两个网址，先查看PDF的元数据，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exiftool  NDA_Instructions.pdf
+</span></span><span style="display:flex;"><span>ExifTool Version Number         : 13.25
+</span></span><span style="display:flex;"><span>File Name                       : NDA_Instructions.pdf
+</span></span><span style="display:flex;"><span>Directory                       : .
+</span></span><span style="display:flex;"><span>File Size                       : <span style="color:#ae81ff">26</span> kB
+</span></span><span style="display:flex;"><span>File Modification Date/Time     : 2025:09:18 17:30:30+08:00
+</span></span><span style="display:flex;"><span>File Access Date/Time           : 2025:09:18 17:47:16+08:00
+</span></span><span style="display:flex;"><span>File Inode Change Date/Time     : 2025:09:18 17:47:16+08:00
+</span></span><span style="display:flex;"><span>File Permissions                : -rw-r--r--
+</span></span><span style="display:flex;"><span>File Type                       : PDF
+</span></span><span style="display:flex;"><span>File Type Extension             : pdf
+</span></span><span style="display:flex;"><span>MIME Type                       : application/pdf
+</span></span><span style="display:flex;"><span>PDF Version                     : 1.7
+</span></span><span style="display:flex;"><span>Linearized                      : No
+</span></span><span style="display:flex;"><span>Page Count                      : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Producer                        : AntiCorp PDF FW
+</span></span><span style="display:flex;"><span>Create Date                     : 2054:01:17 22:45:22+01:00
+</span></span><span style="display:flex;"><span>Title                           : KarenForela_Instructions
+</span></span><span style="display:flex;"><span>Author                          : CyberJunkie@AntiCorp.Gr04p
+</span></span><span style="display:flex;"><span>Creator                         : AntiCorp
+</span></span><span style="display:flex;"><span>Modify Date                     : 2054:01:17 22:45:22+01:00
+</span></span><span style="display:flex;"><span>Subject                         : Forela_Mining stats and data campaign <span style="color:#f92672">(</span>Stop destroying env<span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Modify Date                     : 2054:01:17 22:45:22+01:00  
+</span></span></code></pre></div><p>创建日期明显有问题,伪造的2054年</p>
+        
+        <hr><p>Published on 2025-09-18 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-18</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
@@ -807,74 +857,6 @@ HTB-Pikaptcha
 <p>→ 最近使用的应用/文件</p>
         
         <hr><p>Published on 2025-09-10 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-10</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>HTB-NeuroSync D</title>
-      <link>https://wuvoun.github.io/post/neurosync-d/</link>
-      <pubDate>Tue, 09 Sep 2025 02:27:06 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/neurosync-d/</guid>
-      <description>
-        <![CDATA[<h1>HTB-NeuroSync D</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-neurosync-d">
-<a class="header-anchor" href="#htb-neurosync-d"></a>
-HTB-NeuroSync-D
-</h1><p>题目给出下列日志：</p>
-<ul>
-<li><strong>access.log</strong>
-<ul>
-<li>一般是 Web 服务器（Nginx/Apache）或网关的访问日志。</li>
-<li>记录请求 IP、时间、URL、状态码、UA。</li>
-</ul>
-</li>
-<li><strong>bci-device.log</strong>
-<ul>
-<li>可能和系统里的某个 <strong>BCI（Brain-Computer Interface）设备</strong> 或类似命名的模块相关。</li>
-<li>常见用途：设备状态、连接信息、错误上报。</li>
-</ul>
-</li>
-<li><strong>data-api.log</strong>
-<ul>
-<li>通常是后端的数据接口服务日志。</li>
-<li>可能包含 API 请求参数、响应、异常堆栈。</li>
-<li>常用于调试接口调用和数据交互问题。</li>
-</ul>
-</li>
-<li><strong>interface.log</strong>
-<ul>
-<li>Next.js 开发服务器 (<code>next dev</code>) 的运行日志</li>
-</ul>
-</li>
-<li><strong>redis.log</strong>
-<ul>
-<li>Redis 数据库的运行日志。</li>
-<li>一般包含启动信息、持久化状态、错误（比如连接异常、内存不足、RDB/AOF 保存情况）。</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><strong>What version of Next.js is the application using?</strong></li>
-</ol>
-<p>查看 <strong><code>interface.log</code>日志，可以知道Next.js 15.1.0</strong></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.4jogeg4ij3.png" alt="image.png"></p>
-<ol start="2">
-<li><strong>What local port is the Next.js-based application running on?</strong></li>
-</ol>
-<p>上一题的截图中显示了程序运行在3000端口</p>
-<ol start="3">
-<li><strong>A critical Next.js vulnerability was released in March 2025, and this version appears to be affected. What is the CVE identifier for this vulnerability?</strong></li>
-</ol>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8ok1qk1olf.png" alt="image.png"></p>
-        
-        <hr><p>Published on 2025-09-09 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-09</p>]]>
       </description>
       
         <category>HTB</category>

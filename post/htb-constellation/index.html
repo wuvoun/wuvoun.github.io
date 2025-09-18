@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  HTB-Takedown | Wuvoun
+  HTB Constellation | Wuvoun
 </title>
 <meta
   name="description"
@@ -37,12 +37,12 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="HTB-Takedown | Wuvoun" />
+  <meta property="og:title" content="HTB Constellation | Wuvoun" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://wuvoun.github.io/post/htb-takedown/" />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-constellation/" />
   <meta
     property="og:site_name"
     content="Wuvoun"
@@ -52,8 +52,8 @@
     content="/"
   />
   <meta property="article:author" content="Wuvoun" />
-  <meta property="article:published_time" content="2025-09-18T02:57:45&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-18T02:57:45&#43;08:00" /><meta property="article:tag" content="SOC" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2025-09-18T19:58:52&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-18T19:58:52&#43;08:00" /><meta property="article:tag" content="Threat Intelligence" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" />
 <link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
 <link
@@ -126,9 +126,9 @@ This article does not have a corresponding language version
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
   <nav id="sub-nav"></nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-Takedown"><div id="header-outer">
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB Constellation"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">HTB-Takedown</h1>
+            <h1 data-aos="slide-up">HTB Constellation</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -142,19 +142,20 @@ This article does not have a corresponding language version
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#文件分析">文件分析</a></li>
+    <li><a href="#题目">题目</a>
       <ul>
-        <li><a href="#1-from-what-domain-is-the-vbs-script-downloaded">1. <strong>From what domain is the VBS script downloaded?</strong></a></li>
-        <li><a href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong></a></li>
-        <li><a href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">3. <strong>What is the filename of the VBS script used for initial access?</strong></a></li>
-        <li><a href="#4-what-was-the-url-used-to-get-a-powershell-script">4. <strong>What was the URL used to get a PowerShell script?</strong></a></li>
-        <li><a href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">5. <strong>What likely legit binary was downloaded to the victim machine?</strong></a></li>
-        <li><a href="#6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded">6. <strong>From what URL was the malware used with the binary from question #5 downloaded?</strong></a></li>
-        <li><a href="#7-what-filename-was-the-malware-from-question-6-given-on-disk">7. <strong>What filename was the malware from question #6 given on disk?</strong></a></li>
-        <li><a href="#8-what-is-the-tlsh-of-the-malware">8. <strong>What is the TLSH of the malware?</strong></a></li>
-        <li><a href="#9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez">9. <strong>What is the name given to this malware? Use the name used by McAfee, Ikarus, and alejandro.sanchez.</strong></a></li>
-        <li><a href="#10-what-is-the-user-agent-string-of-the-infected-machine">10. <strong>What is the user-agent string of the infected machine?</strong></a></li>
-        <li><a href="#11-to-what-ip-does-the-rat-from-the-previous-question-connect">11. <strong>To what IP does the RAT from the previous question connect?</strong></a></li>
+        <li><a href="#1-when-did-the-suspect-first-start-direct-message-dm-conversations-with-the-external-entity-a-possible-threat-actor-group-which-targets-organizations-by-paying-employees-to-leak-sensitive-data-utc"><strong>1. When did the suspect first start Direct Message (DM) conversations with the external entity (A possible threat actor group which targets organizations by paying employees to leak sensitive data)? (UTC)</strong></a></li>
+        <li><a href="#2-what-was-the-name-of-the-file-sent-to-the-suspected-insider-threat">2. <strong>What was the name of the file sent to the suspected insider threat?</strong></a></li>
+        <li><a href="#3-when-was-the-file-sent-to-the-suspected-insider-threat-utc">3. <strong>When was the file sent to the suspected insider threat? (UTC)</strong></a></li>
+        <li><a href="#4-the-suspect-utilised-google-to-search-something-after-receiving-the-file-what-was-the-search-query">4. <strong>The suspect utilised Google to search something after receiving the file. What was the search query?</strong></a></li>
+        <li><a href="#5-the-suspect-originally-typed-something-else-in-search-tab-but-found-a-google-search-result-suggestion-which-they-clicked-on-can-you-confirm-which-words-were-written-in-search-bar-by-the-suspect-originally">5. <strong>The suspect originally typed something else in search tab, but found a Google search result suggestion which they clicked on. Can you confirm which words were written in search bar by the suspect originally?</strong></a></li>
+        <li><a href="#6-when-was-this-google-search-made-utc">6. <strong>When was this Google search made? (UTC)</strong></a></li>
+        <li><a href="#7-what-is-the-name-of-the-hacker-group-responsible-for-bribing-the-insider-threat">7. <strong>What is the name of the Hacker group responsible for bribing the insider threat?</strong></a></li>
+        <li><a href="#8-what-is-the-name-of-the-person-suspected-of-being-an-insider-threat">8. <strong>What is the name of the person suspected of being an Insider Threat?</strong></a></li>
+        <li><a href="#9-what-is-the-anomalous-stated-creation-date-of-the-file-sent-to-the-insider-threat-utc">9. <strong>What is the anomalous stated creation date of the file sent to the insider threat? (UTC)</strong></a></li>
+        <li><a href="#10-the-forela-threat-intel-team-are-working-on-uncovering-this-incident-any-opsec-mistakes-made-by-the-attackers-are-crucial-for-forela">10. <strong>The Forela threat intel team are working on uncovering this incident. Any OpSec mistakes made by the attackers are crucial for Forela&rsquo;s security team. Try to help the TI team and confirm the real name of the agent/handler from Anticorp.</strong></a></li>
+        <li><a href="#11-which-city-does-the-threat-actor-belong-to">11. <strong>Which City does the threat actor belong to?</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -234,7 +235,7 @@ This article does not have a corresponding language version
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2025-09-18 02:57:45 &#43;0800 CST" itemprop="datePublished"
+    <time datetime="2025-09-18 19:58:52 &#43;0800 CST" itemprop="datePublished"
       >2025-09-18</time
     >
     <time style="display: none;" id="post-update-time"
@@ -249,74 +250,111 @@ This article does not have a corresponding language version
       >HTB</a
     ></div>
 </div>
-    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-takedown">
-<a class="header-anchor" href="#htb-takedown"></a>
-HTB-Takedown
-</h1><h3 id="1-from-what-domain-is-the-vbs-script-downloaded">
-<a class="header-anchor" href="#1-from-what-domain-is-the-vbs-script-downloaded"></a>
-1. <strong>From what domain is the VBS script downloaded?</strong>
-</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.5xazvcwen8.webp" alt="image.png"></p>
-<p>从导出可以看到，从 <a href="http://escuelademarina.com/"><code>escuelademarina.com</code></a> 下载了两个vbs文件</p>
-<h3 id="2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">
-<a class="header-anchor" href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack"></a>
-2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong>
-</h3><p>点击这个文件，会直接跳到这个流量，会发现IP为 <code>165.22.16.55</code></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.8admcka7tq.webp" alt="image.png"></p>
-<h3 id="3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">
-<a class="header-anchor" href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access"></a>
-3. <strong>What is the filename of the VBS script used for initial access?</strong>
-</h3><p>由上图可以知道文件名为 <code>AZURE_DOC_OPEN.vbs</code></p>
-<h3 id="4-what-was-the-url-used-to-get-a-powershell-script">
-<a class="header-anchor" href="#4-what-was-the-url-used-to-get-a-powershell-script"></a>
-4. <strong>What was the URL used to get a PowerShell script?</strong>
-</h3><p>下载vbs, 查看其中的内容</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.7snknz8u8v.webp" alt="image.png"></p>
-<p>url为 <a href="http://badbutperfect.com/nrwncpwo"><code>badbutperfect.com/nrwncpwo</code></a></p>
-<h3 id="5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">
-<a class="header-anchor" href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine"></a>
-5. <strong>What likely legit binary was downloaded to the victim machine?</strong>
-</h3><p>将 <code>nrwncpwo</code> 上传云杀箱检查</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.1vz0gysba8.webp" alt="image.png"></p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.6t7hat6335.webp" alt="image.png"></p>
-<p>通过google搜索，合法的二进制文件为 <code>AutoHotKey.exe</code></p>
-<h3 id="6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded">
-<a class="header-anchor" href="#6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded"></a>
-6. <strong>From what URL was the malware used with the binary from question #5 downloaded?</strong>
-</h3><p>打开这个<code>nrwncpwo</code>  文件，发现 <code>script.ahk</code> 是从 <a href="http://badbutperfect.com/jvtobaqj"><code>http://badbutperfect.com/jvtobaqj</code></a>  下载的</p>
-<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.9kgjivs74y.webp" alt="image.png"></p>
-<h3 id="7-what-filename-was-the-malware-from-question-6-given-on-disk">
-<a class="header-anchor" href="#7-what-filename-was-the-malware-from-question-6-given-on-disk"></a>
-7. <strong>What filename was the malware from question #6 given on disk?</strong>
-</h3><p>由上题可知 ， 文件名为 <code>script.ahk</code></p>
-<h3 id="8-what-is-the-tlsh-of-the-malware">
-<a class="header-anchor" href="#8-what-is-the-tlsh-of-the-malware"></a>
-8. <strong>What is the TLSH of the malware?</strong>
-</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.5j4k4ho3s3.webp" alt="image.png"></p>
-<p>由图可知 ，TLSH 为 <code>T15E430A36DBC5202AD8E3074270096562FE7DC0215B4B32659C9EF16835CF6FF9B6A1B8</code></p>
-<h3 id="9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez">
-<a class="header-anchor" href="#9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez"></a>
-9. <strong>What is the name given to this malware? Use the name used by McAfee, Ikarus, and alejandro.sanchez.</strong>
-</h3><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.b99hhv3tv.webp" alt="image.png"></p>
-<p>恶意软件名为 <code>DarkGate</code></p>
-<h3 id="10-what-is-the-user-agent-string-of-the-infected-machine">
-<a class="header-anchor" href="#10-what-is-the-user-agent-string-of-the-infected-machine"></a>
-10. <strong>What is the user-agent string of the infected machine?</strong>
-</h3><p>wireshark过滤</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip.addr <span style="color:#f92672">==</span> 10.3.19.101 and http
-</span></span></code></pre></div><p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.8vn9yv4o4k.webp" alt="image.png"></p>
-<p>找到UA头</p>
-<p><code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36</code></p>
-<h3 id="11-to-what-ip-does-the-rat-from-the-previous-question-connect">
-<a class="header-anchor" href="#11-to-what-ip-does-the-rat-from-the-previous-question-connect"></a>
-11. <strong>To what IP does the RAT from the previous question connect?</strong>
-</h3><p>由上图可知 IP为 <code>103.124.105.78</code></p>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-constellation">
+<a class="header-anchor" href="#htb-constellation"></a>
+HTB-Constellation
+</h1><h2 id="文件分析">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+文件分析
+</h2><p>给了一个PDF和两个网址，先查看PDF的元数据，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exiftool  NDA_Instructions.pdf
+</span></span><span style="display:flex;"><span>ExifTool Version Number         : 13.25
+</span></span><span style="display:flex;"><span>File Name                       : NDA_Instructions.pdf
+</span></span><span style="display:flex;"><span>Directory                       : .
+</span></span><span style="display:flex;"><span>File Size                       : <span style="color:#ae81ff">26</span> kB
+</span></span><span style="display:flex;"><span>File Modification Date/Time     : 2025:09:18 17:30:30+08:00
+</span></span><span style="display:flex;"><span>File Access Date/Time           : 2025:09:18 17:47:16+08:00
+</span></span><span style="display:flex;"><span>File Inode Change Date/Time     : 2025:09:18 17:47:16+08:00
+</span></span><span style="display:flex;"><span>File Permissions                : -rw-r--r--
+</span></span><span style="display:flex;"><span>File Type                       : PDF
+</span></span><span style="display:flex;"><span>File Type Extension             : pdf
+</span></span><span style="display:flex;"><span>MIME Type                       : application/pdf
+</span></span><span style="display:flex;"><span>PDF Version                     : 1.7
+</span></span><span style="display:flex;"><span>Linearized                      : No
+</span></span><span style="display:flex;"><span>Page Count                      : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Producer                        : AntiCorp PDF FW
+</span></span><span style="display:flex;"><span>Create Date                     : 2054:01:17 22:45:22+01:00
+</span></span><span style="display:flex;"><span>Title                           : KarenForela_Instructions
+</span></span><span style="display:flex;"><span>Author                          : CyberJunkie@AntiCorp.Gr04p
+</span></span><span style="display:flex;"><span>Creator                         : AntiCorp
+</span></span><span style="display:flex;"><span>Modify Date                     : 2054:01:17 22:45:22+01:00
+</span></span><span style="display:flex;"><span>Subject                         : Forela_Mining stats and data campaign <span style="color:#f92672">(</span>Stop destroying env<span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Modify Date                     : 2054:01:17 22:45:22+01:00  
+</span></span></code></pre></div><p>创建日期明显有问题,伪造的2054年</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Author                          : CyberJunkie@AntiCorp.Gr04p
+</span></span><span style="display:flex;"><span>Creator                         : AntiCorp
+</span></span></code></pre></div><p><code>CyberJunkie@AntiCorp.Gr04p</code> 看起来像是黑客别名，创建者为 <code>AntiCorp</code></p>
+<p>第一个网址使用时光机发现跟给的PDF是一样的</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.1sfek9kf6u.webp" alt="image.png"></p>
+<p>PDF中的内容，攻击者自称 “ <code>AntiCorp</code>” ，员工名称为 <code>Karen Riley</code>，用反大公司、正义感的包装来博取信任，承诺高额回报（$20000），诱导执行危险操作，利用 SSH 登录目标服务器（需要凭证），打包数据库与备份（目标是敏感数据），上传到攻击者控制的 AWS S3 存储桶</p>
+<p>google搜索 <code>AntiCorp.Gr04p</code> ,发现一个linkedin 资料</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.102j2j3tge.webp" alt="image.png"></p>
+<p>第二个网址是关于使用tar打包目录的google搜索</p>
+<h2 id="题目">
+<a class="header-anchor" href="#%e9%a2%98%e7%9b%ae"></a>
+题目
+</h2><h3 id="1-when-did-the-suspect-first-start-direct-message-dm-conversations-with-the-external-entity-a-possible-threat-actor-group-which-targets-organizations-by-paying-employees-to-leak-sensitive-data-utc">
+<a class="header-anchor" href="#1-when-did-the-suspect-first-start-direct-message-dm-conversations-with-the-external-entity-a-possible-threat-actor-group-which-targets-organizations-by-paying-employees-to-leak-sensitive-data-utc"></a>
+<strong>1. When did the suspect first start Direct Message (DM) conversations with the external entity (A possible threat actor group which targets organizations by paying employees to leak sensitive data)? (UTC)</strong>
+</h3><p>将 <a href="https://cdn.discordapp.com/attachments/1152635915429232640/1156461980652154931/NDA_Instructions.pdf?ex=65150ea6&amp;is=6513bd26&amp;hm=64de12da031e6e91cc4f35c64b2b0190fb040b69648a64365f8a8260760656e3&amp;"><code>https://cdn.discordapp.com/attachments/1152635915429232640/1156461980652154931/NDA_Instructions.pdf?ex=65150ea6&amp;is=6513bd26&amp;hm=64de12da031e6e91cc4f35c64b2b0190fb040b69648a64365f8a8260760656e3&amp;</code></a></p>
+<p>这个链接放入<a href="https://dfir.blog/unfurl/">https://dfir.blog/unfurl/</a> 进行分析，查找时间为 <code>2023-09-16 16:03:37</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.2rvhxfn6cg.webp" alt="image.png"></p>
+<h3 id="2-what-was-the-name-of-the-file-sent-to-the-suspected-insider-threat">
+<a class="header-anchor" href="#2-what-was-the-name-of-the-file-sent-to-the-suspected-insider-threat"></a>
+2. <strong>What was the name of the file sent to the suspected insider threat?</strong>
+</h3><p>给的PDF就是，恶意文件名为<code>NDA_Instructions.pdf</code></p>
+<h3 id="3-when-was-the-file-sent-to-the-suspected-insider-threat-utc">
+<a class="header-anchor" href="#3-when-was-the-file-sent-to-the-suspected-insider-threat-utc"></a>
+3. <strong>When was the file sent to the suspected insider threat? (UTC)</strong>
+</h3><p>继续分析这个url，发送这个文件的时间为 <code>2023-09-27 05:27:02</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.96a3t152w1.webp" alt="image.png"></p>
+<h3 id="4-the-suspect-utilised-google-to-search-something-after-receiving-the-file-what-was-the-search-query">
+<a class="header-anchor" href="#4-the-suspect-utilised-google-to-search-something-after-receiving-the-file-what-was-the-search-query"></a>
+4. <strong>The suspect utilised Google to search something after receiving the file. What was the search query?</strong>
+</h3><p>使用<a href="https://dfir.blog/unfurl/">https://dfir.blog/unfurl/</a> 分析第二个url</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.7pnksn7qa.webp" alt="image.png"></p>
+<p>搜索的内容为 <code>how to zip a folder using tar in linux</code></p>
+<h3 id="5-the-suspect-originally-typed-something-else-in-search-tab-but-found-a-google-search-result-suggestion-which-they-clicked-on-can-you-confirm-which-words-were-written-in-search-bar-by-the-suspect-originally">
+<a class="header-anchor" href="#5-the-suspect-originally-typed-something-else-in-search-tab-but-found-a-google-search-result-suggestion-which-they-clicked-on-can-you-confirm-which-words-were-written-in-search-bar-by-the-suspect-originally"></a>
+5. <strong>The suspect originally typed something else in search tab, but found a Google search result suggestion which they clicked on. Can you confirm which words were written in search bar by the suspect originally?</strong>
+</h3><p>继续查看url分析结果，发现继续查找的是 <code>How to archive a folder using tar i</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.1apcvoj1lu.webp" alt="image.png"></p>
+<h3 id="6-when-was-this-google-search-made-utc">
+<a class="header-anchor" href="#6-when-was-this-google-search-made-utc"></a>
+6. <strong>When was this Google search made? (UTC)</strong>
+</h3><p>继续查看url分析,得出结果</p>
+<p><code>2023-09-27 05:31:45</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.73ub4z6hus.webp" alt="image.png"></p>
+<h3 id="7-what-is-the-name-of-the-hacker-group-responsible-for-bribing-the-insider-threat">
+<a class="header-anchor" href="#7-what-is-the-name-of-the-hacker-group-responsible-for-bribing-the-insider-threat"></a>
+7. <strong>What is the name of the Hacker group responsible for bribing the insider threat?</strong>
+</h3><p>这个pdf里写了，组织为 <code>AntiCorp Gr04p</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.58hqccu290.webp" alt="image.png"></p>
+<h3 id="8-what-is-the-name-of-the-person-suspected-of-being-an-insider-threat">
+<a class="header-anchor" href="#8-what-is-the-name-of-the-person-suspected-of-being-an-insider-threat"></a>
+8. <strong>What is the name of the person suspected of being an Insider Threat?</strong>
+</h3><p>由题七的图中可以知道，员工名为 <code>Karen Riley</code></p>
+<h3 id="9-what-is-the-anomalous-stated-creation-date-of-the-file-sent-to-the-insider-threat-utc">
+<a class="header-anchor" href="#9-what-is-the-anomalous-stated-creation-date-of-the-file-sent-to-the-insider-threat-utc"></a>
+9. <strong>What is the anomalous stated creation date of the file sent to the insider threat? (UTC)</strong>
+</h3><p>通过上面的文件分析，可以知道异常创建时间为2054:01:17 22:45:22+01:00</p>
+<p>答案为 <code>2054-01-17 21:45:22</code></p>
+<h3 id="10-the-forela-threat-intel-team-are-working-on-uncovering-this-incident-any-opsec-mistakes-made-by-the-attackers-are-crucial-for-forela">
+<a class="header-anchor" href="#10-the-forela-threat-intel-team-are-working-on-uncovering-this-incident-any-opsec-mistakes-made-by-the-attackers-are-crucial-for-forela"></a>
+10. <strong>The Forela threat intel team are working on uncovering this incident. Any OpSec mistakes made by the attackers are crucial for Forela&rsquo;s security team. Try to help the TI team and confirm the real name of the agent/handler from Anticorp.</strong>
+</h3><p>Linkedin 账号信息显示，用户名为 <strong><code>Abdullah Al Sajjad</code></strong></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.4g4uumdgil.webp" alt="image.png"></p>
+<h3 id="11-which-city-does-the-threat-actor-belong-to">
+<a class="header-anchor" href="#11-which-city-does-the-threat-actor-belong-to"></a>
+11. <strong>Which City does the threat actor belong to?</strong>
+</h3><p>由上图可以知道，城市名为<code>Bahawalpur</code></p>
 </div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
       <a
         class="article-tag-list-link"
-        href="/tags/soc"
+        href="/tags/threat-intelligence"
         rel="tag"
-        >SOC</a
+        >THREAT INTELLIGENCE</a
       >
     </li></ul>
 </footer>
@@ -326,19 +364,11 @@ HTB-Takedown
   ><div class="article-nav-link-wrap article-nav-link-left"><img
               data-src="images/a.jpg"
               data-sizes="auto"
-              alt="HTB Compromised"
+              alt="HTB-Takedown"
               class="lazyload"
-            /><a href="/post/htb-compromised/"></a>
+            /><a href="/post/htb-takedown/"></a>
         <div class="article-nav-caption">Prev</div>
-        <h3 class="article-nav-title">HTB Compromised</h3>
-      </div><div class="article-nav-link-wrap article-nav-link-right"><img
-              data-src="images/b.jpg"
-              data-sizes="auto"
-              alt="HTB Constellation"
-              class="lazyload"
-            /><a href="/post/htb-constellation/"></a>
-        <div class="article-nav-caption">Next</div>
-        <h3 class="article-nav-title">HTB Constellation</h3>
+        <h3 class="article-nav-title">HTB-Takedown</h3>
       </div></nav></article></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
@@ -389,19 +419,20 @@ HTB-Takedown
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#文件分析">文件分析</a></li>
+    <li><a href="#题目">题目</a>
       <ul>
-        <li><a href="#1-from-what-domain-is-the-vbs-script-downloaded">1. <strong>From what domain is the VBS script downloaded?</strong></a></li>
-        <li><a href="#2-what-was-the-ip-address-associated-with-the-domain-in-question-1-used-for-this-attack">2. <strong>What was the IP address associated with the domain in question #1 used for this attack?</strong></a></li>
-        <li><a href="#3-what-is-the-filename-of-the-vbs-script-used-for-initial-access">3. <strong>What is the filename of the VBS script used for initial access?</strong></a></li>
-        <li><a href="#4-what-was-the-url-used-to-get-a-powershell-script">4. <strong>What was the URL used to get a PowerShell script?</strong></a></li>
-        <li><a href="#5-what-likely-legit-binary-was-downloaded-to-the-victim-machine">5. <strong>What likely legit binary was downloaded to the victim machine?</strong></a></li>
-        <li><a href="#6-from-what-url-was-the-malware-used-with-the-binary-from-question-5-downloaded">6. <strong>From what URL was the malware used with the binary from question #5 downloaded?</strong></a></li>
-        <li><a href="#7-what-filename-was-the-malware-from-question-6-given-on-disk">7. <strong>What filename was the malware from question #6 given on disk?</strong></a></li>
-        <li><a href="#8-what-is-the-tlsh-of-the-malware">8. <strong>What is the TLSH of the malware?</strong></a></li>
-        <li><a href="#9-what-is-the-name-given-to-this-malware-use-the-name-used-by-mcafee-ikarus-and-alejandrosanchez">9. <strong>What is the name given to this malware? Use the name used by McAfee, Ikarus, and alejandro.sanchez.</strong></a></li>
-        <li><a href="#10-what-is-the-user-agent-string-of-the-infected-machine">10. <strong>What is the user-agent string of the infected machine?</strong></a></li>
-        <li><a href="#11-to-what-ip-does-the-rat-from-the-previous-question-connect">11. <strong>To what IP does the RAT from the previous question connect?</strong></a></li>
+        <li><a href="#1-when-did-the-suspect-first-start-direct-message-dm-conversations-with-the-external-entity-a-possible-threat-actor-group-which-targets-organizations-by-paying-employees-to-leak-sensitive-data-utc"><strong>1. When did the suspect first start Direct Message (DM) conversations with the external entity (A possible threat actor group which targets organizations by paying employees to leak sensitive data)? (UTC)</strong></a></li>
+        <li><a href="#2-what-was-the-name-of-the-file-sent-to-the-suspected-insider-threat">2. <strong>What was the name of the file sent to the suspected insider threat?</strong></a></li>
+        <li><a href="#3-when-was-the-file-sent-to-the-suspected-insider-threat-utc">3. <strong>When was the file sent to the suspected insider threat? (UTC)</strong></a></li>
+        <li><a href="#4-the-suspect-utilised-google-to-search-something-after-receiving-the-file-what-was-the-search-query">4. <strong>The suspect utilised Google to search something after receiving the file. What was the search query?</strong></a></li>
+        <li><a href="#5-the-suspect-originally-typed-something-else-in-search-tab-but-found-a-google-search-result-suggestion-which-they-clicked-on-can-you-confirm-which-words-were-written-in-search-bar-by-the-suspect-originally">5. <strong>The suspect originally typed something else in search tab, but found a Google search result suggestion which they clicked on. Can you confirm which words were written in search bar by the suspect originally?</strong></a></li>
+        <li><a href="#6-when-was-this-google-search-made-utc">6. <strong>When was this Google search made? (UTC)</strong></a></li>
+        <li><a href="#7-what-is-the-name-of-the-hacker-group-responsible-for-bribing-the-insider-threat">7. <strong>What is the name of the Hacker group responsible for bribing the insider threat?</strong></a></li>
+        <li><a href="#8-what-is-the-name-of-the-person-suspected-of-being-an-insider-threat">8. <strong>What is the name of the person suspected of being an Insider Threat?</strong></a></li>
+        <li><a href="#9-what-is-the-anomalous-stated-creation-date-of-the-file-sent-to-the-insider-threat-utc">9. <strong>What is the anomalous stated creation date of the file sent to the insider threat? (UTC)</strong></a></li>
+        <li><a href="#10-the-forela-threat-intel-team-are-working-on-uncovering-this-incident-any-opsec-mistakes-made-by-the-attackers-are-crucial-for-forela">10. <strong>The Forela threat intel team are working on uncovering this incident. Any OpSec mistakes made by the attackers are crucial for Forela&rsquo;s security team. Try to help the TI team and confirm the real name of the agent/handler from Anticorp.</strong></a></li>
+        <li><a href="#11-which-city-does-the-threat-actor-belong-to">11. <strong>Which City does the threat actor belong to?</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -496,9 +527,9 @@ HTB-Takedown
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "Wuvoun",
-          title: "HTB-Takedown",
-          url: "https:\/\/wuvoun.github.io\/post\/htb-takedown\/",
-          description: "\rHTB-Takedown\r1. From what domain is the VBS script downloaded?\r从导出可以看到，从 escuelademarina.com 下载了两个vbs文件\n2. What was the IP address associated with the domain in question #1 used for this attack?\r点击这个文件，会直接跳到这个流量，会发现IP为 165.22.16.55\n3. What is the filename of the VBS script used for initial access?\r …",
+          title: "HTB Constellation",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-constellation\/",
+          description: "\rHTB-Constellation\r文件分析\r给了一个PDF和两个网址，先查看PDF的元数据，\nexiftool NDA_Instructions.pdf ExifTool Version Number : 13.25 File Name : NDA_Instructions.pdf Directory : . File Size : 26 kB File Modification Date\/Time : 2025:09:18 17:30:30\u002b08:00 File Access Date\/Time : 2025:09:18 17:47:16\u002b08:00 File Inode Change …",
           cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {

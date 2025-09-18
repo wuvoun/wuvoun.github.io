@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Threat Intelligence on Wuvoun</title>
+    <link>https://wuvoun.github.io/tags/threat-intelligence/</link>
+    <description>Recent content from Wuvoun</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>253567768@qq.com (Wuvoun)</managingEditor>
+    <webMaster>253567768@qq.com (Wuvoun)</webMaster>
+    
+    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    
+    <lastBuildDate>Thu, 18 Sep 2025 19:58:52 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://wuvoun.github.io/tags/threat-intelligence/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>HTB Constellation</title>
+      <link>https://wuvoun.github.io/post/htb-constellation/</link>
+      <pubDate>Thu, 18 Sep 2025 19:58:52 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-constellation/</guid>
+      <description>
+        <![CDATA[<h1>HTB Constellation</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-constellation">
+<a class="header-anchor" href="#htb-constellation"></a>
+HTB-Constellation
+</h1><h2 id="文件分析">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+文件分析
+</h2><p>给了一个PDF和两个网址，先查看PDF的元数据，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exiftool  NDA_Instructions.pdf
+</span></span><span style="display:flex;"><span>ExifTool Version Number         : 13.25
+</span></span><span style="display:flex;"><span>File Name                       : NDA_Instructions.pdf
+</span></span><span style="display:flex;"><span>Directory                       : .
+</span></span><span style="display:flex;"><span>File Size                       : <span style="color:#ae81ff">26</span> kB
+</span></span><span style="display:flex;"><span>File Modification Date/Time     : 2025:09:18 17:30:30+08:00
+</span></span><span style="display:flex;"><span>File Access Date/Time           : 2025:09:18 17:47:16+08:00
+</span></span><span style="display:flex;"><span>File Inode Change Date/Time     : 2025:09:18 17:47:16+08:00
+</span></span><span style="display:flex;"><span>File Permissions                : -rw-r--r--
+</span></span><span style="display:flex;"><span>File Type                       : PDF
+</span></span><span style="display:flex;"><span>File Type Extension             : pdf
+</span></span><span style="display:flex;"><span>MIME Type                       : application/pdf
+</span></span><span style="display:flex;"><span>PDF Version                     : 1.7
+</span></span><span style="display:flex;"><span>Linearized                      : No
+</span></span><span style="display:flex;"><span>Page Count                      : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Producer                        : AntiCorp PDF FW
+</span></span><span style="display:flex;"><span>Create Date                     : 2054:01:17 22:45:22+01:00
+</span></span><span style="display:flex;"><span>Title                           : KarenForela_Instructions
+</span></span><span style="display:flex;"><span>Author                          : CyberJunkie@AntiCorp.Gr04p
+</span></span><span style="display:flex;"><span>Creator                         : AntiCorp
+</span></span><span style="display:flex;"><span>Modify Date                     : 2054:01:17 22:45:22+01:00
+</span></span><span style="display:flex;"><span>Subject                         : Forela_Mining stats and data campaign <span style="color:#f92672">(</span>Stop destroying env<span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Modify Date                     : 2054:01:17 22:45:22+01:00  
+</span></span></code></pre></div><p>创建日期明显有问题,伪造的2054年</p>
+        
+        <hr><p>Published on 2025-09-18 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-18</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
+    
+  </channel>
+</rss>
