@@ -12,12 +12,86 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Tue, 16 Sep 2025 03:52:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Sep 2025 00:54:42 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/tags/adcs/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB Flight</title>
+      <link>https://wuvoun.github.io/post/htb-flight/</link>
+      <pubDate>Sat, 20 Sep 2025 00:54:42 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-flight/</guid>
+      <description>
+        <![CDATA[<h1>HTB Flight</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-flight">
+<a class="header-anchor" href="#htb-flight"></a>
+HTB-Flight
+</h1><h2 id="信息搜集">
+<a class="header-anchor" href="#%e4%bf%a1%e6%81%af%e6%90%9c%e9%9b%86"></a>
+信息搜集
+</h2><p>fscan和nmap扫描</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fscan -h 10.10.11.187
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   ___                              _    
+</span></span><span style="display:flex;"><span>  / _ <span style="color:#ae81ff">\ </span>    ___  ___ _ __ __ _  ___| | __ 
+</span></span><span style="display:flex;"><span> / /_<span style="color:#ae81ff">\/</span>____/ __|/ __| <span style="color:#960050;background-color:#1e0010">&#39;</span>__/ _<span style="color:#e6db74">`</span> |/ __| |/ /
+</span></span><span style="display:flex;"><span>/ /_<span style="color:#ae81ff">\\</span>_____<span style="color:#ae81ff">\_</span>_ <span style="color:#ae81ff">\ </span><span style="color:#f92672">(</span>__| | | <span style="color:#f92672">(</span>_| | <span style="color:#f92672">(</span>__|   &lt;    
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">\_</span>___/     |___/<span style="color:#ae81ff">\_</span>__|_|  <span style="color:#ae81ff">\_</span>_,_|<span style="color:#ae81ff">\_</span>__|_|<span style="color:#ae81ff">\_\ </span>  
+</span></span><span style="display:flex;"><span>                     fscan version: 1.8.4
+</span></span><span style="display:flex;"><span>start infoscan
+</span></span><span style="display:flex;"><span>10.10.11.187:88 open
+</span></span><span style="display:flex;"><span>10.10.11.187:445 open
+</span></span><span style="display:flex;"><span>10.10.11.187:135 open
+</span></span><span style="display:flex;"><span>10.10.11.187:80 open
+</span></span><span style="display:flex;"><span>10.10.11.187:139 open
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> alive ports len is: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>start vulscan
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> WebTitle http://10.10.11.187       code:200 len:7069   title:g0 Aviation
+</span></span><span style="display:flex;"><span>已完成 5/5
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> 扫描结束,耗时: 1m25.470519979s
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nmap -p $ports $ip -sV
+</span></span><span style="display:flex;"><span>Starting Nmap 7.95 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2025-09-17 04:51 CST
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> 10.10.11.187
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.32s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT      STATE SERVICE       VERSION
+</span></span><span style="display:flex;"><span>53/tcp    open  domain        Simple DNS Plus
+</span></span><span style="display:flex;"><span>80/tcp    open  http          Apache httpd 2.4.52 <span style="color:#f92672">((</span>Win64<span style="color:#f92672">)</span> OpenSSL/1.1.1m PHP/8.1.1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>88/tcp    open  kerberos-sec  Microsoft Windows Kerberos <span style="color:#f92672">(</span>server time: 2025-09-16 20:52:09Z<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>135/tcp   open  msrpc         Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+</span></span><span style="display:flex;"><span>389/tcp   open  ldap          Microsoft Windows Active Directory LDAP <span style="color:#f92672">(</span>Domain: flight.htb0., Site: Default-First-Site-Name<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>445/tcp   open  microsoft-ds?
+</span></span><span style="display:flex;"><span>464/tcp   open  kpasswd5?
+</span></span><span style="display:flex;"><span>593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+</span></span><span style="display:flex;"><span>636/tcp   open  tcpwrapped
+</span></span><span style="display:flex;"><span>3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP <span style="color:#f92672">(</span>Domain: flight.htb0., Site: Default-First-Site-Name<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>3269/tcp  open  tcpwrapped
+</span></span><span style="display:flex;"><span>9389/tcp  open  mc-nmf        .NET Message Framing
+</span></span><span style="display:flex;"><span>49666/tcp open  msrpc         Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49673/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+</span></span><span style="display:flex;"><span>49674/tcp open  msrpc         Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49697/tcp open  msrpc         Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49722/tcp open  msrpc         Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>Service Info: Host: G0; OS: Windows; CPE: cpe:/o:microsoft:windows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style="display:flex;"><span>Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 63.08 seconds
+</span></span></code></pre></div><p>爆破WEB子域名,发现 <code>school</code>和 <code>huangguankaihura</code> 两个子域名</p>
+        
+        <hr><p>Published on 2025-09-20 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-20</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
