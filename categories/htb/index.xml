@@ -12,12 +12,38 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Sat, 20 Sep 2025 00:54:42 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Sep 2025 05:49:38 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/categories/htb/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB-Unsupervised</title>
+      <link>https://wuvoun.github.io/post/htb-unsupervised/</link>
+      <pubDate>Sun, 21 Sep 2025 05:49:38 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-unsupervised/</guid>
+      <description>
+        <![CDATA[<h1>HTB-Unsupervised</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-unsupervised">
+<a class="header-anchor" href="#htb-unsupervised"></a>
+HTB-Unsupervised
+</h1><ul>
+<li>
+<p>题目简介</p>
+<p><strong>The incident happened around 4:30 PM on Friday, &ldquo;The Last day of the week&rdquo; at the Accounts/Marketing department of &ldquo;Finance XYZ&rdquo; company. There weren&rsquo;t many people in the department, and the remaining were not paying much attention to their surroundings as they were getting ready to head home. After the weekend on Monday while reviewing the security cam footage member of an IT team saw &ldquo;Eddie&rdquo; a new intern in the Accounts/Marketing department, plugging a USB into an unauthorized computer (containing sensitive financial and marketing documents), interacting with computer and unplugging the USB before heading out. As the incident happened 2 days ago, and not having enough knowledge of what Eddie did the security team use caution while asking around and gathering intel to avoid causing suspicion. The only information they were able to find out was that Eddie had a &ldquo;Toshiba&rdquo; USB. You are provided with a partial image of the “unauthorized computer&quot; as well as a list of important documents, to investigate what he did and if he stole something sensitive or not?</strong></p>
+        
+        <hr><p>Published on 2025-09-21 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-21</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
@@ -512,375 +538,6 @@ HTB-DroidPhish
 <a class="header-anchor" href="#2-the-user-was-exposed-to-a-phishing-attack-provide-the-name-of-the-email-app-used-as-the-attack-vector"></a>
 <strong>2. The user was exposed to a phishing attack. Provide the name of the email app used as the attack vector.</strong>
 </h3><p><code>/data/data/&lt;package&gt;</code> → 表示该应用在设备上确实安装并被使用</p>
-        
-        <hr><p>Published on 2025-09-11 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-11</p>]]>
-      </description>
-      
-        <category>HTB</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>HTB Meerkat</title>
-      <link>https://wuvoun.github.io/post/htb-meerkat/</link>
-      <pubDate>Thu, 11 Sep 2025 02:45:13 &#43;0800</pubDate>
-      <author>253567768@qq.com (Wuvoun)</author>
-      <guid>https://wuvoun.github.io/post/htb-meerkat/</guid>
-      <description>
-        <![CDATA[<h1>HTB Meerkat</h1><p>Author: Wuvoun(253567768@qq.com)</p>
-        
-          <h1 id="htb-meerkat">
-<a class="header-anchor" href="#htb-meerkat"></a>
-HTB-Meerkat
-</h1><p>提供了一个流量包和meerkat-alerts.json文件，先分析meerkat-alerts.json文件，提取报警信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>jq -r <span style="color:#e6db74">&#39;.[].alert.signature&#39;</span> meerkat-alerts.json
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">82</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management
-</span></span><span style="display:flex;"><span>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management
-</span></span><span style="display:flex;"><span>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management
-</span></span><span style="display:flex;"><span>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management
-</span></span><span style="display:flex;"><span>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management
-</span></span><span style="display:flex;"><span>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>GPL WEB_SERVER DELETE attempt
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>null
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass and RCE Upload M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Successful Default User Login Attempt <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>GPL WEB_SERVER DELETE attempt
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>null
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass and RCE Upload M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Successful Default User Login Attempt <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>GPL WEB_SERVER DELETE attempt
-</span></span><span style="display:flex;"><span>ET ATTACK_RESPONSE Possible /etc/passwd via HTTP <span style="color:#f92672">(</span>linux style<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass and RCE Upload M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Successful Default User Login Attempt <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">13</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>GPL SNMP public access udp
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">82</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">76</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">31</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">82</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>GPL WEB_SERVER DELETE attempt
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass and RCE Upload M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Authorization Bypass M1 <span style="color:#f92672">(</span>CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET EXPLOIT Bonitasoft Successful Default User Login Attempt <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET 3CORESec Poor Reputation IP group <span style="color:#ae81ff">42</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">81</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">84</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">84</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">29</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET INFO User-Agent <span style="color:#f92672">(</span>python-requests<span style="color:#f92672">)</span> Inbound to Webserver
-</span></span><span style="display:flex;"><span>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt M1 <span style="color:#f92672">(</span>Possible Staging <span style="color:#66d9ef">for</span> CVE-2022-25237<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>ET 3CORESec Poor Reputation IP group <span style="color:#ae81ff">18</span>
-</span></span><span style="display:flex;"><span>ET SCAN Potential VNC Scan 5800-5820
-</span></span><span style="display:flex;"><span>ET SCAN Suspicious inbound to MSSQL port <span style="color:#ae81ff">1433</span>
-</span></span><span style="display:flex;"><span>ET CINS Active Threat Intelligence Poor Reputation IP group <span style="color:#ae81ff">84</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET SCAN Potential VNC Scan 5900-5920
-</span></span><span style="display:flex;"><span>ET SCAN Suspicious inbound to Oracle SQL port <span style="color:#ae81ff">1521</span>
-</span></span><span style="display:flex;"><span>ET SCAN Suspicious inbound to PostgreSQL port <span style="color:#ae81ff">5432</span>
-</span></span><span style="display:flex;"><span>ET SCAN Suspicious inbound to mySQL port <span style="color:#ae81ff">3306</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>ET DROP Dshield Block Listed Source group <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th>签名 (Signature)</th>
-          <th>含义</th>
-          <th>风险等级</th>
-          <th>分析</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>ET CINS Active Threat Intelligence Poor Reputation IP group xx</strong></td>
-          <td>来自 CINS 情报源的恶意/低信誉 IP</td>
-          <td>中</td>
-          <td>外部恶意节点扫描或探测，通常是背景噪声。建议封禁或加入黑名单。</td>
-      </tr>
-      <tr>
-          <td><strong>ET DROP Dshield Block Listed Source group 1</strong></td>
-          <td>来自 DShield 黑名单的威胁 IP</td>
-          <td>中</td>
-          <td>全球攻击源的 IP，被监测到访问你的主机。建议在防火墙层面阻断。</td>
-      </tr>
-      <tr>
-          <td><strong>ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management</strong></td>
-          <td>Linux 主机使用 APT 下载更新包</td>
-          <td>低</td>
-          <td>若是服务器正常更新可忽略；如出现在非预期机器，需检查是否被用作下载恶意 payload。</td>
-      </tr>
-      <tr>
-          <td><strong>ET EXPLOIT Bonitasoft Authorization Bypass (CVE-2022-25237)</strong></td>
-          <td>Bonitasoft BPM 平台存在认证绕过漏洞</td>
-          <td>高</td>
-          <td>攻击者可利用绕过认证，进一步上传文件或执行命令。需立即检查系统是否运行 Bonitasoft，并升级补丁。</td>
-      </tr>
-      <tr>
-          <td><strong>ET EXPLOIT Bonitasoft Authorization Bypass and RCE Upload (CVE-2022-25237)</strong></td>
-          <td>针对 Bonitasoft 的 RCE 漏洞利用</td>
-          <td>高</td>
-          <td>表明攻击者可能上传并执行恶意代码。必须立刻检测是否有 Webshell 或异常进程。</td>
-      </tr>
-      <tr>
-          <td><strong>ET EXPLOIT Bonitasoft Successful Default User Login Attempt</strong></td>
-          <td>攻击者使用 Bonitasoft 默认账户尝试登录</td>
-          <td>高</td>
-          <td>表示弱口令风险，攻击者可能进入后台。应立即禁用默认账户并审计日志。</td>
-      </tr>
-      <tr>
-          <td><strong>ET WEB_SPECIFIC_APPS Bonitasoft Default User Login Attempt</strong></td>
-          <td>同上，弱口令或默认账户攻击迹象</td>
-          <td>高</td>
-          <td>检查 Bonitasoft 平台安全配置。</td>
-      </tr>
-      <tr>
-          <td><strong>ET INFO User-Agent (python-requests) Inbound to Webserver</strong></td>
-          <td>外部请求使用 Python requests 库发起</td>
-          <td>中</td>
-          <td>常见于扫描脚本或攻击工具（PoC/自动化漏洞利用）。需结合上下文确认是否恶意。</td>
-      </tr>
-      <tr>
-          <td><strong>GPL WEB_SERVER DELETE attempt</strong></td>
-          <td>可能的 Web 攻击尝试（DELETE 方法）</td>
-          <td>中</td>
-          <td>一般用于探测或删除资源。需确认目标 Web 应用是否正确处理 HTTP 方法。</td>
-      </tr>
-      <tr>
-          <td><strong>ET ATTACK_RESPONSE Possible /etc/passwd via HTTP (linux style)</strong></td>
-          <td>响应中可能包含 <code>/etc/passwd</code> 文件内容</td>
-          <td>高</td>
-          <td>表明存在 LFI/RFI 或命令执行漏洞已被利用。必须立即检查是否有数据泄露。</td>
-      </tr>
-      <tr>
-          <td><strong>null</strong></td>
-          <td>无 signature 字段，可能是解析异常或无效告警</td>
-          <td>低</td>
-          <td>建议检查 Suricata 规则库和日志完整性。</td>
-      </tr>
-  </tbody>
-</table>
-<ol>
-<li><strong>We believe our Business Management Platform server has been compromised. Please can you confirm the name of the application running?</strong></li>
-</ol>
-<p>由分析題目提供的 <code>meerkat-alerts.json</code> 文件，可以知道 <code>ET EXPLOIT Bonitasoft Authorization Bypass M1 (CVE-2022-25237)</code></p>
         
         <hr><p>Published on 2025-09-11 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-11</p>]]>
       </description>

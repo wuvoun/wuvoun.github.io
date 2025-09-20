@@ -1,0 +1,625 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  HTB-Unsupervised | Wuvoun
+</title>
+<meta
+  name="description"
+  content="少女祈祷中..."
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://wuvoun.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="HTB-Unsupervised | Wuvoun" />
+  <meta
+    property="og:description"
+    content="少女祈祷中..."
+  />
+  <meta property="og:url" content="https://wuvoun.github.io/post/htb-unsupervised/" />
+  <meta
+    property="og:site_name"
+    content="Wuvoun"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="Wuvoun" />
+  <meta property="article:published_time" content="2025-09-21T05:49:38&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-21T05:49:38&#43;08:00" /><meta property="article:tag" content="DFIR" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon1.ico"><link rel="stylesheet" href="/css/main.min.5a853f279b790b623408299f44544bf0b98ef360d87a9d68d6dcd3848c735f90.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+This article does not have a corresponding language version
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">Home</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">About</a>
+      </span><a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav"></nav></div>
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.png" alt="HTB-Unsupervised"><div id="header-outer">
+    <div id="header-title"><a href="/" id="logo">
+            <h1 data-aos="slide-up">HTB-Unsupervised</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ad1文件查看">AD1文件查看</a></li>
+    <li><a href="#systeam-文件分析">SYSTEAM 文件分析</a></li>
+    <li><a href="#software-文件分析">SOFTWARE 文件分析</a></li>
+    <li><a href="#ink文件分析">ink文件分析</a></li>
+    <li><a href="#usrclassdat-文件分析">UsrClass.dat 文件分析</a>
+      <ul>
+        <li><a href="#1-find-out-the-time-zone-of-victim-pc-utcxxxx">1. <strong>Find out the time zone of victim PC. (UTC+xx:xx)</strong></a></li>
+        <li><a href="#2-employees-should-be-trained-not-to-leave-their-accounts-unlocked-what-is-the-username-of-the-logged-in-user">2. <strong>Employees should be trained not to leave their accounts unlocked. What is the username of the logged in user?</strong></a></li>
+        <li><a href="#3-how-many-usb-storage-devices-were-attached-to-this-host-in-total">3. <strong>How many USB storage devices were attached to this host in total?</strong></a></li>
+        <li><a href="#4-what-is-the-attach-timestamp-for-the-usb-in-utc">4. <strong>What is the attach timestamp for the USB in UTC?</strong></a></li>
+        <li><a href="#5-what-is-the-detach-timestamp-for-the-usb-in-utc">5. <strong>What is the detach timestamp for the USB in UTC?</strong></a></li>
+        <li><a href="#6-which-folder-did-he-copy-to-the-usb">6. <strong>Which folder did he copy to the USB?</strong></a></li>
+        <li><a href="#7-there-were-subfolders-in-the-folder-that-was-copied-what-is-the-name-of-the-first-subfolder-alphabetically">7. <strong>There were subfolders in the folder that was copied. What is the name of the first subfolder? (Alphabetically)</strong></a></li>
+        <li><a href="#8-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-xlsx-extension-eddie-opens">8. <strong>Eddie opens some files after copying them to the USB. What is the name of the file with the .xlsx extension Eddie opens?</strong></a></li>
+        <li><a href="#9-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-docx-extension-eddie-opens">9. <strong>Eddie opens some files after copying them to the USB. What is the name of the file with the .docx extension Eddie opens?</strong></a></li>
+        <li><a href="#10-what-was-the-volume-name-of-the-usb">10. <strong>What was the volume name of the USB?</strong></a></li>
+        <li><a href="#11-what-was-the-drive-letter-of-the-usb">11. <strong>What was the drive letter of the USB?</strong></a></li>
+        <li><a href="#12-i-hope-we-can-find-some-more-evidence-to-tie-this-all-together-what-is-eddie">12. <strong>I hope we can find some more evidence to tie this all together. What is Eddie&rsquo;s last name?</strong></a></li>
+        <li><a href="#13-there-was-an-unbranded-usb-in-the-usb-list-can-you-identify-it">13. <strong>There was an unbranded USB in the USB list, can you identify it&rsquo;s manufacturer’s name?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">14</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">8</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div>
+
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-09-21 05:49:38 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-21</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-09-21</time
+    >
+  </span>
+</div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/htb"
+      data-aos="zoom-in"
+      >HTB</a
+    ></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="htb-unsupervised">
+<a class="header-anchor" href="#htb-unsupervised"></a>
+HTB-Unsupervised
+</h1><ul>
+<li>
+<p>题目简介</p>
+<p><strong>The incident happened around 4:30 PM on Friday, &ldquo;The Last day of the week&rdquo; at the Accounts/Marketing department of &ldquo;Finance XYZ&rdquo; company. There weren&rsquo;t many people in the department, and the remaining were not paying much attention to their surroundings as they were getting ready to head home. After the weekend on Monday while reviewing the security cam footage member of an IT team saw &ldquo;Eddie&rdquo; a new intern in the Accounts/Marketing department, plugging a USB into an unauthorized computer (containing sensitive financial and marketing documents), interacting with computer and unplugging the USB before heading out. As the incident happened 2 days ago, and not having enough knowledge of what Eddie did the security team use caution while asking around and gathering intel to avoid causing suspicion. The only information they were able to find out was that Eddie had a &ldquo;Toshiba&rdquo; USB. You are provided with a partial image of the “unauthorized computer&quot; as well as a list of important documents, to investigate what he did and if he stole something sensitive or not?</strong></p>
+</li>
+</ul>
+<h2 id="ad1文件查看">
+<a class="header-anchor" href="#ad1%e6%96%87%e4%bb%b6%e6%9f%a5%e7%9c%8b"></a>
+AD1文件查看
+</h2><p>将 <code>Image.ad1</code> 文件导入 <code>AccessDate FTK Imager</code></p>
+<p>File → Add Evidence Item → Image File</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image.8hgucgmagu.png" alt="image.png"></p>
+<h2 id="systeam-文件分析">
+<a class="header-anchor" href="#systeam-%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+SYSTEAM 文件分析
+</h2><p>将 SYSTEAM 文件导出，使用 <code>Registry Explorer</code> 打开</p>
+<p>常见取证信息：</p>
+<ul>
+<li>SYSTEM\MountedDevices → 已挂载设备痕迹</li>
+<li>SYSTEM\CurrentControlSet\Enum\USBSTOR  → USB 历史</li>
+<li>SYSTEM\CurrentControlSet\Services → 系统服务 / 驱动 (可发现异常驱动、持久化机制)</li>
+<li>SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces  → 网络相关</li>
+<li>SYSTEM\CurrentControlSet\Control\TimeZoneInformation → 时区信息</li>
+<li>SYSTEM\Select → 控制集选择信息(指明系统当前使用的是哪个 <code>ControlSet</code>)</li>
+<li>SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName → 主机名</li>
+<li>SYSTEM\CurrentControlSet\Control\CrashControl → 蓝屏/内存转储配置</li>
+</ul>
+<h2 id="software-文件分析">
+<a class="header-anchor" href="#software-%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+SOFTWARE 文件分析
+</h2><p>常见取证信息：</p>
+<ul>
+<li>SOFTWARE\Microsoft\Windows NT\CurrentVersion → 系统版本、安装时间、注册用户信息</li>
+<li>SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall → 已安装软件清单（名称、版本、安装时间）</li>
+<li>SOFTWARE\Microsoft\Windows\CurrentVersion\Run → 开机自启项（常见持久化位置）</li>
+<li>SOFTWARE\Microsoft\Office → Office 版本及配置信息</li>
+<li>SOFTWARE\Adobe → Acrobat / Flash 等 Adobe 软件信息</li>
+<li>SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings → IE 浏览器及代理设置</li>
+<li>SOFTWARE\Wow6432Node → 32 位应用安装信息（在 64 位系统上）</li>
+<li>SOFTWARE\JavaSoft → Java 运行环境信息</li>
+<li>SOFTWARE\Microsoft.NETFramework → .NET 运行环境信息</li>
+<li>SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI  -&gt;可以定位到最近交互式登录的账户</li>
+</ul>
+<h2 id="ink文件分析">
+<a class="header-anchor" href="#ink%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+ink文件分析
+</h2><p><code>C:\Users\MrManj\AppData\Roaming\Microsoft\Windows\Recent\</code> 文件夹是 <strong>Windows 系统用来记录用户最近打开的文件和文件夹的快捷方式</strong> 的地方，每当用户在 Windows 中打开一个文件或文件夹时，系统会在这个目录下生成一个对应的 <code>.LNK</code> 文件（快捷方式）。</p>
+<p>这个文件夹就像一个日志，记录了用户最近打开过哪些文件和文件夹，但不会存文件内容本身。</p>
+<p>用 <code>LECmd.exe</code> 导出内容为csv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>LECmd.exe -d ./ --all --csv .
+</span></span></code></pre></div><h2 id="usrclassdat-文件分析">
+<a class="header-anchor" href="#usrclassdat-%e6%96%87%e4%bb%b6%e5%88%86%e6%9e%90"></a>
+UsrClass.dat 文件分析
+</h2><p>从<code>AccessDate FTK Imager</code>  中转储出 <code>UsrClass.dat</code> , 其中可以恢复用户浏览过的文件夹，重建访问路径，辅助判断文件来源</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-1.3d55n6gj2c.png" alt="image.png"></p>
+<p>将<code>UsrClass.dat</code> 导入 <code>ShellBags Explorer</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-2.3uv7brhwn9.png" alt="image.png"></p>
+<p><code>Desktop → E:\ → FTK Imager / Documents / Important docs / Business Proposals</code> 表示
+用户在桌面下，访问过 <strong>E 盘的 Documents 文件夹</strong>，以及其子目录 <code>Important docs</code> 和 <code>Business Proposals</code></p>
+<p>同时，用户在F:\ 也有一个<code>Documents</code>  文件夹，可能是 U 盘</p>
+<h3 id="1-find-out-the-time-zone-of-victim-pc-utcxxxx">
+<a class="header-anchor" href="#1-find-out-the-time-zone-of-victim-pc-utcxxxx"></a>
+1. <strong>Find out the time zone of victim PC. (UTC+xx:xx)</strong>
+</h3><p>UTC 时间 − (-300 分钟)
+= UTC 时间 + 300 分钟
+= UTC 时间 + 5 小时</p>
+<p>所以，<strong>ActiveTimeBias = -300</strong> 就代表时区 <strong>UTC+05:00</strong>。</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-3.6t7hf9q64m.png" alt="image.png"></p>
+<h3 id="2-employees-should-be-trained-not-to-leave-their-accounts-unlocked-what-is-the-username-of-the-logged-in-user">
+<a class="header-anchor" href="#2-employees-should-be-trained-not-to-leave-their-accounts-unlocked-what-is-the-username-of-the-logged-in-user"></a>
+2. <strong>Employees should be trained not to leave their accounts unlocked. What is the username of the logged in user?</strong>
+</h3><p>全局搜索 <code>LogonUI</code> ,定位到最近交互式登录的账户，发现用户 <code>MrManj</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-4.8s3o5lvog7.png" alt="image.png"></p>
+<h3 id="3-how-many-usb-storage-devices-were-attached-to-this-host-in-total">
+<a class="header-anchor" href="#3-how-many-usb-storage-devices-were-attached-to-this-host-in-total"></a>
+3. <strong>How many USB storage devices were attached to this host in total?</strong>
+</h3><p>定位 <code>SYSTEM\CurrentControlSet\Enum\USBSTOR</code> ,查看有多少种 <code>Desk Id</code></p>
+<p>发现三种usb设备</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-5.6f11oehv9k.png" alt="image.png"></p>
+<h3 id="4-what-is-the-attach-timestamp-for-the-usb-in-utc">
+<a class="header-anchor" href="#4-what-is-the-attach-timestamp-for-the-usb-in-utc"></a>
+4. <strong>What is the attach timestamp for the USB in UTC?</strong>
+</h3><p>根据题目可知，usb是一个 <strong><code>Toshiba</code> usb设备，找到设备为</strong> <code>TOSHIBA TransMemory USB Device</code> ,<strong>USB 的连接时间戳（UTC）是 <code>2024-02-23 11:37:50</code></strong></p>
+<h3 id="5-what-is-the-detach-timestamp-for-the-usb-in-utc">
+<a class="header-anchor" href="#5-what-is-the-detach-timestamp-for-the-usb-in-utc"></a>
+5. <strong>What is the detach timestamp for the USB in UTC?</strong>
+</h3><p><code>Last Removed</code> 这个字符串种有最后<strong>分离时间戳</strong> <code>2024-02-23 11:39:12</code></p>
+<h3 id="6-which-folder-did-he-copy-to-the-usb">
+<a class="header-anchor" href="#6-which-folder-did-he-copy-to-the-usb"></a>
+6. <strong>Which folder did he copy to the USB?</strong>
+</h3><p>从对 <code>UsrClass.dat</code> 的文件分析，可以知道复制了 <code>Documents</code> 目录</p>
+<h3 id="7-there-were-subfolders-in-the-folder-that-was-copied-what-is-the-name-of-the-first-subfolder-alphabetically">
+<a class="header-anchor" href="#7-there-were-subfolders-in-the-folder-that-was-copied-what-is-the-name-of-the-first-subfolder-alphabetically"></a>
+7. <strong>There were subfolders in the folder that was copied. What is the name of the first subfolder? (Alphabetically)</strong>
+</h3><p>按字母排，文件夹为 <code>Business Proposals</code></p>
+<h3 id="8-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-xlsx-extension-eddie-opens">
+<a class="header-anchor" href="#8-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-xlsx-extension-eddie-opens"></a>
+8. <strong>Eddie opens some files after copying them to the USB. What is the name of the file with the .xlsx extension Eddie opens?</strong>
+</h3><p>由分析的ink文件，发现打开的文件为 <code>Business Leads.xlsx</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-6.2dp2a0drwp.png" alt="image.png"></p>
+<h3 id="9-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-docx-extension-eddie-opens">
+<a class="header-anchor" href="#9-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-docx-extension-eddie-opens"></a>
+9. <strong>Eddie opens some files after copying them to the USB. What is the name of the file with the .docx extension Eddie opens?</strong>
+</h3><p><code>Proposal Brnrdr ltd.docx</code> 是<strong>Eddie 打开的扩展名为 .docx 的文件</strong></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-7.3nrzgbvr7u.png" alt="image.png"></p>
+<h3 id="10-what-was-the-volume-name-of-the-usb">
+<a class="header-anchor" href="#10-what-was-the-volume-name-of-the-usb"></a>
+10. <strong>What was the volume name of the USB?</strong>
+</h3><p>查找<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Portable Devices\Devices\&lt;DeviceID&gt;</code> ，发现<strong>卷名为</strong> <code>RVT-9J</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-8.60ulxj9kej.png" alt="image.png"></p>
+<h3 id="11-what-was-the-drive-letter-of-the-usb">
+<a class="header-anchor" href="#11-what-was-the-drive-letter-of-the-usb"></a>
+11. <strong>What was the drive letter of the USB?</strong>
+</h3><p>由上题可知USB的盘符为 <code>E</code></p>
+<h3 id="12-i-hope-we-can-find-some-more-evidence-to-tie-this-all-together-what-is-eddie">
+<a class="header-anchor" href="#12-i-hope-we-can-find-some-more-evidence-to-tie-this-all-together-what-is-eddie"></a>
+12. <strong>I hope we can find some more evidence to tie this all together. What is Eddie&rsquo;s last name?</strong>
+</h3><p><code>C:\Users\&lt;用户名&gt;\AppData\Local\Microsoft\Windows\Explorer\</code> 存在像素图</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-9.6t7hf9q64s.png" alt="image.png"></p>
+<p>使用 <code>thumbcache viewer</code> 打开像素图,知道名为 <code>Homer</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-10.102j5z2pvx.png" alt="image.png"></p>
+<h3 id="13-there-was-an-unbranded-usb-in-the-usb-list-can-you-identify-it">
+<a class="header-anchor" href="#13-there-was-an-unbranded-usb-in-the-usb-list-can-you-identify-it"></a>
+13. <strong>There was an unbranded USB in the USB list, can you identify it&rsquo;s manufacturer’s name?</strong>
+</h3><p>查看注册表  <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB</code> ，寻找到usb的供应商 ID (VID) 和产品 ID (PID)： <code>VID_346D&amp;PID_5678</code></p>
+<p><code>Ven_XXX</code> = 厂商，<code>Prod_XXX</code> = 产品型号</p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-11.8dx8eqndla.png" alt="image.png"></p>
+<p>google搜索查到制造商为 <code>Shenzhen SanDiYiXin Electronic Co.,LTD</code></p>
+<p><img src="https://github.com/wuvoun/picx-images-hosting/raw/master/image-12.5j4k8y86tr.png" alt="image.png"></p>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/dfir"
+        rel="tag"
+        >DFIR</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+            data-src="https://github.com/wuvoun/picx-images-hosting/raw/master/output.70ap8zzulg.webp"
+            data-sizes="auto"
+            alt="HTB Flight"
+            class="lazyload"
+          /><a href="/post/htb-flight/"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">HTB Flight</h3>
+      </div></nav></article></section>
+        </div><footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      Wuvoun
+    </div><div>
+        Powered by&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;12.8k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;01:05</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >Number of visits&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >Number of visitors&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ad1文件查看">AD1文件查看</a></li>
+    <li><a href="#systeam-文件分析">SYSTEAM 文件分析</a></li>
+    <li><a href="#software-文件分析">SOFTWARE 文件分析</a></li>
+    <li><a href="#ink文件分析">ink文件分析</a></li>
+    <li><a href="#usrclassdat-文件分析">UsrClass.dat 文件分析</a>
+      <ul>
+        <li><a href="#1-find-out-the-time-zone-of-victim-pc-utcxxxx">1. <strong>Find out the time zone of victim PC. (UTC+xx:xx)</strong></a></li>
+        <li><a href="#2-employees-should-be-trained-not-to-leave-their-accounts-unlocked-what-is-the-username-of-the-logged-in-user">2. <strong>Employees should be trained not to leave their accounts unlocked. What is the username of the logged in user?</strong></a></li>
+        <li><a href="#3-how-many-usb-storage-devices-were-attached-to-this-host-in-total">3. <strong>How many USB storage devices were attached to this host in total?</strong></a></li>
+        <li><a href="#4-what-is-the-attach-timestamp-for-the-usb-in-utc">4. <strong>What is the attach timestamp for the USB in UTC?</strong></a></li>
+        <li><a href="#5-what-is-the-detach-timestamp-for-the-usb-in-utc">5. <strong>What is the detach timestamp for the USB in UTC?</strong></a></li>
+        <li><a href="#6-which-folder-did-he-copy-to-the-usb">6. <strong>Which folder did he copy to the USB?</strong></a></li>
+        <li><a href="#7-there-were-subfolders-in-the-folder-that-was-copied-what-is-the-name-of-the-first-subfolder-alphabetically">7. <strong>There were subfolders in the folder that was copied. What is the name of the first subfolder? (Alphabetically)</strong></a></li>
+        <li><a href="#8-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-xlsx-extension-eddie-opens">8. <strong>Eddie opens some files after copying them to the USB. What is the name of the file with the .xlsx extension Eddie opens?</strong></a></li>
+        <li><a href="#9-eddie-opens-some-files-after-copying-them-to-the-usb-what-is-the-name-of-the-file-with-the-docx-extension-eddie-opens">9. <strong>Eddie opens some files after copying them to the USB. What is the name of the file with the .docx extension Eddie opens?</strong></a></li>
+        <li><a href="#10-what-was-the-volume-name-of-the-usb">10. <strong>What was the volume name of the USB?</strong></a></li>
+        <li><a href="#11-what-was-the-drive-letter-of-the-usb">11. <strong>What was the drive letter of the USB?</strong></a></li>
+        <li><a href="#12-i-hope-we-can-find-some-more-evidence-to-tie-this-all-together-what-is-eddie">12. <strong>I hope we can find some more evidence to tie this all together. What is Eddie&rsquo;s last name?</strong></a></li>
+        <li><a href="#13-there-was-an-unbranded-usb-in-the-usb-list-can-you-identify-it">13. <strong>There was an unbranded USB in the USB list, can you identify it&rsquo;s manufacturer’s name?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/../images/avatar.webp"
+    data-sizes="auto"
+    alt="Wuvoun"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Wuvoun</div>
+  <div class="sidebar-description">少女祈祷中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div><div class="sidebar-state-number">14</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>Categories</div>
+    <div class="sidebar-state-number">
+      2
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>Tags</div>
+    <div class="sidebar-state-number">8</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="Home"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Home</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="Archives"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="About"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">About</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "Wuvoun",
+          title: "HTB-Unsupervised",
+          url: "https:\/\/wuvoun.github.io\/post\/htb-unsupervised\/",
+          description: "\rHTB-Unsupervised\r题目简介\nThe incident happened around 4:30 PM on Friday, \u0026ldquo;The Last day of the week\u0026rdquo; at the Accounts\/Marketing department of \u0026ldquo;Finance XYZ\u0026rdquo; company. There weren\u0026rsquo;t many people in the department, and the remaining were not paying much attention to their …",
+          cover: "https:\/\/wuvoun.github.io\/images\/banner.png",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

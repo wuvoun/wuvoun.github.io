@@ -12,12 +12,38 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Mon, 15 Sep 2025 20:39:54 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Sep 2025 05:49:38 +0800</lastBuildDate>
     
     
     <atom:link href="https://wuvoun.github.io/tags/dfir/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>HTB-Unsupervised</title>
+      <link>https://wuvoun.github.io/post/htb-unsupervised/</link>
+      <pubDate>Sun, 21 Sep 2025 05:49:38 &#43;0800</pubDate>
+      <author>253567768@qq.com (Wuvoun)</author>
+      <guid>https://wuvoun.github.io/post/htb-unsupervised/</guid>
+      <description>
+        <![CDATA[<h1>HTB-Unsupervised</h1><p>Author: Wuvoun(253567768@qq.com)</p>
+        
+          <h1 id="htb-unsupervised">
+<a class="header-anchor" href="#htb-unsupervised"></a>
+HTB-Unsupervised
+</h1><ul>
+<li>
+<p>题目简介</p>
+<p><strong>The incident happened around 4:30 PM on Friday, &ldquo;The Last day of the week&rdquo; at the Accounts/Marketing department of &ldquo;Finance XYZ&rdquo; company. There weren&rsquo;t many people in the department, and the remaining were not paying much attention to their surroundings as they were getting ready to head home. After the weekend on Monday while reviewing the security cam footage member of an IT team saw &ldquo;Eddie&rdquo; a new intern in the Accounts/Marketing department, plugging a USB into an unauthorized computer (containing sensitive financial and marketing documents), interacting with computer and unplugging the USB before heading out. As the incident happened 2 days ago, and not having enough knowledge of what Eddie did the security team use caution while asking around and gathering intel to avoid causing suspicion. The only information they were able to find out was that Eddie had a &ldquo;Toshiba&rdquo; USB. You are provided with a partial image of the “unauthorized computer&quot; as well as a list of important documents, to investigate what he did and if he stole something sensitive or not?</strong></p>
+        
+        <hr><p>Published on 2025-09-21 at <a href='https://wuvoun.github.io/'>Wuvoun</a>, last modified on 2025-09-21</p>]]>
+      </description>
+      
+        <category>HTB</category>
+      
+    </item>
     
     
 
